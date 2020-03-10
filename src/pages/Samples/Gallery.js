@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react';
 import {
   Image,
-  SafeAreaView, ScrollView,
-  StyleSheet, Text,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
   TouchableWithoutFeedback,
-  View
+  View,
 } from 'react-native';
 
 import ImagePicker from 'react-native-image-picker';
@@ -119,4 +121,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Gallery
+export default Gallery;

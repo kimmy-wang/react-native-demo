@@ -1,4 +1,3 @@
-
 import React, {useState, useCallback} from 'react';
 import {
   SafeAreaView,
@@ -8,7 +7,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import ListItem from '../../components/ListItem'
+import ListItem from '../../components/ListItem';
 
 const DATA = [
   {
@@ -45,11 +44,8 @@ const Settings = () => {
           style={styles.scrollView}>
           <FlatList
             data={DATA}
-            renderItem={({ item }) => (
-              <ListItem
-                title={item.title}
-                description={item.description}
-              />
+            renderItem={({item}) => (
+              <ListItem title={item.title} description={item.description} />
             )}
             keyExtractor={item => item.id}
           />

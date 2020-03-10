@@ -1,12 +1,7 @@
-import React, {useState, useCallback} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  FlatList,
-} from 'react-native';
+import React, {useCallback} from 'react';
+import {SafeAreaView, StyleSheet, ScrollView, FlatList} from 'react-native';
 
-import ListItem from '../../components/ListItem'
+import ListItem from '../../components/ListItem';
 
 const DATA = [
   {
@@ -23,18 +18,17 @@ const DATA = [
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
-    description: 'Third Item',
+    title: 'Map Demo',
+    description: 'Map Demo',
     routeName: 'Gallery',
   },
 ];
 
 const Samples = ({navigation}) => {
-  const onSelect = useCallback(
-    (routeName) => {
-      navigation && navigation.navigate(routeName)
-    },
-  );
+  /* eslint-disable */
+  const onSelect = useCallback(routeName => {
+    navigation && navigation.navigate(routeName);
+  });
 
   return (
     <>
@@ -44,7 +38,7 @@ const Samples = ({navigation}) => {
           style={styles.scrollView}>
           <FlatList
             data={DATA}
-            renderItem={({ item }) => (
+            renderItem={({item}) => (
               <ListItem
                 title={item.title}
                 description={item.description}

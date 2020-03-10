@@ -1,14 +1,13 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import Samples from './Samples'
-import Gallery from './Gallery'
+import Samples from './Samples';
+import Gallery from './Gallery';
 
 const SamplesStack = createStackNavigator();
 
 const SamplesWrapper = () => {
-
   return (
     <SamplesStack.Navigator>
       <SamplesStack.Screen name="Samples" component={Samples} />

@@ -1,19 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-const ListItem = ({ title, description, onPress }) => {
+const ListItem = ({title, description, onPress}) => {
   return (
-    <TouchableOpacity
-      onPress={() => onPress && onPress()}
-      style={
-        styles.item
-      }
-    >
+    <TouchableOpacity onPress={() => onPress && onPress()} style={styles.item}>
       <View style={styles.sectionContainer}>
         <Text style={styles.sectionTitle}>{title}</Text>
-        <Text style={styles.sectionDescription}>
-          {description}
-        </Text>
+        <Text style={styles.sectionDescription}>{description}</Text>
       </View>
     </TouchableOpacity>
   );
