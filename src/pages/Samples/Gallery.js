@@ -1,13 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react'
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
   Image,
+  SafeAreaView, ScrollView,
+  StyleSheet, Text,
   TouchableWithoutFeedback,
+  View
 } from 'react-native';
 
 import ImagePicker from 'react-native-image-picker';
@@ -23,7 +20,7 @@ const options = {
     path: 'images',
   },
 };
-const App = () => {
+const Gallery = ({navigation}) => {
   const [imageUrl, setImageUrl] = useState('');
 
   const choosePic = () => {
@@ -46,7 +43,7 @@ const App = () => {
       <View style={styles.defaultImageWrapper}>
         <Image
           resizeMode="contain"
-          source={require('./src/assets/images/add.png')}
+          source={require('../../assets/images/add.png')}
           style={styles.defaultImage}
         />
       </View>
@@ -65,8 +62,7 @@ const App = () => {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
@@ -81,6 +77,9 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   scrollView: {
     backgroundColor: '#F3F3F3',
   },
@@ -120,4 +119,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Gallery
