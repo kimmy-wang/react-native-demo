@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Image,
   SafeAreaView,
@@ -24,6 +24,14 @@ const options = {
 };
 const Gallery = ({navigation}) => {
   const [imageUrl, setImageUrl] = useState('');
+
+  useEffect(() => {
+    console.log('[Gallery]: updated');
+
+    return () => {
+      console.log('[Gallery]: destroyed');
+    };
+  });
 
   const choosePic = () => {
     ImagePicker.showImagePicker(options, response => {
