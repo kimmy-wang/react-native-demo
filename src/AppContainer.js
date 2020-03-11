@@ -75,7 +75,6 @@ const AppContainer = () => {
         <App.Screen
           name="BottomTabNavigator"
           options={({route, navigation}) => {
-            console.log('route', route, route.state);
             return {
               title:
                 (route && route.state && TABS[route.state.index].title) || '',
