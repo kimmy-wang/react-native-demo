@@ -16,6 +16,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeGalleryDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeGalleryDemoTests.m */; };
+		2E790AB424189A7C002F02F4 /* bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2E790AB324189A7B002F02F4 /* bundle */; };
 		7130122A3D5AC6964E8F282E /* libPods-ReactNativeGalleryDemo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF99D361DAC44EA0351928 /* libPods-ReactNativeGalleryDemo-tvOSTests.a */; };
 		C7F260C908D23EEA6C87B5C0 /* libPods-ReactNativeGalleryDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F998B8144EA66C97144117B4 /* libPods-ReactNativeGalleryDemo.a */; };
 		D2AC2321C8124B90F4513A8F /* libPods-ReactNativeGalleryDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7E16689FEA88A5087E768C /* libPods-ReactNativeGalleryDemoTests.a */; };
@@ -54,6 +55,7 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeGalleryDemo/main.m; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* ReactNativeGalleryDemo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactNativeGalleryDemo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ReactNativeGalleryDemo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeGalleryDemo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E790AB324189A7B002F02F4 /* bundle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bundle; sourceTree = "<group>"; };
 		4059155A6F1545B199BE53A3 /* Pods-ReactNativeGalleryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeGalleryDemo.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeGalleryDemo/Pods-ReactNativeGalleryDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5559DA1DEEECB954332D127E /* Pods-ReactNativeGalleryDemo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeGalleryDemo-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeGalleryDemo-tvOSTests/Pods-ReactNativeGalleryDemo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		723F72464331A4CEBB75AFFD /* Pods-ReactNativeGalleryDemo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeGalleryDemo-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeGalleryDemo-tvOS/Pods-ReactNativeGalleryDemo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* ReactNativeGalleryDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2E790AB324189A7B002F02F4 /* bundle */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				2E790AB424189A7C002F02F4 /* bundle in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
