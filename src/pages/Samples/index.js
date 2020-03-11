@@ -2,27 +2,7 @@ import React, {useEffect, useCallback} from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, FlatList} from 'react-native';
 
 import ListItem from '../../components/ListItem';
-
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Gallery Demo',
-    description: 'Gallery Demo',
-    routeName: 'Gallery',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Video Demo',
-    description: 'Video Demo',
-    routeName: 'Gallery',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Map Demo',
-    description: 'Map Demo',
-    routeName: 'Gallery',
-  },
-];
+import samples from '../../constants/samples';
 
 const Samples = ({navigation}) => {
   /* eslint-disable */
@@ -45,7 +25,7 @@ const Samples = ({navigation}) => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <FlatList
-            data={DATA}
+            data={samples}
             renderItem={({item}) => (
               <ListItem
                 title={item.title}

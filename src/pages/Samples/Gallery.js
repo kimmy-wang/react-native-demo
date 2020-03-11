@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {
+  View,
   Image,
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  Text,
   TouchableWithoutFeedback,
-  View,
 } from 'react-native';
 
 import ImagePicker from 'react-native-image-picker';
@@ -78,7 +77,6 @@ const Gallery = ({navigation}) => {
           style={styles.scrollView}>
           <View style={styles.body}>
             <View>{headerContent}</View>
-            <Text style={styles.sectionTitle}>React Native Gallery Demo</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -95,7 +93,7 @@ const styles = StyleSheet.create({
   },
   body: {
     backgroundColor: 'white',
-    paddingTop: 24,
+    paddingVertical: 24,
   },
   defaultImageWrapper: {
     width: 160,
@@ -119,13 +117,6 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
-  },
-  sectionTitle: {
-    paddingTop: 24,
-    fontSize: 24,
-    fontWeight: '600',
-    color: 'black',
-    textAlign: 'center',
   },
 });
 

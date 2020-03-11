@@ -4,37 +4,15 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Samples from './pages/Samples';
-import Settings from './pages/Settings';
-import Gallery from './pages/Samples/Gallery';
+import samples from './constants/samples';
+import bottomTabs from './constants/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 const App = createStackNavigator();
 
-const TABS = [
-  {
-    name: 'Samples',
-    title: '示例',
-    activeIcon: 'appstore1',
-    inactiveIcon: 'appstore-o',
-    component: Samples,
-    IconComponent: AntDesign,
-  },
-  {
-    name: 'Settings',
-    title: '设置',
-    activeIcon: 'settings',
-    inactiveIcon: 'settings-outline',
-    component: Settings,
-    IconComponent: MaterialCommunityIcons,
-  },
-];
-
 const BottomTabNavigator = () => {
-  const tabScreen = TABS.map(tab => {
+  const tabScreen = bottomTabs.map(tab => {
     const {
       name,
       title,
@@ -77,12 +55,19 @@ const AppContainer = () => {
           options={({route, navigation}) => {
             return {
               title:
-                (route && route.state && TABS[route.state.index].title) || '',
+                (route && route.state && bottomTabs[route.state.index].title) ||
+                '',
             };
           }}
           component={BottomTabNavigator}
         />
-        <App.Screen name="Gallery" component={Gallery} />
+        {samples.map(sample => (
+          <App.Screen
+            name={sample.routeName}
+            options={{title: sample.title}}
+            component={sample.component}
+          />
+        ))}
       </App.Navigator>
     </NavigationContainer>
   );
