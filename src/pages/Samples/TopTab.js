@@ -1,7 +1,11 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 
-const TopTab = ({navigation}) => {
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+
+const Tab = createMaterialTopTabNavigator();
+
+const TopTabPage = ({description}) => {
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -9,11 +13,40 @@ const TopTab = ({navigation}) => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={styles.body}>
-            <Text style={styles.sectionTitle}>TopTab Demo</Text>
+            <Text style={styles.sectionTitle}>{description}</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
     </>
+  );
+};
+
+const TopTab = () => {
+  const TopTabs = () => {
+    let topTabs = [];
+    for (let i = 0, size = 7; i < size; i++) {
+      topTabs.push(
+        <Tab.Screen
+          name={`TAB${i + 1}`}
+          component={props => (
+            <TopTabPage {...props} description={`TAB${i + 1}`} />
+          )}
+        />,
+      );
+    }
+    return topTabs;
+  };
+
+  return (
+    <Tab.Navigator
+      tabBarOptions={{
+        scrollEnabled: true,
+        labelStyle: {fontSize: 12},
+        style: {backgroundColor: 'powderblue'},
+        indicatorStyle: {backgroundColor: 'blue'},
+      }}>
+      {TopTabs()}
+    </Tab.Navigator>
   );
 };
 

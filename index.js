@@ -1,7 +1,7 @@
 /**
  * @format
  */
-
+console.disableYellowBox = true;
 import {AppRegistry} from 'react-native';
 import AppContainer from './src/AppContainer';
 import {name as appName} from './app.json';
