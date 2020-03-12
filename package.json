@@ -17,6 +17,8 @@
     "@react-navigation/material-top-tabs": "^5.1.1",
     "@react-navigation/native": "^5.0.9",
     "@react-navigation/stack": "^5.1.1",
+    "jcore-react-native": "^1.7.5",
+    "jpush-react-native": "^2.7.5",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-gesture-handler": "^1.6.0",
