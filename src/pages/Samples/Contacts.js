@@ -193,6 +193,7 @@ const styles = StyleSheet.create({
   },
   tip: {
     fontSize: 24,
+    marginTop: 26,
     alignSelf: 'center',
   },
   listHeader: {
@@ -213,7 +214,7 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     height: 26,
-    marginLeft: 10,
+    paddingLeft: 10,
     fontSize: 18,
     justifyContent: 'center',
     backgroundColor: '#F3F3F3',
