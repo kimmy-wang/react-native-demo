@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "install:ios": "cd ios && pod install && cd ..",
     "bundle:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ./ios/bundle/index.ios.jsbundle --assets-dest ./ios/bundle",
     "test": "jest",
     "lint": "eslint ."
@@ -23,6 +24,7 @@
     "react-native-reanimated": "^1.7.0",
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.2.0",
+    "react-native-section-list-get-item-layout": "^2.2.3",
     "react-native-status-bar-height": "2.4.0",
     "react-native-tab-view": "^2.13.0",
     "react-native-vector-icons": "^6.6.0"
