@@ -1,4 +1,4 @@
-import React, {useState, useEffect, createRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   SafeAreaView,
   SectionList,
@@ -19,7 +19,7 @@ const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
 const Contacts = () => {
-  const sectionListRef = createRef();
+  const sectionListRef = useRef(null);
   const [initial, setInitial] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [languages, setLanguages] = useState({});
@@ -79,10 +79,11 @@ const Contacts = () => {
 
   const selectTouchBarItem = index => {
     setCurrentIndex(index || 0);
-    sectionListRef.current.scrollToLocation({
-      sectionIndex: index || 0,
-      itemIndex: 0,
-    });
+    sectionListRef.current &&
+      sectionListRef.current.scrollToLocation({
+        sectionIndex: index || 0,
+        itemIndex: 0,
+      });
   };
 
   const onViewableItemsChanged = ({viewableItems, changed}) => {
