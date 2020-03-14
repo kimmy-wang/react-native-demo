@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const ListItem = ({title, description, onPress}) => {
+const SettingItem = ({title, description, onPress}) => {
   return (
     <TouchableOpacity onPress={() => onPress && onPress()} style={styles.item}>
       <View style={styles.sectionContainer}>
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListItem;
+export default SettingItem;

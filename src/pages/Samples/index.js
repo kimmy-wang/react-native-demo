@@ -5,7 +5,6 @@ import ListItem from '../../components/ListItem';
 import samples from '../../constants/samples';
 
 const Samples = ({navigation}) => {
-  /* eslint-disable */
   const onSelect = useCallback(routeName => {
     navigation && navigation.navigate(routeName);
   });
@@ -15,7 +14,7 @@ const Samples = ({navigation}) => {
 
     return () => {
       console.log('[Samples]: destroyed');
-    }
+    };
   });
 
   return (

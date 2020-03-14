@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,33 +7,13 @@ import {
   StatusBar,
 } from 'react-native';
 
-import ListItem from '../../components/ListItem';
+import SettingItem from '../../components/SettingItem';
+import settings from '../../constants/settings';
 
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Gallery Demo',
-    description: 'Gallery Demo',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Video Demo',
-    description: 'Video Demo',
-  },
-];
-
-const Settings = () => {
-  const [selected, setSelected] = useState(new Map());
-
-  const onSelect = useCallback(
-    id => {
-      const newSelected = new Map(selected);
-      newSelected.set(id, !selected.get(id));
-
-      setSelected(newSelected);
-    },
-    [selected],
-  );
+const Settings = ({navigation}) => {
+  const onSelect = useCallback(routeName => {
+    navigation && navigation.navigate(routeName);
+  });
 
   return (
     <>
@@ -43,9 +23,13 @@ const Settings = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <FlatList
-            data={DATA}
+            data={settings}
             renderItem={({item}) => (
-              <ListItem title={item.title} description={item.description} />
+              <SettingItem
+                title={item.title}
+                description={item.description}
+                onPress={() => onSelect(item.routeName)}
+              />
             )}
             keyExtractor={item => item.id}
           />

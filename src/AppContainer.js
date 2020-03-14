@@ -6,6 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import samples from './constants/samples';
+import settings from './constants/settings';
 import bottomTabs from './constants/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
@@ -66,6 +67,13 @@ const AppContainer = () => {
             name={sample.routeName}
             options={{title: sample.title}}
             component={sample.component}
+          />
+        ))}
+        {settings.map(setting => (
+          <App.Screen
+            name={setting.routeName}
+            options={{title: setting.title}}
+            component={setting.component}
           />
         ))}
       </App.Navigator>

@@ -1,1 +1,1 @@
-# ReactNativeGalleryDemo
+# ReactNativeDemo
