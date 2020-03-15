@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 
-const AMap = ({navigation}) => {
+const AMap = () => {
   return (
     <>
       <SafeAreaView style={styles.container}>

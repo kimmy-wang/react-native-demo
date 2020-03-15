@@ -35,6 +35,7 @@
     "lottie-react-native": "^3.3.2",
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-camera": "^3.19.1",
     "react-native-code-push": "^6.1.0",
     "react-native-gesture-handler": "^1.6.0",
     "react-native-image-picker": "2.3.1",

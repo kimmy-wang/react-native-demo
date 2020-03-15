@@ -5,9 +5,12 @@ import ListItem from '../../components/ListItem';
 import samples from '../../constants/samples';
 
 const Samples = ({navigation}) => {
-  const onSelect = useCallback(routeName => {
-    navigation && navigation.navigate(routeName);
-  });
+  const onSelect = useCallback(
+    routeName => {
+      navigation && navigation.navigate(routeName);
+    },
+    [navigation],
+  );
 
   useEffect(() => {
     console.log('[Samples]: updated');

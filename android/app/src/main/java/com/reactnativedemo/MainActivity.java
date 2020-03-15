@@ -1,4 +1,4 @@
-package com.reactnativegallerydemo;
+package com.reactnativedemo;
 
 import com.facebook.react.ReactActivity;
 

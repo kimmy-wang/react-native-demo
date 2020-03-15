@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 
-const Notification = ({navigation}) => {
+const Notification = () => {
   return (
     <>
       <SafeAreaView style={styles.container}>

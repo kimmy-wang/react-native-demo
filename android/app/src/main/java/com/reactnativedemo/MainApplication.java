@@ -1,4 +1,4 @@
-package com.reactnativegallerydemo;
+package com.reactnativedemo;
 
 import android.app.Application;
 import android.content.Context;

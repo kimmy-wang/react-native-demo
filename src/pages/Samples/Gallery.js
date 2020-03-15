@@ -21,7 +21,7 @@ const options = {
     path: 'images',
   },
 };
-const Gallery = ({navigation}) => {
+const Gallery = () => {
   const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {

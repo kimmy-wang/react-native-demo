@@ -1,4 +1,5 @@
 import Gallery from '../pages/Samples/Gallery';
+import QrCode from '../pages/Samples/QrCode';
 import Video from '../pages/Samples/Video';
 import AMap from '../pages/Samples/AMap';
 import TopTab from '../pages/Samples/TopTab';
@@ -12,6 +13,13 @@ export default [
     description: 'Gallery Demo',
     routeName: 'Gallery',
     component: Gallery,
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: '扫码示例',
+    description: 'Scan QR code Demo',
+    routeName: 'QrCode',
+    component: QrCode,
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
