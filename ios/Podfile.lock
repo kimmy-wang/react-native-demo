@@ -25,10 +25,6 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - JCore (1.7.5):
-    - React
-  - JPush (2.7.5):
-    - React
   - JWT (3.0.0-beta.12):
     - Base64 (~> 1.1.2)
   - lottie-ios (3.1.3)
@@ -267,8 +263,6 @@ DEPENDENCIES:
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - JCore (from `../node_modules/jcore-react-native`)
-  - JPush (from `../node_modules/jpush-react-native`)
   - lottie-ios (from `../node_modules/lottie-ios`)
   - lottie-react-native (from `../node_modules/lottie-react-native`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
@@ -324,10 +318,6 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
-  JCore:
-    :path: "../node_modules/jcore-react-native"
-  JPush:
-    :path: "../node_modules/jpush-react-native"
   lottie-ios:
     :path: "../node_modules/lottie-ios"
   lottie-react-native:
@@ -400,8 +390,6 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
-  JCore: 0335bd44cc5987dc95c071fb0f2ed7e5569e8895
-  JPush: f883b13bcb057bca746af9b7bb16b70b3c676e6b
   JWT: 9b5c05abbcc1a0e69c3c91e1655b3387fc7e581d
   lottie-ios: 496ac5cea1bbf1a7bd1f1f472f3232eb1b8d744b
   lottie-react-native: 2a1a82bb326ae51331a5520de0cf706733c6db69
