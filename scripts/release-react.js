@@ -77,11 +77,16 @@ const release = async () => {
     'release-react',
     appName,
     platform,
-    `--t ${curVersion}`,
-    `--dev ${development}`,
-    `--des ${description}`,
-    `-d ${deploymentName}`,
-    `-m ${mandatory}`,
+    '--t',
+    'curVersion',
+    '--dev',
+    development,
+    '--des',
+    description,
+    '-d',
+    deploymentName,
+    '-m',
+    mandatory,
   ];
 
   console.log(`code-push ${releaseReactArguments.join(' ')}`);

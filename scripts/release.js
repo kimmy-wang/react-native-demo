@@ -86,10 +86,14 @@ const release = async () => {
   const bundleArguments = [
     'bundle',
     '--entry-file index.js',
-    `--platform ${platform}`,
-    `--dev ${development}`,
-    `--bundle-output ./${outputDir}/${bundleName}`,
-    `--assets-dest ./${outputDir}`,
+    '--platform',
+    platform,
+    '--dev',
+    development,
+    '--bundle-output',
+    `./${outputDir}/${bundleName}`,
+    '--assets-dest',
+    `./${outputDir}`,
   ];
 
   const releaseArguments = [
@@ -97,9 +101,12 @@ const release = async () => {
     appName,
     `./${outputDir}/${bundleName}`,
     curVersion,
-    `--des ${description}`,
-    `-d ${deploymentName}`,
-    `-m ${mandatory}`,
+    '--des',
+    description,
+    '-d',
+    deploymentName,
+    '-m',
+    mandatory,
   ];
 
   console.log(`react-native ${bundleArguments.join(' ')}`);
