@@ -3,8 +3,21 @@ const inquirer = require('inquirer');
 
 const release = async () => {
   const curVersion = process.env.npm_package_version;
-  const name = process.env.npm_package_name;
   console.log(`Current version: ${curVersion}`);
+
+  const result = await execa('code-push', ['app', 'ls', '--format', 'json']);
+  const apps =
+    (result &&
+      result.exitCode === 0 &&
+      result.stdout &&
+      JSON.parse(result.stdout).map(item => item.name)) ||
+    [];
+  console.log(apps);
+
+  if (!apps) {
+    console.error('[release-react] error: not found apps');
+    return;
+  }
 
   const {platform} = await inquirer.prompt([
     {
@@ -27,9 +40,9 @@ const release = async () => {
   } = await inquirer.prompt([
     {
       name: 'appName',
-      message: '请输入Code Push中应用名称:',
-      type: 'input',
-      default: `${name}-${platform}`,
+      message: '请选择Code Push中应用名称:',
+      type: 'list',
+      choices: apps,
     },
     {
       name: 'description',
@@ -69,7 +82,7 @@ const release = async () => {
   ]);
 
   if (!yes) {
-    console.log('[release-react] cancelled.');
+    console.warn('[release-react] cancelled.');
     return;
   }
 
@@ -93,6 +106,8 @@ const release = async () => {
 
   // code-push release-react ReactNativeDemo-Android android --t 1.0.0  --dev false -d Production
   await execa('code-push', releaseReactArguments, {stdio: 'inherit'});
+
+  console.log('[release-react] succeed.');
 };
 
 release().catch(err => {
