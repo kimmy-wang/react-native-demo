@@ -14,6 +14,7 @@ import {
 
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import sectionListGetItemLayout from 'react-native-section-list-get-item-layout';
+import LottieView from 'lottie-react-native';
 
 const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
@@ -132,6 +133,17 @@ const Contacts = () => {
     );
   };
 
+  const Loading = () => {
+    return (
+      <LottieView
+        source={require('../../assets/animations/contacts-loading.json')}
+        style={styles.loading}
+        autoPlay
+        loop
+      />
+    );
+  };
+
   const TouchBarItem = ({title, index}) => {
     return (
       <TouchableWithoutFeedback onPress={() => selectTouchBarItem(index)}>
@@ -164,7 +176,7 @@ const Contacts = () => {
           ItemSeparatorComponent={SectionListItemSeparator}
           ListHeaderComponent={SectionListHeader}
           ListFooterComponent={SectionListFooter}
-          ListEmptyComponent={<Text style={styles.tip}>数据加载中</Text>}
+          ListEmptyComponent={Loading}
           getItemLayout={getSectionListItemLayout}
           onViewableItemsChanged={onViewableItemsChanged}
         />
@@ -192,8 +204,9 @@ const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: '#F3F3F3',
   },
-  tip: {
-    fontSize: 24,
+  loading: {
+    width: 80,
+    height: 80,
     marginTop: 26,
     alignSelf: 'center',
   },
@@ -221,7 +234,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
   },
   sectionItem: {
-    height: 60,
+    height: 50,
     justifyContent: 'center',
     backgroundColor: 'white',
     padding: 10,
@@ -231,7 +244,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F3F3F3',
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
   },
   touchBar: {
     position: 'absolute',
