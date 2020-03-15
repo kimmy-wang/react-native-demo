@@ -13,6 +13,7 @@ import {RNCamera} from 'react-native-camera';
 const QrCode = () => {
   const cameraRef = useRef(null);
   const [initial, setInitial] = useState(false);
+  const [content, setContent] = useState('');
   const [moveAnim, setMoveAnim] = useState(new Animated.Value(0));
 
   const startAnimation = useCallback(() => {
@@ -33,7 +34,7 @@ const QrCode = () => {
 
   const onBarCodeRead = result => {
     const {data} = result;
-    console.log(data);
+    setContent(data);
   };
 
   return (
@@ -54,6 +55,7 @@ const QrCode = () => {
               <Text style={styles.rectangleText}>
                 将二维码放入框内，即可自动扫描
               </Text>
+              <Text style={styles.rectangleText}>扫码内容: {content}</Text>
             </View>
           </RNCamera>
         </View>

@@ -1,6 +1,6 @@
 {
   "name": "ReactNativeDemo",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -12,14 +12,16 @@
     "clean:android": "cd android && ./gradlew clean && cd ..",
     "bundle:ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ./bundles/main.jsbundle --assets-dest ./bundles",
     "bundle:android": "react-native bundle --entry-file index.js --platform android --dev false --bundle-output ./bundles/index.android.bundle --assets-dest ./bundles",
-    "release:ios:dev": "code-push release ReactNativeDemo-iOS ./bundles/main.jsbundle 1.0.0 --des \"1.0.0描述\"",
-    "release:ios:prod": "code-push release ReactNativeDemo-iOS ./bundles/main.jsbundle 1.0.0 -d Production --des \"1.0.0描述\"",
-    "release:android:dev": "code-push release ReactNativeDemo-Android ./bundles/index.android.bundle 1.0.0 --des \"1.0.0描述\"",
-    "release:android:prod": "code-push release ReactNativeDemo-Android ./bundles/index.android.bundle 1.0.0 -d Production --des \"1.0.0描述\"",
-    "release-react:ios:dev": "code-push release-react ReactNativeDemo-iOS ios --t 1.0.0  --dev false --des \"1.0.0描述\"",
-    "release-react:ios:prod": "code-push release-react ReactNativeDemo-iOS ios --t 1.0.0  --dev false -d Production --des \"1.0.0描述\"",
-    "release-react:android:dev": "code-push release-react ReactNativeDemo-Android android --t 1.0.0  --dev false --des \"1.0.0描述\"",
-    "release-react:android:prod": "code-push release-react ReactNativeDemo-Android android --t 1.0.0  --dev false -d Production --des \"1.0.0描述\"",
+    "release:ios:dev": "code-push release ReactNativeDemo-iOS ./bundles/main.jsbundle 1.0.0",
+    "release:ios:prod": "code-push release ReactNativeDemo-iOS ./bundles/main.jsbundle 1.0.0 -d Production",
+    "release:android:dev": "code-push release ReactNativeDemo-Android ./bundles/index.android.bundle 1.0.0",
+    "release:android:prod": "code-push release ReactNativeDemo-Android ./bundles/index.android.bundle 1.0.0 -d Production",
+    "release-react:ios:dev": "code-push release-react ReactNativeDemo-iOS ios --t 1.0.0  --dev false",
+    "release-react:ios:prod": "code-push release-react ReactNativeDemo-iOS ios --t 1.0.0  --dev false -d Production",
+    "release-react:android:dev": "code-push release-react ReactNativeDemo-Android android --t 1.0.0  --dev false",
+    "release-react:android:prod": "code-push release-react ReactNativeDemo-Android android --t 1.0.0  --dev false -d Production",
+    "release": "node ./scripts/release.js",
+    "release-react": "node ./scripts/release-react.js",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -54,9 +56,12 @@
     "@react-native-community/eslint-config": "^0.0.7",
     "babel-jest": "^25.1.0",
     "eslint": "^6.8.0",
+    "execa": "^4.0.0",
+    "inquirer": "^7.1.0",
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.58.0",
-    "react-test-renderer": "16.9.0"
+    "react-test-renderer": "16.9.0",
+    "semver": "^7.1.3"
   },
   "jest": {
     "preset": "react-native"
