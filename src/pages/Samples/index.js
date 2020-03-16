@@ -1,6 +1,7 @@
 import React, {useEffect, useCallback} from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, FlatList} from 'react-native';
 
+import AnalyticsUtil from '../../utils/native/AnalyticsUtil';
 import ListItem from '../../components/ListItem';
 import samples from '../../constants/samples';
 
@@ -8,6 +9,7 @@ const Samples = ({navigation}) => {
   const onSelect = useCallback(
     routeName => {
       navigation && navigation.navigate(routeName);
+      AnalyticsUtil.onEvent('SamplesItemClick');
     },
     [navigation],
   );

@@ -254,6 +254,11 @@ PODS:
   - RNVectorIcons (6.6.0):
     - React
   - SSZipArchive (2.2.2)
+  - UMCAnalytics (6.0.5):
+    - UMCCommon
+  - UMCCommon (2.1.1)
+  - UMCCommonLog (1.0.0)
+  - UMCSecurityPlugins (1.0.6)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -296,6 +301,10 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - UMCAnalytics
+  - UMCCommon
+  - UMCCommonLog
+  - UMCSecurityPlugins
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -304,6 +313,10 @@ SPEC REPOS:
     - boost-for-react-native
     - JWT
     - SSZipArchive
+    - UMCAnalytics
+    - UMCCommon
+    - UMCCommonLog
+    - UMCSecurityPlugins
 
 EXTERNAL SOURCES:
   CodePush:
@@ -422,8 +435,12 @@ SPEC CHECKSUMS:
   RNScreens: 812b79d384e2bea7eebc4ec981469160d4948fd5
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
+  UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
+  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 487c4b2e3e5a40ac226701c153f7979002918ccf
+PODFILE CHECKSUM: 9492d8990871d9b97ffa7bb5fc698f5a6c9dd3d1
 
 COCOAPODS: 1.8.4

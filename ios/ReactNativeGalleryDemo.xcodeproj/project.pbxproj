@@ -17,6 +17,8 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeGalleryDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeGalleryDemoTests.m */; };
 		2E6A6BC9241B81D5004A2D1D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6BC8241B81D5004A2D1D /* File.swift */; };
+		2E8A2CE4241F171B00E3FABD /* RNUMConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8A2CE1241F171B00E3FABD /* RNUMConfigure.m */; };
+		2E8A2CE5241F171B00E3FABD /* UMAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8A2CE2241F171B00E3FABD /* UMAnalyticsModule.m */; };
 		2ECF4204241CE0F1004BAD15 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4202241CE0F1004BAD15 /* assets */; };
 		2ECF4205241CE0F1004BAD15 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4203241CE0F1004BAD15 /* main.jsbundle */; };
 		7130122A3D5AC6964E8F282E /* libPods-ReactNativeGalleryDemo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF99D361DAC44EA0351928 /* libPods-ReactNativeGalleryDemo-tvOSTests.a */; };
@@ -59,6 +61,11 @@
 		2D02E4901E0B4A5D006451C7 /* ReactNativeGalleryDemo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeGalleryDemo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6A6BC5241B8161004A2D1D /* ReactNativeGalleryDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeGalleryDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		2E6A6BC8241B81D5004A2D1D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		2E8A2CE0241F171B00E3FABD /* UMAnalyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMAnalyticsModule.h; sourceTree = "<group>"; };
+		2E8A2CE1241F171B00E3FABD /* RNUMConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNUMConfigure.m; sourceTree = "<group>"; };
+		2E8A2CE2241F171B00E3FABD /* UMAnalyticsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAnalyticsModule.m; sourceTree = "<group>"; };
+		2E8A2CE3241F171B00E3FABD /* RNUMConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNUMConfigure.h; sourceTree = "<group>"; };
+		2E8A2CE7241F180900E3FABD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../../../../Desktop/Constants.h; sourceTree = "<group>"; };
 		2ECF4202241CE0F1004BAD15 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../bundles/assets; sourceTree = "<group>"; };
 		2ECF4203241CE0F1004BAD15 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../bundles/main.jsbundle; sourceTree = "<group>"; };
 		4059155A6F1545B199BE53A3 /* Pods-ReactNativeGalleryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeGalleryDemo.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeGalleryDemo/Pods-ReactNativeGalleryDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +139,8 @@
 		13B07FAE1A68108700A75B9A /* ReactNativeGalleryDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2E8A2CE7241F180900E3FABD /* Constants.h */,
+				2E8A2CDF241F171B00E3FABD /* umeng */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				2ECF4202241CE0F1004BAD15 /* assets */,
 				2ECF4203241CE0F1004BAD15 /* main.jsbundle */,
@@ -156,6 +165,18 @@
 				9D7E16689FEA88A5087E768C /* libPods-ReactNativeGalleryDemoTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E8A2CDF241F171B00E3FABD /* umeng */ = {
+			isa = PBXGroup;
+			children = (
+				2E8A2CE0241F171B00E3FABD /* UMAnalyticsModule.h */,
+				2E8A2CE1241F171B00E3FABD /* RNUMConfigure.m */,
+				2E8A2CE2241F171B00E3FABD /* UMAnalyticsModule.m */,
+				2E8A2CE3241F171B00E3FABD /* RNUMConfigure.h */,
+			);
+			name = umeng;
+			path = ../../../../Desktop/umeng;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -417,6 +438,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -436,6 +458,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMCommonLog.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -599,7 +622,9 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				2E6A6BC9241B81D5004A2D1D /* File.swift in Sources */,
+				2E8A2CE4241F171B00E3FABD /* RNUMConfigure.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				2E8A2CE5241F171B00E3FABD /* UMAnalyticsModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

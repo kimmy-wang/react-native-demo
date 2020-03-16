@@ -10,7 +10,7 @@ import settings from './constants/settings';
 import bottomTabs from './constants/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
-const App = createStackNavigator();
+const SN = createStackNavigator();
 
 const BottomTabNavigator = () => {
   const tabScreen = bottomTabs.map(tab => {
@@ -47,36 +47,42 @@ const BottomTabNavigator = () => {
   );
 };
 
+const App = () => {
+  return (
+    <SN.Navigator>
+      <SN.Screen
+        name="BottomTabNavigator"
+        options={({route, navigation}) => {
+          return {
+            title:
+              (route && route.state && bottomTabs[route.state.index].title) ||
+              '',
+          };
+        }}
+        component={BottomTabNavigator}
+      />
+      {samples.map(sample => (
+        <SN.Screen
+          name={sample.routeName}
+          options={{title: sample.title}}
+          component={sample.component}
+        />
+      ))}
+      {settings.map(setting => (
+        <SN.Screen
+          name={setting.routeName}
+          options={{title: setting.title}}
+          component={setting.component}
+        />
+      ))}
+    </SN.Navigator>
+  );
+};
+
 const AppContainer = () => {
   return (
     <NavigationContainer>
-      <App.Navigator>
-        <App.Screen
-          name="BottomTabNavigator"
-          options={({route, navigation}) => {
-            return {
-              title:
-                (route && route.state && bottomTabs[route.state.index].title) ||
-                '',
-            };
-          }}
-          component={BottomTabNavigator}
-        />
-        {samples.map(sample => (
-          <App.Screen
-            name={sample.routeName}
-            options={{title: sample.title}}
-            component={sample.component}
-          />
-        ))}
-        {settings.map(setting => (
-          <App.Screen
-            name={setting.routeName}
-            options={{title: setting.title}}
-            component={setting.component}
-          />
-        ))}
-      </App.Navigator>
+      <App />
     </NavigationContainer>
   );
 };

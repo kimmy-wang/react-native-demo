@@ -11,11 +11,17 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <CodePush/CodePush.h>
+#import "RNUMConfigure.h"
+#import <UMAnalytics/MobClick.h>
+#import "Constants.h"
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  [self initUmeng];
+  
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"ReactNativeGalleryDemo"
@@ -38,6 +44,13 @@
 #else
   return [CodePush bundleURL];
 #endif
+}
+
+-(void)initUmeng {
+  [UMConfigure setLogEnabled:YES];
+  
+  [MobClick setScenarioType:E_UM_NORMAL];
+  [RNUMConfigure initWithAppkey:UM_AppKey channel:UM_ChannelId];
 }
 
 @end

@@ -1,4 +1,4 @@
-package com.reactnativedemo;
+package com.upcwangying.apps.rn.demo;
 
 import android.app.Application;
 import android.content.Context;
@@ -14,6 +14,8 @@ import java.util.List;
 import androidx.multidex.MultiDex;
 
 import com.microsoft.codepush.react.CodePush;
+import com.umeng.commonsdk.UMConfigure;
+import com.upcwangying.apps.rn.demo.umeng.UmengReactPackage;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -35,7 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
                     @SuppressWarnings("UnnecessaryLocalVariable")
                     List<ReactPackage> packages = new PackageList(this).getPackages();
                     // Packages that cannot be autolinked yet can be added manually here, for example:
-                    // packages.add(new MyReactNativePackage());
+                     packages.add(new UmengReactPackage());
                     return packages;
                 }
 
@@ -60,6 +62,10 @@ public class MainApplication extends Application implements ReactApplication {
         super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
         initializeFlipper(this); // Remove this line if you don't want Flipper enabled
+        UMConfigure.setLogEnabled(true);
+        //初始化组件化基础库, 统计SDK/推送SDK/分享SDK都必须调用此初始化接口
+        UMConfigure.init(this, "5e6edd21167eddf91500014c", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
+                null);
     }
 
     /**
