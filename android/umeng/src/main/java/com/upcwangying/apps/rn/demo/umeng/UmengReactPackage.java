@@ -30,6 +30,7 @@ public class UmengReactPackage implements ReactPackage {
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new AnalyticsModule(reactContext));
+        modules.add(new PushModule(reactContext));
         return modules;
     }
 }

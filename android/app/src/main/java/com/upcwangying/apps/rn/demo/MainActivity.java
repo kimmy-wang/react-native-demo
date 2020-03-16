@@ -4,12 +4,16 @@ import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
+import com.upcwangying.apps.rn.demo.umeng.PushModule;
 
 public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    PushModule.initPushSDK(this);
+    PushAgent.getInstance(this).onAppStart();
     // 初始化SDK
     MobclickAgent.setSessionContinueMillis(1000L);
     // 选用AUTO页面采集模式

@@ -20,6 +20,12 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
 }
 
 dependencies {
@@ -27,8 +33,17 @@ dependencies {
 
     implementation "com.facebook.react:react-native:+"
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    api  'com.umeng.umsdk:analytics:8.0.0'
-    api  'com.umeng.umsdk:common:2.0.0'
+    api 'com.umeng.umsdk:common:2.0.0'
+    implementation 'com.umeng.umsdk:utdid:1.5.2'
+    api 'com.umeng.umsdk:analytics:8.0.0'
+    api 'com.umeng.umsdk:push:6.0.5'
+    api 'com.umeng.umsdk:alicloud-httpdns:1.2.5'
+    api 'com.umeng.umsdk:alicloud-utils:1.1.5'
+    api 'com.umeng.umsdk:alicloud_beacon:1.0.1'
+    api 'com.umeng.umsdk:agoo-accs:3.3.8.8-open-fix2'
+    api 'com.umeng.umsdk:agoo_networksdk:3.5.5'
+    api 'com.umeng.umsdk:agoo_tlog:3.0.0.17'
+    api 'com.umeng.umsdk:agoo_tnet4android:3.1.14.9'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
