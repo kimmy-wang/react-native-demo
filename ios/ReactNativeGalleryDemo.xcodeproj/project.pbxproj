@@ -16,9 +16,11 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeGalleryDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeGalleryDemoTests.m */; };
+		2E3079C7241F77940074EF5D /* UMPushModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3079C1241F77940074EF5D /* UMPushModule.m */; };
+		2E3079C8241F77940074EF5D /* RNUMConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3079C3241F77940074EF5D /* RNUMConfigure.m */; };
+		2E3079C9241F77940074EF5D /* UMAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3079C4241F77940074EF5D /* UMAnalyticsModule.m */; };
+		2E3079CA241F80A60074EF5D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8A2CEC241F6B9000E3FABD /* UserNotifications.framework */; };
 		2E6A6BC9241B81D5004A2D1D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6BC8241B81D5004A2D1D /* File.swift */; };
-		2E8A2CE4241F171B00E3FABD /* RNUMConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8A2CE1241F171B00E3FABD /* RNUMConfigure.m */; };
-		2E8A2CE5241F171B00E3FABD /* UMAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8A2CE2241F171B00E3FABD /* UMAnalyticsModule.m */; };
 		2ECF4204241CE0F1004BAD15 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4202241CE0F1004BAD15 /* assets */; };
 		2ECF4205241CE0F1004BAD15 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4203241CE0F1004BAD15 /* main.jsbundle */; };
 		7130122A3D5AC6964E8F282E /* libPods-ReactNativeGalleryDemo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF99D361DAC44EA0351928 /* libPods-ReactNativeGalleryDemo-tvOSTests.a */; };
@@ -44,6 +46,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2E3079BB241F74AE0074EF5D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* ReactNativeGalleryDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactNativeGalleryDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,13 +74,21 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeGalleryDemo/main.m; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* ReactNativeGalleryDemo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactNativeGalleryDemo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* ReactNativeGalleryDemo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeGalleryDemo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E3079B1241F74AE0074EF5D /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		2E3079B2241F74AE0074EF5D /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		2E3079B4241F74AE0074EF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E3079BC241F74C50074EF5D /* umeng.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = umeng.entitlements; sourceTree = "<group>"; };
+		2E3079C1241F77940074EF5D /* UMPushModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMPushModule.m; sourceTree = "<group>"; };
+		2E3079C2241F77940074EF5D /* UMAnalyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMAnalyticsModule.h; sourceTree = "<group>"; };
+		2E3079C3241F77940074EF5D /* RNUMConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNUMConfigure.m; sourceTree = "<group>"; };
+		2E3079C4241F77940074EF5D /* UMAnalyticsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAnalyticsModule.m; sourceTree = "<group>"; };
+		2E3079C5241F77940074EF5D /* UMPushModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMPushModule.h; sourceTree = "<group>"; };
+		2E3079C6241F77940074EF5D /* RNUMConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNUMConfigure.h; sourceTree = "<group>"; };
 		2E6A6BC5241B8161004A2D1D /* ReactNativeGalleryDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeGalleryDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		2E6A6BC8241B81D5004A2D1D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		2E8A2CE0241F171B00E3FABD /* UMAnalyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMAnalyticsModule.h; sourceTree = "<group>"; };
-		2E8A2CE1241F171B00E3FABD /* RNUMConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNUMConfigure.m; sourceTree = "<group>"; };
-		2E8A2CE2241F171B00E3FABD /* UMAnalyticsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAnalyticsModule.m; sourceTree = "<group>"; };
-		2E8A2CE3241F171B00E3FABD /* RNUMConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNUMConfigure.h; sourceTree = "<group>"; };
-		2E8A2CE7241F180900E3FABD /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../../../../Desktop/Constants.h; sourceTree = "<group>"; };
+		2E8A2CEB241F69F100E3FABD /* ReactNativeGalleryDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ReactNativeGalleryDemo.entitlements; path = ReactNativeGalleryDemo/ReactNativeGalleryDemo.entitlements; sourceTree = "<group>"; };
+		2E8A2CEC241F6B9000E3FABD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		2EBCC1E3241FB3BF002EFF72 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2ECF4202241CE0F1004BAD15 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../bundles/assets; sourceTree = "<group>"; };
 		2ECF4203241CE0F1004BAD15 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../bundles/main.jsbundle; sourceTree = "<group>"; };
 		4059155A6F1545B199BE53A3 /* Pods-ReactNativeGalleryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeGalleryDemo.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeGalleryDemo/Pods-ReactNativeGalleryDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3079CA241F80A60074EF5D /* UserNotifications.framework in Frameworks */,
 				C7F260C908D23EEA6C87B5C0 /* libPods-ReactNativeGalleryDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +163,8 @@
 		13B07FAE1A68108700A75B9A /* ReactNativeGalleryDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2E8A2CE7241F180900E3FABD /* Constants.h */,
-				2E8A2CDF241F171B00E3FABD /* umeng */,
+				2E3079C0241F77940074EF5D /* umeng */,
+				2E8A2CEB241F69F100E3FABD /* ReactNativeGalleryDemo.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				2ECF4202241CE0F1004BAD15 /* assets */,
 				2ECF4203241CE0F1004BAD15 /* main.jsbundle */,
@@ -148,6 +172,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				2EBCC1E3241FB3BF002EFF72 /* Constants.h */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
@@ -157,6 +182,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E8A2CEC241F6B9000E3FABD /* UserNotifications.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				F998B8144EA66C97144117B4 /* libPods-ReactNativeGalleryDemo.a */,
@@ -167,16 +193,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2E8A2CDF241F171B00E3FABD /* umeng */ = {
+		2E3079B0241F74AE0074EF5D /* umeng */ = {
 			isa = PBXGroup;
 			children = (
-				2E8A2CE0241F171B00E3FABD /* UMAnalyticsModule.h */,
-				2E8A2CE1241F171B00E3FABD /* RNUMConfigure.m */,
-				2E8A2CE2241F171B00E3FABD /* UMAnalyticsModule.m */,
-				2E8A2CE3241F171B00E3FABD /* RNUMConfigure.h */,
+				2E3079BC241F74C50074EF5D /* umeng.entitlements */,
+				2E3079B1241F74AE0074EF5D /* NotificationService.h */,
+				2E3079B2241F74AE0074EF5D /* NotificationService.m */,
+				2E3079B4241F74AE0074EF5D /* Info.plist */,
 			);
-			name = umeng;
-			path = ../../../../Desktop/umeng;
+			path = umeng;
+			sourceTree = "<group>";
+		};
+		2E3079C0241F77940074EF5D /* umeng */ = {
+			isa = PBXGroup;
+			children = (
+				2E3079C6241F77940074EF5D /* RNUMConfigure.h */,
+				2E3079C3241F77940074EF5D /* RNUMConfigure.m */,
+				2E3079C2241F77940074EF5D /* UMAnalyticsModule.h */,
+				2E3079C4241F77940074EF5D /* UMAnalyticsModule.m */,
+				2E3079C5241F77940074EF5D /* UMPushModule.h */,
+				2E3079C1241F77940074EF5D /* UMPushModule.m */,
+			);
+			path = umeng;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -193,6 +231,7 @@
 				13B07FAE1A68108700A75B9A /* ReactNativeGalleryDemo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ReactNativeGalleryDemoTests */,
+				2E3079B0241F74AE0074EF5D /* umeng */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E29E27ACDEFE4C7549F8778B /* Pods */,
@@ -262,6 +301,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				07393BCA31C05E0E42ED80FC /* [CP] Copy Pods Resources */,
+				2E3079BB241F74AE0074EF5D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -328,7 +368,7 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 43V9N6VW8L;
 						LastSwiftMigration = 1130;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -621,10 +661,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				2E3079C7241F77940074EF5D /* UMPushModule.m in Sources */,
+				2E3079C9241F77940074EF5D /* UMAnalyticsModule.m in Sources */,
+				2E3079C8241F77940074EF5D /* RNUMConfigure.m in Sources */,
 				2E6A6BC9241B81D5004A2D1D /* File.swift in Sources */,
-				2E8A2CE4241F171B00E3FABD /* RNUMConfigure.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				2E8A2CE5241F171B00E3FABD /* UMAnalyticsModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,8 +770,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = ReactNativeGalleryDemo/ReactNativeGalleryDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ying Wang (227WU938V5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ying Wang (227WU938V5)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 43V9N6VW8L;
@@ -744,7 +787,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.upcwangying.apps.rn.demo;
 				PRODUCT_NAME = ReactNativeGalleryDemo;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "rn-demo-dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeGalleryDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -758,8 +801,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_ENTITLEMENTS = ReactNativeGalleryDemo/ReactNativeGalleryDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ying Wang (43V9N6VW8L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ying Wang (43V9N6VW8L)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 43V9N6VW8L;
@@ -773,7 +817,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.upcwangying.apps.rn.demo;
 				PRODUCT_NAME = ReactNativeGalleryDemo;
-				PROVISIONING_PROFILE_SPECIFIER = rn_demo;
+				PROVISIONING_PROFILE_SPECIFIER = "rn-demo";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeGalleryDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

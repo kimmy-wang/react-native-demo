@@ -38,9 +38,11 @@ target 'ReactNativeGalleryDemo' do
   pod 'UMCCommon'
   pod 'UMCSecurityPlugins'
   pod 'UMCCommonLog'
-  
-  # among analytics
+
+  # umeng analytics
   pod 'UMCAnalytics'
+  # umeng push
+  pod 'UMCPush'
 
   target 'ReactNativeGalleryDemoTests' do
     inherit! :search_paths
