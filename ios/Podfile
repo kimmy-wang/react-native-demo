@@ -43,6 +43,23 @@ target 'ReactNativeGalleryDemo' do
   pod 'UMCAnalytics'
   # umeng push
   pod 'UMCPush'
+  
+  # U-Share SDK UI模块（分享面板，建议添加）
+  pod 'UMCShare/UI'
+  # 集成微信(精简版0.2M)
+  pod 'UMCShare/Social/ReducedWeChat'
+  # 集成QQ/QZone/TIM(精简版0.5M)
+  pod 'UMCShare/Social/ReducedQQ'
+  # 集成新浪微博(精简版1M)
+  pod 'UMCShare/Social/ReducedSina'
+  # 集成支付宝
+  pod 'UMCShare/Social/AlipayShare'
+  # 集成钉钉
+  pod 'UMCShare/Social/DingDing'
+  # 集成邮件
+  pod 'UMCShare/Social/Email'
+  # 集成短信
+  pod 'UMCShare/Social/SMS'
 
   target 'ReactNativeGalleryDemoTests' do
     inherit! :search_paths

@@ -23,6 +23,7 @@
 		2E6A6BC9241B81D5004A2D1D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6BC8241B81D5004A2D1D /* File.swift */; };
 		2ECF4204241CE0F1004BAD15 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4202241CE0F1004BAD15 /* assets */; };
 		2ECF4205241CE0F1004BAD15 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4203241CE0F1004BAD15 /* main.jsbundle */; };
+		2ED4CE4E24221DB00033BEEC /* UMShareModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4CE4D24221DB00033BEEC /* UMShareModule.m */; };
 		7130122A3D5AC6964E8F282E /* libPods-ReactNativeGalleryDemo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CCF99D361DAC44EA0351928 /* libPods-ReactNativeGalleryDemo-tvOSTests.a */; };
 		C7F260C908D23EEA6C87B5C0 /* libPods-ReactNativeGalleryDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F998B8144EA66C97144117B4 /* libPods-ReactNativeGalleryDemo.a */; };
 		D2AC2321C8124B90F4513A8F /* libPods-ReactNativeGalleryDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7E16689FEA88A5087E768C /* libPods-ReactNativeGalleryDemoTests.a */; };
@@ -91,6 +92,8 @@
 		2EBCC1E3241FB3BF002EFF72 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2ECF4202241CE0F1004BAD15 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../bundles/assets; sourceTree = "<group>"; };
 		2ECF4203241CE0F1004BAD15 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../bundles/main.jsbundle; sourceTree = "<group>"; };
+		2ED4CE4C24221DB00033BEEC /* UMShareModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMShareModule.h; sourceTree = "<group>"; };
+		2ED4CE4D24221DB00033BEEC /* UMShareModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMShareModule.m; sourceTree = "<group>"; };
 		4059155A6F1545B199BE53A3 /* Pods-ReactNativeGalleryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeGalleryDemo.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeGalleryDemo/Pods-ReactNativeGalleryDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		5559DA1DEEECB954332D127E /* Pods-ReactNativeGalleryDemo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeGalleryDemo-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeGalleryDemo-tvOSTests/Pods-ReactNativeGalleryDemo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		723F72464331A4CEBB75AFFD /* Pods-ReactNativeGalleryDemo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeGalleryDemo-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeGalleryDemo-tvOS/Pods-ReactNativeGalleryDemo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				2E3079C4241F77940074EF5D /* UMAnalyticsModule.m */,
 				2E3079C5241F77940074EF5D /* UMPushModule.h */,
 				2E3079C1241F77940074EF5D /* UMPushModule.m */,
+				2ED4CE4C24221DB00033BEEC /* UMShareModule.h */,
+				2ED4CE4D24221DB00033BEEC /* UMShareModule.m */,
 			);
 			path = umeng;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 				"${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -499,6 +505,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMCommonLog.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -661,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				2ED4CE4E24221DB00033BEEC /* UMShareModule.m in Sources */,
 				2E3079C7241F77940074EF5D /* UMPushModule.m in Sources */,
 				2E3079C9241F77940074EF5D /* UMAnalyticsModule.m in Sources */,
 				2E3079C8241F77940074EF5D /* RNUMConfigure.m in Sources */,

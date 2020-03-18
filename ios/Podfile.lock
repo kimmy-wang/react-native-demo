@@ -261,6 +261,32 @@ PODS:
   - UMCPush (3.2.4):
     - UMCCommon
   - UMCSecurityPlugins (1.0.6)
+  - UMCShare/Core (6.9.6):
+    - UMCCommon
+  - UMCShare/Social/AlipayShare (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/DingDing (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/Email (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedQQ (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedSina (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/ReducedWeChat (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/Social/SMS (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/UI (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -308,6 +334,14 @@ DEPENDENCIES:
   - UMCCommonLog
   - UMCPush
   - UMCSecurityPlugins
+  - UMCShare/Social/AlipayShare
+  - UMCShare/Social/DingDing
+  - UMCShare/Social/Email
+  - UMCShare/Social/ReducedQQ
+  - UMCShare/Social/ReducedSina
+  - UMCShare/Social/ReducedWeChat
+  - UMCShare/Social/SMS
+  - UMCShare/UI
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -321,6 +355,7 @@ SPEC REPOS:
     - UMCCommonLog
     - UMCPush
     - UMCSecurityPlugins
+    - UMCShare
 
 EXTERNAL SOURCES:
   CodePush:
@@ -444,8 +479,9 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   UMCPush: 1edd856027dcf905333effb4040ace5d236a7316
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 3a22712b33e8b79eb4df29b6abb8fbe0f51c0e84
+PODFILE CHECKSUM: 7d982a24187b545651be99cf3f9692f806daa76c
 
 COCOAPODS: 1.8.4
