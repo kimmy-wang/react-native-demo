@@ -27,7 +27,20 @@ import com.umeng.message.UTrack;
 import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.entity.UMessage;
+import com.umeng.socialize.PlatformConfig;
 import com.upcwangying.apps.rn.demo.umeng.UmengReactPackage;
+
+import static com.upcwangying.apps.rn.demo.constants.Constants.ALIPAY_APP_KEY;
+import static com.upcwangying.apps.rn.demo.constants.Constants.DINGTALK_APP_KEY;
+import static com.upcwangying.apps.rn.demo.constants.Constants.QQ_APP_KEY;
+import static com.upcwangying.apps.rn.demo.constants.Constants.QQ_APP_SECRET;
+import static com.upcwangying.apps.rn.demo.constants.Constants.SINA_APP_KEY;
+import static com.upcwangying.apps.rn.demo.constants.Constants.SINA_APP_SECRET;
+import static com.upcwangying.apps.rn.demo.constants.Constants.SINA_APP_URL;
+import static com.upcwangying.apps.rn.demo.constants.Constants.UMENG_APP_KEY;
+import static com.upcwangying.apps.rn.demo.constants.Constants.UMENG_APP_SECRET;
+import static com.upcwangying.apps.rn.demo.constants.Constants.WEIXIN_APP_KEY;
+import static com.upcwangying.apps.rn.demo.constants.Constants.WEIXIN_APP_SECRET;
 
 public class MainApplication extends Application implements ReactApplication {
     private static final String TAG = MainApplication.class.getName();
@@ -78,8 +91,8 @@ public class MainApplication extends Application implements ReactApplication {
         initializeFlipper(this); // Remove this line if you don't want Flipper enabled
         UMConfigure.setLogEnabled(true);
         //初始化组件化基础库, 统计SDK/推送SDK/分享SDK都必须调用此初始化接口
-        UMConfigure.init(this, "5e6edd21167eddf91500014c", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
-                "d4e19dc14530902b463b40493c2425a8");
+        UMConfigure.init(this, UMENG_APP_KEY, "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
+                UMENG_APP_SECRET);
 
         // push
         initUpush();
@@ -205,5 +218,14 @@ public class MainApplication extends Application implements ReactApplication {
                 Log.e(TAG,"注册失败：-------->  " + "s:" + s + ",s1:" + s1);
             }
         });
+    }
+
+    {
+        PlatformConfig.setWeixin(WEIXIN_APP_KEY, WEIXIN_APP_SECRET);
+        //豆瓣RENREN平台目前只能在服务器端配置
+        PlatformConfig.setSinaWeibo(SINA_APP_KEY, SINA_APP_SECRET, SINA_APP_URL);
+        PlatformConfig.setQQZone(QQ_APP_KEY, QQ_APP_SECRET);
+        PlatformConfig.setAlipay(ALIPAY_APP_KEY);
+        PlatformConfig.setDing(DINGTALK_APP_KEY);
     }
 }

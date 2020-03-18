@@ -34,8 +34,12 @@ dependencies {
     implementation "com.facebook.react:react-native:+"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     api 'com.umeng.umsdk:common:2.0.0'
-    implementation 'com.umeng.umsdk:utdid:1.5.2'
+    api 'com.umeng.umsdk:utdid:1.5.2'
+
+    // umeng analytics
     api 'com.umeng.umsdk:analytics:8.0.0'
+
+    // umeng push
     api 'com.umeng.umsdk:push:6.0.5'
     api 'com.umeng.umsdk:alicloud-httpdns:1.2.5'
     api 'com.umeng.umsdk:alicloud-utils:1.1.5'
@@ -44,6 +48,19 @@ dependencies {
     api 'com.umeng.umsdk:agoo_networksdk:3.5.5'
     api 'com.umeng.umsdk:agoo_tlog:3.0.0.17'
     api 'com.umeng.umsdk:agoo_tnet4android:3.1.14.9'
+
+    // umeng share
+    api  'com.umeng.umsdk:share-core:6.9.4'
+    api  'com.umeng.umsdk:share-board:6.9.4'
+
+    api  'com.umeng.umsdk:share-qq:6.9.4'
+    api  'com.umeng.umsdk:share-wx:6.9.4'
+    api  'com.umeng.umsdk:share-sina:6.9.4'
+    api  'com.umeng.umsdk:share-alipay:6.9.4'
+    api  'com.umeng.umsdk:share-dingding:6.9.4'
+
+    api files('libs/libapshare20161108.jar')
+    api files('libs/libddshare.jar')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

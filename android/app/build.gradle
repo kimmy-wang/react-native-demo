@@ -137,6 +137,7 @@ android {
         versionName "1.0.0"
         multiDexEnabled true
         missingDimensionStrategy 'react-native-camera', 'general'
+        manifestPlaceholders = ['qqappid': '1110270923']
     }
     dexOptions {
         jumboMode true  // This for string limit
