@@ -10,10 +10,12 @@ import {
 
 import {RNCamera} from 'react-native-camera';
 
-const QrCode = () => {
+const QrCode = ({navigation}) => {
   const cameraRef = useRef(null);
   const [initial, setInitial] = useState(false);
   const [content, setContent] = useState('');
+  const [reconnect, setReconnect] = useState(false);
+  const [ws, setWs] = useState(null);
   const [moveAnim, setMoveAnim] = useState(new Animated.Value(0));
 
   const startAnimation = useCallback(() => {
@@ -25,16 +27,45 @@ const QrCode = () => {
     }).start(() => startAnimation());
   }, [setMoveAnim, moveAnim]);
 
+  const onSend = useCallback(data => ws && ws.send(data), [ws]);
+
+  const _handleWebSocketSetup = useCallback(() => {
+    const wss = new WebSocket('ws://192.168.200.10:8080/');
+    wss.onopen = () => {
+      console.log('[WebSocket Opened].');
+    };
+    wss.onmessage = event => {
+      console.log('[WebSocket Message]: ', event);
+    };
+    wss.onerror = error => {
+      console.error('[WebSocket Error]: ', error);
+    };
+    wss.onclose = () => {};
+    setWs(wss);
+  }, [setWs]);
+
   useEffect(() => {
     if (!initial) {
       startAnimation();
       setInitial(true);
+      setReconnect(!!reconnect);
+      _handleWebSocketSetup();
     }
-  }, [startAnimation, initial]);
+
+    return () => {
+      setReconnect(false);
+      ws && ws.close();
+    };
+  }, [startAnimation, _handleWebSocketSetup, initial, reconnect, ws]);
 
   const onBarCodeRead = result => {
     const {data} = result;
     setContent(data);
+    onSend(data);
+    navigation &&
+      navigation.push('QrCodeResult', {
+        content,
+      });
   };
 
   return (
@@ -55,7 +86,6 @@ const QrCode = () => {
               <Text style={styles.rectangleText}>
                 将二维码放入框内，即可自动扫描
               </Text>
-              <Text style={styles.rectangleText}>扫码内容: {content}</Text>
             </View>
           </RNCamera>
         </View>

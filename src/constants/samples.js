@@ -1,5 +1,6 @@
 import Gallery from '../pages/Samples/Gallery';
 import QrCode from '../pages/Samples/QrCode';
+import QrCodeResult from '../pages/Samples/QrCode/QrCodeResult';
 import Video from '../pages/Samples/Video';
 import AMap from '../pages/Samples/AMap';
 import TopTab from '../pages/Samples/TopTab';
@@ -21,6 +22,15 @@ export default [
     description: 'Scan QR code Demo',
     routeName: 'QrCode',
     component: QrCode,
+    children: [
+      {
+        id: '21',
+        title: '扫码结果',
+        description: '扫码结果',
+        routeName: 'QrCodeResult',
+        component: QrCodeResult,
+      },
+    ],
   },
   {
     id: '3',

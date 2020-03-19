@@ -61,13 +61,26 @@ const App = () => {
         }}
         component={BottomTabNavigator}
       />
-      {samples.map(sample => (
-        <SN.Screen
-          name={sample.routeName}
-          options={{title: sample.title}}
-          component={sample.component}
-        />
-      ))}
+      {samples.map(sample => {
+        const parent = (
+          <SN.Screen
+            name={sample.routeName}
+            options={{title: sample.title}}
+            component={sample.component}
+          />
+        );
+        return !sample.children
+          ? parent
+          : [parent].concat(
+              sample.children.map(child => (
+                <SN.Screen
+                  name={child.routeName}
+                  options={{title: child.title}}
+                  component={child.component}
+                />
+              )),
+            );
+      })}
       {settings.map(setting => (
         <SN.Screen
           name={setting.routeName}
