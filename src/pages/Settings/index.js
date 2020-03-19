@@ -11,9 +11,12 @@ import SettingItem from '../../components/SettingItem';
 import settings from '../../constants/settings';
 
 const Settings = ({navigation}) => {
-  const onSelect = useCallback(routeName => {
-    navigation && navigation.navigate(routeName);
-  });
+  const onSelect = useCallback(
+    routeName => {
+      navigation && navigation.navigate(routeName);
+    },
+    [navigation],
+  );
 
   return (
     <>
