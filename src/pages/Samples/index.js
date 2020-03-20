@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, FlatList} from 'react-native';
 
 import AnalyticsUtil from '../../utils/native/AnalyticsUtil';
@@ -13,14 +13,6 @@ const Samples = ({navigation}) => {
     },
     [navigation],
   );
-
-  useEffect(() => {
-    console.log('[Samples]: updated');
-
-    return () => {
-      console.log('[Samples]: destroyed');
-    };
-  });
 
   return (
     <>

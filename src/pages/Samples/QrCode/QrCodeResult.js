@@ -8,11 +8,12 @@ import {
 } from 'react-native';
 
 const QrCodeResult = ({route, navigation}) => {
-  const {content} = route.params;
+  const {content, resetShow} = route.params;
 
   const onLoginConfirm = () => {};
 
   const onGoBack = () => {
+    resetShow && resetShow();
     navigation && navigation.goBack();
   };
 

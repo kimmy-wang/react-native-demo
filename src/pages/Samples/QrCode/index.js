@@ -1,32 +1,41 @@
-import React, {useEffect, useCallback, useState, useRef} from 'react';
+import React, {useEffect, useCallback, useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
   Text,
   View,
-  Button,
+  Image,
+  Alert,
   Animated,
+  Vibration,
   Easing,
+  Platform,
+  Dimensions,
 } from 'react-native';
 
 import {RNCamera} from 'react-native-camera';
 
 const QrCode = ({navigation}) => {
-  const cameraRef = useRef(null);
   const [initial, setInitial] = useState(false);
   const [content, setContent] = useState('');
-  const [reconnect, setReconnect] = useState(false);
   const [ws, setWs] = useState(null);
-  const [moveAnim, setMoveAnim] = useState(new Animated.Value(0));
+  const [show, setShow] = useState(true);
+  const [moveAnim] = useState(new Animated.Value(0));
 
   const startAnimation = useCallback(() => {
-    setMoveAnim(0);
-    Animated.timing(moveAnim, {
-      toValue: -200,
-      duration: 1500,
-      easing: Easing.linear,
-    }).start(() => startAnimation());
-  }, [setMoveAnim, moveAnim]);
+    if (show) {
+      moveAnim.setValue(0);
+      Animated.timing(moveAnim, {
+        toValue: 1,
+        duration: 2000,
+        easing: Easing.linear,
+      }).start(startAnimation);
+    }
+  }, [moveAnim, show]);
+
+  const resetShow = useCallback(() => {
+    setShow(true);
+  }, []);
 
   const onSend = useCallback(data => ws && ws.send(data), [ws]);
 
@@ -49,95 +58,193 @@ const QrCode = ({navigation}) => {
     if (!initial) {
       startAnimation();
       setInitial(true);
-      setReconnect(!!reconnect);
       _handleWebSocketSetup();
     }
 
     return () => {
-      setReconnect(false);
+      console.log('[ QrCode ] destroy.');
+      setShow(false);
       ws && ws.close();
     };
-  }, [startAnimation, _handleWebSocketSetup, initial, reconnect, ws]);
+  }, []);
 
   const onBarCodeRead = result => {
-    const {data} = result;
-    setContent(data);
-    onSend(data);
-    navigation &&
-      navigation.push('QrCodeResult', {
-        content,
-      });
+    console.log('show', show, result);
+    if (show) {
+      setShow(false);
+      if (result) {
+        const {data} = result;
+        // Vibration.vibrate([0, 500], false);
+        setContent(data);
+        onSend(data);
+        navigation &&
+          navigation.push('QrCodeResult', {
+            content: data,
+            resetShow,
+          });
+      } else {
+        Alert.alert(
+          '提示',
+          '扫描失败，请将手机对准二维码重新尝试',
+          [
+            {
+              text: '确定',
+              onPress: () => {
+                setShow(true);
+              },
+            },
+          ],
+          {cancelable: false},
+        );
+      }
+    }
   };
 
   const onPress = () => {
     navigation &&
       navigation.push('QrCodeResult', {
         content,
+        resetShow,
       });
   };
 
+  const scanView =
+    Platform.OS === 'ios' ? (
+      <RNCamera
+        style={styles.preview}
+        type={RNCamera.Constants.Type.back}
+        barCodeTypes={[RNCamera.Constants.BarCodeType.qr]}
+        flashMode={RNCamera.Constants.FlashMode.auto}
+        onBarCodeRead={onBarCodeRead}>
+        <View
+          style={{
+            height: (height - 264) / 3,
+            width: width,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+          }}
+        />
+        <View style={{flexDirection: 'row'}}>
+          <View style={styles.itemStyle} />
+          <View style={styles.rectangle}>
+            <Image
+              style={[
+                styles.rectangle,
+                {position: 'absolute', left: 0, top: 0},
+              ]}
+              source={require('../../../assets/images/icon_scan_rect.png')}
+            />
+            <Animated.View
+              style={[
+                styles.animatedStyle,
+                {
+                  transform: [
+                    {
+                      translateY: moveAnim.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0, 200],
+                      }),
+                    },
+                  ],
+                },
+              ]}
+            />
+          </View>
+          <View style={styles.itemStyle} />
+        </View>
+        <View style={styles.textContainerStyle}>
+          <Text style={styles.textStyle}>将二维码放入框内，即可自动扫描</Text>
+        </View>
+      </RNCamera>
+    ) : (
+      <RNCamera
+        style={styles.preview}
+        type={RNCamera.Constants.Type.back}
+        googleVisionBarcodeType={
+          RNCamera.Constants.GoogleVisionBarcodeDetection.BarcodeType.QR_CODE
+        }
+        flashMode={RNCamera.Constants.FlashMode.auto}
+        onBarCodeRead={onBarCodeRead}>
+        <View
+          style={{
+            height: (height - 244) / 3,
+            width: width,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+          }}
+        />
+        <View style={{flexDirection: 'row'}}>
+          <View style={styles.itemStyle} />
+          <View style={styles.rectangle}>
+            <Image
+              style={[
+                styles.rectangle,
+                {position: 'absolute', left: 0, top: 0},
+              ]}
+              source={require('../../../assets/images/icon_scan_rect.png')}
+            />
+            <Animated.View
+              style={[
+                styles.animatedStyle,
+                {
+                  transform: [
+                    {
+                      translateY: moveAnim.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [0, 200],
+                      }),
+                    },
+                  ],
+                },
+              ]}
+            />
+          </View>
+          <View style={styles.itemStyle} />
+        </View>
+        <View style={styles.textContainerStyle}>
+          <Text style={styles.textStyle}>将二维码放入框内，即可自动扫描</Text>
+        </View>
+      </RNCamera>
+    );
+
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.cameraWrapper}>
-          <RNCamera
-            ref={cameraRef}
-            style={styles.camera}
-            type={RNCamera.Constants.Type.back}
-            flashMode={RNCamera.Constants.FlashMode.on}
-            onBarCodeRead={onBarCodeRead}>
-            <View style={styles.rectangleContainer}>
-              <View style={styles.rectangle} />
-              <Animated.View
-                style={[styles.border, {transform: [{translateY: moveAnim}]}]}
-              />
-              <Text style={styles.rectangleText}>
-                将二维码放入框内，即可自动扫描
-              </Text>
-              <Button title="测试" onPress={onPress} />
-            </View>
-          </RNCamera>
-        </View>
-      </SafeAreaView>
+      <SafeAreaView style={styles.container}>{scanView}</SafeAreaView>
     </>
   );
 };
 
+const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  cameraWrapper: {
-    backgroundColor: '#F3F3F3',
+  preview: {
+    flex: 1,
   },
-  camera: {
-    height: '100%',
-    // justifyContent: 'flex-end',
+  itemStyle: {
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    width: (width - 200) / 2,
+    height: 200,
+  },
+  textContainerStyle: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: width,
     alignItems: 'center',
   },
-  rectangleContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
+  textStyle: {
+    color: '#fff',
+    marginTop: 20,
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  animatedStyle: {
+    height: 2,
+    backgroundColor: '#00c050',
   },
   rectangle: {
     height: 200,
     width: 200,
-    marginTop: '35%',
-    borderWidth: 1,
-    borderColor: '#999',
-    backgroundColor: 'transparent',
-  },
-  rectangleText: {
-    flex: 0,
-    color: 'white',
-    marginTop: 10,
-  },
-  border: {
-    flex: 0,
-    width: 200,
-    height: 2,
-    backgroundColor: 'red',
   },
 });
 
