@@ -22,6 +22,8 @@
     "release-react:android:prod": "code-push release-react ReactNativeDemo-Android android --t 1.0.0  --dev false -d Production",
     "release": "node ./scripts/release.js",
     "release-react": "node ./scripts/release-react.js",
+    "release:apk": "cd android && ./gradlew assembleRelease && cd ..",
+    "release:apk:install": "react-native run-android --variant=release",
     "test": "jest",
     "lint": "eslint ."
   },
