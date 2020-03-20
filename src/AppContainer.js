@@ -23,7 +23,7 @@ const BottomTabNavigator = () => {
       IconComponent,
     } = tab;
     const options = {
-      title: title,
+      title,
       tabBarIcon: ({focused, color, size}) => {
         const props = {
           name: focused ? activeIcon : inactiveIcon,
@@ -56,7 +56,7 @@ const App = () => {
           return {
             title:
               (route && route.state && bottomTabs[route.state.index].title) ||
-              '',
+              bottomTabs[0].title,
           };
         }}
         component={BottomTabNavigator}
