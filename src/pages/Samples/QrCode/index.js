@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Button,
   Animated,
   Easing,
 } from 'react-native';
@@ -68,6 +69,13 @@ const QrCode = ({navigation}) => {
       });
   };
 
+  const onPress = () => {
+    navigation &&
+      navigation.push('QrCodeResult', {
+        content,
+      });
+  };
+
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -86,6 +94,7 @@ const QrCode = ({navigation}) => {
               <Text style={styles.rectangleText}>
                 将二维码放入框内，即可自动扫描
               </Text>
+              <Button title="测试" onPress={onPress} />
             </View>
           </RNCamera>
         </View>

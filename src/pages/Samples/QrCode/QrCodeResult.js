@@ -1,13 +1,39 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-const QrCodeResult = ({route}) => {
+const QrCodeResult = ({route, navigation}) => {
   const {content} = route.params;
+
+  const onLoginConfirm = () => {};
+
+  const onGoBack = () => {
+    navigation && navigation.goBack();
+  };
+
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <View style={styles.cameraWrapper}>
-          <Text>扫码内容: {content}</Text>
+        <View style={styles.contentWrapper}>
+          <Text style={styles.title}>扫码内容</Text>
+          <Text style={styles.content}>{content}</Text>
+        </View>
+        <View style={styles.btnWrapper}>
+          <TouchableOpacity
+            style={[styles.btn, styles.confirm]}
+            onPress={onLoginConfirm}>
+            <Text style={styles.text}>确认登陆</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.btn, styles.cancel]}
+            onPress={onGoBack}>
+            <Text style={styles.text}>取消</Text>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </>
@@ -17,37 +43,41 @@ const QrCodeResult = ({route}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  cameraWrapper: {
     backgroundColor: '#F3F3F3',
+    justifyContent: 'space-between',
   },
-  camera: {
-    height: '100%',
+  contentWrapper: {
+    paddingTop: '15%',
+    width: '90%',
     alignItems: 'center',
   },
-  rectangleContainer: {
+  title: {
+    fontSize: 20,
+    fontWeight: '400',
+  },
+  content: {
+    marginTop: 40,
+  },
+  btnWrapper: {
+    height: 100,
+    marginBottom: '30%',
     alignItems: 'center',
+  },
+  btn: {
+    height: 36,
+    width: '90%',
+    marginBottom: 36,
     justifyContent: 'center',
-    backgroundColor: 'transparent',
+    alignItems: 'center',
   },
-  rectangle: {
-    height: 200,
-    width: 200,
-    marginTop: '35%',
-    borderWidth: 1,
-    borderColor: '#999',
-    backgroundColor: 'transparent',
+  confirm: {
+    backgroundColor: 'blue',
   },
-  rectangleText: {
-    flex: 0,
+  cancel: {
+    backgroundColor: 'gray',
+  },
+  text: {
     color: 'white',
-    marginTop: 10,
-  },
-  border: {
-    flex: 0,
-    width: 200,
-    height: 2,
-    backgroundColor: 'red',
   },
 });
 
