@@ -7,6 +7,7 @@ import TopTab from '../pages/Samples/TopTab';
 import Contacts from '../pages/Samples/Contacts';
 import Notification from '../pages/Samples/Notification';
 import Share from '../pages/Samples/Share';
+import Animated from '../pages/Samples/Animated';
 
 export default [
   {
@@ -73,5 +74,12 @@ export default [
     description: 'Share Demo',
     routeName: 'Share',
     component: Share,
+  },
+  {
+    id: '9',
+    title: '动画示例',
+    description: 'Animated Demo',
+    routeName: 'Animated',
+    component: Animated,
   },
 ];
