@@ -1,7 +1,16 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+
+import {
+  useDarkModeContext,
+  DynamicStyleSheet,
+  DynamicValue,
+} from 'react-native-dark-mode';
 
 const AMap = () => {
+  const mode = useDarkModeContext();
+  const styles = dynamicStyleSheet[mode];
+
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -17,22 +26,23 @@ const AMap = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   scrollView: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   body: {
-    backgroundColor: 'white',
+    backgroundColor: new DynamicValue('white', 'black'),
     paddingTop: 24,
   },
   sectionTitle: {
     paddingTop: 24,
     fontSize: 24,
     fontWeight: '600',
-    color: 'black',
+    color: new DynamicValue('black', 'white'),
     textAlign: 'center',
   },
 });

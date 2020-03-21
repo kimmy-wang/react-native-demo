@@ -1,11 +1,20 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {
+  useDarkMode,
+  useDarkModeContext,
+  DynamicStyleSheet,
+  DynamicValue,
+} from 'react-native-dark-mode';
 
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabPage = ({description}) => {
+  const mode = useDarkModeContext();
+  const styles = dynamicStyleSheet[mode];
+
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -22,6 +31,8 @@ const TopTabPage = ({description}) => {
 };
 
 const TopTab = () => {
+  const isDarkMode = useDarkMode();
+
   const TopTabs = () => {
     let topTabs = [];
     for (let i = 0, size = 7; i < size; i++) {
@@ -41,7 +52,7 @@ const TopTab = () => {
     <Tab.Navigator
       tabBarOptions={{
         scrollEnabled: true,
-        labelStyle: {fontSize: 12},
+        labelStyle: {fontSize: 12, color: isDarkMode ? '#222' : 'white'},
         style: {backgroundColor: 'powderblue'},
         indicatorStyle: {backgroundColor: 'blue'},
       }}>
@@ -50,22 +61,23 @@ const TopTab = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   scrollView: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   body: {
-    backgroundColor: 'white',
+    backgroundColor: new DynamicValue('white', 'black'),
     paddingTop: 24,
   },
   sectionTitle: {
     paddingTop: 24,
     fontSize: 24,
     fontWeight: '600',
-    color: 'black',
+    color: new DynamicValue('black', 'white'),
     textAlign: 'center',
   },
 });

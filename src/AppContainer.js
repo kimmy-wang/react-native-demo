@@ -1,9 +1,10 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
+import {useDarkMode} from 'react-native-dark-mode';
 
 import samples from './constants/samples';
 import settings from './constants/settings';
@@ -13,6 +14,7 @@ const Tab = createBottomTabNavigator();
 const SN = createStackNavigator();
 
 const BottomTabNavigator = () => {
+  const isDarkMode = useDarkMode();
   const tabScreen = bottomTabs.map(tab => {
     const {
       name,
@@ -39,8 +41,8 @@ const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: 'tomato',
-        inactiveTintColor: 'gray',
+        activeTintColor: 'rgb(0, 122, 255)',
+        inactiveTintColor: isDarkMode ? '#f7f7f7' : '#999',
       }}>
       {tabScreen}
     </Tab.Navigator>
@@ -93,8 +95,21 @@ const App = () => {
 };
 
 const AppContainer = () => {
+  const isDarkMode = useDarkMode();
+  const darkColors = {
+    primary: 'rgb(0, 122, 255)',
+    background: 'rgb(28, 28, 30)',
+    text: 'rgb(255, 255, 255)',
+    card: 'rgb(28, 28, 30)',
+    border: '#999',
+  };
+  const theme = {
+    ...DefaultTheme,
+    dark: isDarkMode,
+    colors: isDarkMode ? darkColors : DefaultTheme.colors,
+  };
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       <App />
     </NavigationContainer>
   );

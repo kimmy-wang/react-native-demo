@@ -2,13 +2,17 @@ import React, {useState, useEffect, useCallback, useRef} from 'react';
 import {
   SafeAreaView,
   View,
-  StyleSheet,
   Platform,
   StatusBar,
   BackHandler,
   Dimensions,
 } from 'react-native';
 
+import {
+  useDarkModeContext,
+  DynamicStyleSheet,
+  DynamicValue,
+} from 'react-native-dark-mode';
 import {WebView} from 'react-native-webview';
 import LottieView from 'lottie-react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
@@ -17,6 +21,8 @@ const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
 const CWebView = () => {
+  const mode = useDarkModeContext();
+  const styles = dynamicStyleSheet[mode];
   const webViewRef = useRef(null);
   const [initial, setInitial] = useState(false);
   const [canGoBack, setGoBack] = useState(false);
@@ -80,9 +86,10 @@ const CWebView = () => {
 };
 
 const LOADING_SIZE = 80;
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   webViewLoadingContainer: {
     position: 'absolute',

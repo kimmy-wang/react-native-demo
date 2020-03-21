@@ -7,11 +7,16 @@ import {
   Text,
   TouchableWithoutFeedback,
   StatusBar,
-  StyleSheet,
   Platform,
   Dimensions,
 } from 'react-native';
 
+import {
+  useDarkMode,
+  useDarkModeContext,
+  DynamicStyleSheet,
+  DynamicValue,
+} from 'react-native-dark-mode';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import sectionListGetItemLayout from 'react-native-section-list-get-item-layout';
 import LottieView from 'lottie-react-native';
@@ -20,6 +25,9 @@ const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
 const Contacts = () => {
+  const isDarkMode = useDarkMode();
+  const mode = useDarkModeContext();
+  const styles = dynamicStyleSheet[mode];
   const sectionListRef = useRef(null);
   const [initial, setInitial] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -150,7 +158,17 @@ const Contacts = () => {
         <View
           hitSlop={{top: 4, bottom: 4, left: 4, right: 4}}
           style={styles.touchBarItem}>
-          <Text style={[{color: index === currentIndex ? 'blue' : 'white'}]}>
+          <Text
+            style={[
+              {
+                color:
+                  index === currentIndex
+                    ? 'rgb(0, 122, 255)'
+                    : isDarkMode
+                    ? 'black'
+                    : 'white',
+              },
+            ]}>
             {title}
           </Text>
         </View>
@@ -197,12 +215,13 @@ const Contacts = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   scrollView: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   loading: {
     width: 80,
@@ -214,14 +233,14 @@ const styles = StyleSheet.create({
     height: 80,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   listFooter: {
     height: 80,
     marginTop: 26,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   listHeaderFooter: {
     fontSize: 24,
@@ -231,20 +250,21 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     fontSize: 18,
     justifyContent: 'center',
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('#F3F3F3', '#999'),
   },
   sectionItem: {
     height: 50,
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: new DynamicValue('white', 'black'),
     padding: 10,
   },
   sectionItemSeparator: {
     height: 1,
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('#F3F3F3', '#999'),
   },
   title: {
     fontSize: 20,
+    color: new DynamicValue('black', 'white'),
   },
   touchBar: {
     position: 'absolute',
@@ -264,7 +284,7 @@ const styles = StyleSheet.create({
   },
   touchBarItemSeparator: {
     height: 1,
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('#F3F3F3', '#999'),
   },
 });
 

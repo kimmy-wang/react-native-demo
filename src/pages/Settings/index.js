@@ -1,16 +1,19 @@
 import React, {useCallback} from 'react';
+import {SafeAreaView, ScrollView, FlatList, StatusBar} from 'react-native';
+
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  FlatList,
-  StatusBar,
-} from 'react-native';
+  useDarkModeContext,
+  DynamicStyleSheet,
+  DynamicValue,
+} from 'react-native-dark-mode';
 
 import SettingItem from '../../components/SettingItem';
 import settings from '../../constants/settings';
 
 const Settings = ({navigation}) => {
+  const mode = useDarkModeContext();
+  const styles = dynamicStyleSheet[mode];
+
   const onSelect = useCallback(
     routeName => {
       navigation && navigation.navigate(routeName);
@@ -42,12 +45,13 @@ const Settings = ({navigation}) => {
   );
 };
 
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   scrollView: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('#F3F3F3', 'black'),
   },
 });
 

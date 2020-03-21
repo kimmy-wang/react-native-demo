@@ -1,9 +1,18 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Button, View} from 'react-native';
+import {SafeAreaView, ScrollView, Button, View} from 'react-native';
+
+import {
+  useDarkModeContext,
+  DynamicStyleSheet,
+  DynamicValue,
+} from 'react-native-dark-mode';
 
 import ShareUtil from '../../utils/native/ShareUtil';
 
 const Share = () => {
+  const mode = useDarkModeContext();
+  const styles = dynamicStyleSheet[mode];
+
   const onPressShare = () => {
     ShareUtil.shareboard(
       '这是一条分享测试',
@@ -30,22 +39,23 @@ const Share = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   scrollView: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   body: {
-    backgroundColor: 'white',
+    backgroundColor: new DynamicValue('white', 'black'),
     paddingTop: 24,
   },
   sectionTitle: {
     paddingTop: 24,
     fontSize: 24,
     fontWeight: '600',
-    color: 'black',
+    color: new DynamicValue('white', 'black'),
     textAlign: 'center',
   },
 });

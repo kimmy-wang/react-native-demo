@@ -1,13 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Image,
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   TouchableWithoutFeedback,
 } from 'react-native';
 
+import {
+  useDarkModeContext,
+  DynamicStyleSheet,
+  DynamicValue,
+} from 'react-native-dark-mode';
 import ImagePicker from 'react-native-image-picker';
 
 //图片选择器参数设置
@@ -21,16 +25,16 @@ const options = {
     path: 'images',
   },
 };
+
+const lightModeLogo = require('../../assets/images/add.png');
+const darkModeLogo = require('../../assets/images/add_dark.png');
+const modeUri = new DynamicValue(lightModeLogo, darkModeLogo);
+
 const Gallery = () => {
+  const mode = useDarkModeContext();
+  const styles = dynamicStyleSheet[mode];
+  const modeSource = modeUri[mode];
   const [imageUrl, setImageUrl] = useState('');
-
-  useEffect(() => {
-    console.log('[Gallery]: updated');
-
-    return () => {
-      console.log('[Gallery]: destroyed');
-    };
-  });
 
   const choosePic = () => {
     ImagePicker.showImagePicker(options, response => {
@@ -52,7 +56,7 @@ const Gallery = () => {
       <View style={styles.defaultImageWrapper}>
         <Image
           resizeMode="contain"
-          source={require('../../assets/images/add.png')}
+          source={modeSource}
           style={styles.defaultImage}
         />
       </View>
@@ -84,15 +88,16 @@ const Gallery = () => {
   );
 };
 
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   scrollView: {
-    backgroundColor: '#F3F3F3',
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   body: {
-    backgroundColor: 'white',
+    backgroundColor: new DynamicValue('white', 'black'),
     paddingVertical: 24,
   },
   defaultImageWrapper: {
