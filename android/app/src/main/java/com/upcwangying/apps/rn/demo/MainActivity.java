@@ -63,7 +63,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "ReactNativeGalleryDemo";
+        return "ReactNativeDemo";
     }
 
     @Override

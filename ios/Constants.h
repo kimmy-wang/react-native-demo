@@ -1,6 +1,6 @@
 //
 //  Contacts.h
-//  ReactNativeGalleryDemo
+//  ReactNativeDemo
 //
 //  Created by Ying Wang on 2020/3/16.
 //  Copyright © 2020 Facebook. All rights reserved.

@@ -27,27 +27,27 @@
   /*  umeng setting start  */
   [UMCommonLogManager setUpUMCommonLogManager];
   [UMConfigure setLogEnabled:YES];
-  
+
   /* Umeng init */
   [MobClick setScenarioType:E_UM_NORMAL];
   [RNUMConfigure initWithAppkey:UM_AppKey channel:UM_ChannelId];
-  
+
   // U-Share 平台设置
   [self confitUShareSettings];
   [self configUSharePlatforms];
-  
+
   /* Push功能配置 start */
   UMessageRegisterEntity * entity = [[UMessageRegisterEntity alloc] init];
   //type是对推送的几个参数的选择，可以选择一个或者多个。默认是三个全部打开，即：声音，弹窗，角标
   entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert|UMessageAuthorizationOptionSound;
-  
+
   //如果你期望使用交互式(只有iOS 8.0及以上有)的通知，请参考下面注释部分的初始化代码
   if (([[[UIDevice currentDevice] systemVersion]intValue]>=8)&&([[[UIDevice currentDevice] systemVersion]intValue]<10)) {
     UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
     action1.identifier = @"action1_identifier";
     action1.title=@"打开应用";
     action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
-    
+
     UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
     action2.identifier = @"action2_identifier";
     action2.title=@"忽略";
@@ -64,7 +64,7 @@
   if ([[[UIDevice currentDevice] systemVersion]intValue]>=10) {
     UNNotificationAction *action1_ios10 = [UNNotificationAction actionWithIdentifier:@"action1_identifier" title:@"打开应用" options:UNNotificationActionOptionForeground];
     UNNotificationAction *action2_ios10 = [UNNotificationAction actionWithIdentifier:@"action2_identifier" title:@"忽略" options:UNNotificationActionOptionForeground];
-    
+
     //UNNotificationCategoryOptionNone
     //UNNotificationCategoryOptionCustomDismissAction  清除通知被触发会走通知的代理方法
     //UNNotificationCategoryOptionAllowInCarPlay       适用于行车模式
@@ -79,16 +79,16 @@
     }
   }];
   /* Push功能配置 start */
-  
+
   /*  umeng setting end  */
-  
+
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"ReactNativeGalleryDemo"
+                                                   moduleName:@"ReactNativeDemo"
                                             initialProperties:nil];
-  
+
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-  
+
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
@@ -184,12 +184,12 @@
 {
   /* 设置微信的appKey和appSecret */
   [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wxdc1e388c3822c80b" appSecret:@"3baf1193c85774b3fd9d18447d76cab0" redirectURL:@"http://mobile.umeng.com/social"];
-  
+
   /*设置小程序回调app的回调*/
   //    [[UMSocialManager defaultManager] setLauchFromPlatform:(UMSocialPlatformType_WechatSession) completion:^(id userInfoResponse, NSError *error) {
   //        NSLog(@"setLauchFromPlatform:userInfoResponse:%@",userInfoResponse);
   //    }];
-  
+
   /*
    * 移除相应平台的分享，如微信收藏
    */
@@ -198,16 +198,16 @@
    * U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
    */
   [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:AppKey_QQ/*设置QQ平台的appID*/  appSecret:nil redirectURL:nil];
-  
+
   /* 设置新浪的appKey和appSecret */
   [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:AppKey_WB  appSecret:AppSecret_WB redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
-  
+
   /* 支付宝的appKey */
   [[UMSocialManager defaultManager] setPlaform: UMSocialPlatformType_AlipaySession appKey:AppKey_Alipay appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
-  
+
   /* 钉钉的appKey */
   [[UMSocialManager defaultManager] setPlaform: UMSocialPlatformType_DingDing appKey:AppKey_Dingtalk appSecret:nil redirectURL:nil];
-  
+
 }
 
 //#define __IPHONE_10_0    100000
