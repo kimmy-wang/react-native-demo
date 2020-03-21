@@ -72,6 +72,7 @@ const CWebView = () => {
     <>
       <SafeAreaView style={styles.container}>
         <WebView
+          style={styles.webview}
           ref={webViewRef}
           originWhitelist={['*']}
           source={{uri: 'https://reactnative.cn'}}
@@ -89,6 +90,9 @@ const LOADING_SIZE = 80;
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
+  },
+  webview: {
     backgroundColor: new DynamicValue('white', 'black'),
   },
   webViewLoadingContainer: {
