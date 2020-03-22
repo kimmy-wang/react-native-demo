@@ -4,21 +4,21 @@ import About from '../pages/Settings/About';
 
 export default [
   {
-    id: '1',
+    id: 1,
     title: 'CodePush示例',
     description: 'CodePush Demo',
     routeName: 'CodePush',
     component: CodePush,
   },
   {
-    id: '2',
+    id: 2,
     title: '底部Tab栏',
     description: '底部Tab栏',
     routeName: 'BottomTabSetting',
     component: BottomTab,
   },
   {
-    id: '3',
+    id: 3,
     title: '关于',
     description: 'About',
     routeName: 'About',

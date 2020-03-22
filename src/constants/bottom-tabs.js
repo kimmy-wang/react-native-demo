@@ -7,6 +7,7 @@ import Settings from '../pages/Settings';
 
 export default [
   {
+    key: 0,
     name: 'Samples',
     title: '示例',
     activeIcon: 'appstore1',
@@ -15,6 +16,7 @@ export default [
     IconComponent: AntDesign,
   },
   {
+    key: 1,
     name: 'WebView',
     title: '网页',
     activeIcon: 'network',
@@ -23,6 +25,7 @@ export default [
     IconComponent: MaterialCommunityIcons,
   },
   {
+    key: 2,
     name: 'Settings',
     title: '设置',
     activeIcon: 'settings',
