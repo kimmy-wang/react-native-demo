@@ -86,7 +86,7 @@ const App = () => {
       {settings.map(setting => (
         <SN.Screen
           name={setting.routeName}
-          options={{title: setting.title}}
+          options={{title: setting.title, headerShown: !setting.hiddenHeader}}
           component={setting.component}
         />
       ))}

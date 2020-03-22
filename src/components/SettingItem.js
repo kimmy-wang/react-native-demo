@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 
 import {
   useDarkModeContext,
@@ -15,7 +15,6 @@ const SettingItem = ({title, description, onPress}) => {
     <TouchableOpacity onPress={() => onPress && onPress()} style={styles.item}>
       <View style={styles.sectionContainer}>
         <Text style={styles.sectionTitle}>{title}</Text>
-        <Text style={styles.sectionDescription}>{description}</Text>
         <AntDesign style={styles.right} name="right" />
       </View>
     </TouchableOpacity>
@@ -28,25 +27,18 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     marginHorizontal: 6,
   },
   sectionContainer: {
-    height: 60,
+    flexDirection: 'row',
+    height: 48,
     backgroundColor: new DynamicValue('white', '#222'),
-    paddingVertical: 8,
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '600',
     color: new DynamicValue('black', 'white'),
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 14,
-    color: new DynamicValue('gray', '#f0f0f0'),
-  },
   right: {
-    position: 'absolute',
-    top: 20,
-    right: 10,
     fontSize: 20,
     color: '#999',
   },
