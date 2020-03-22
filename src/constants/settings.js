@@ -1,5 +1,6 @@
 import CodePush from '../pages/Settings/CodePush';
 import BottomTab from '../pages/Settings/BottomTab';
+import BottomTab2 from '../pages/Settings/BottomTab2';
 import About from '../pages/Settings/About';
 
 export default [
@@ -19,6 +20,13 @@ export default [
   },
   {
     id: 3,
+    title: '底部Tab栏2',
+    description: '底部Tab栏2',
+    routeName: 'BottomTabSetting2',
+    component: BottomTab2,
+  },
+  {
+    id: 4,
     title: '关于',
     description: 'About',
     routeName: 'About',

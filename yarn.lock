@@ -5954,6 +5954,11 @@ react-native-dark-mode@^0.2.2:
     events "^3.0.0"
     toolkit.ts "^0.0.2"
 
+react-native-drag-sort@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-drag-sort/-/react-native-drag-sort-2.1.0.tgz#b66c935510daec66290141a3c67e4072c4b2306b"
+  integrity sha512-EfvGlV4gKf2pKNQwxRUq9MPzzWsQ5d6X8cANLjRjOOMDul/oh4qaPd0Om5Hf8bcE1cwFXjfMR5QhekAg4u9Thg==
+
 react-native-draggable-flatlist@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/react-native-draggable-flatlist/-/react-native-draggable-flatlist-2.3.1.tgz#a9fccefbd01afcc0bb953972f90a928d9ce625de"
