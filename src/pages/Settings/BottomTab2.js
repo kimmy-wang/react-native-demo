@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, SafeAreaView, Dimensions} from 'react-native';
 
+import {useDispatch, useSelector} from 'react-redux';
 import {
   DynamicStyleSheet,
   DynamicValue,
@@ -8,18 +9,21 @@ import {
 } from 'react-native-dark-mode';
 import {AutoDragSortableView} from 'react-native-drag-sort';
 
-import settingConstants from '../../constants/bottom-tabs';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {changeBottomTabs} from '../../store/action-creators';
 
 const BottomTab2 = () => {
   const mode = useDarkModeContext();
+  const dispatch = useDispatch();
   const styles = dynamicStyleSheet[mode];
   const [currentDragItemIndex, setCurrentDragItemIndex] = useState(-1);
-  const [settings, setSettings] = useState(settingConstants);
+  const bottomTabs = useSelector(state => state.bottomTabs);
 
-  const onDataChange = data => {
-    if (data.length !== settings.length) {
-      setSettings(data);
+  const onDataChange = datas => {
+    const currentIndexStr = datas.map(data => data.key).join(',');
+    const preIndexStr = bottomTabs.map(data => data.key).join(',');
+    if (currentIndexStr !== preIndexStr) {
+      dispatch(changeBottomTabs(datas));
     }
   };
 
@@ -34,7 +38,7 @@ const BottomTab2 = () => {
   return (
     <SafeAreaView style={styles.container}>
       <AutoDragSortableView
-        dataSource={settings}
+        dataSource={bottomTabs}
         childrenWidth={childrenWidth}
         marginChildrenBottom={MARGIN}
         marginChildrenRight={MARGIN}

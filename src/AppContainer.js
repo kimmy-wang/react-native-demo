@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 
+import {useSelector} from 'react-redux';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -8,13 +9,13 @@ import {useDarkMode} from 'react-native-dark-mode';
 
 import samples from './constants/samples';
 import settings from './constants/settings';
-import bottomTabs from './constants/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 const SN = createStackNavigator();
 
 const BottomTabNavigator = () => {
   const isDarkMode = useDarkMode();
+  const bottomTabs = useSelector(state => state.bottomTabs);
   const tabScreen = bottomTabs.map(tab => {
     const {
       name,
@@ -50,6 +51,7 @@ const BottomTabNavigator = () => {
 };
 
 const App = () => {
+  const bottomTabs = useSelector(state => state.bottomTabs);
   return (
     <SN.Navigator>
       <SN.Screen
