@@ -374,7 +374,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     borderTopLeftRadius: 12,
     borderTopRightRadius: 12,
     overflow: 'hidden',
-    backgroundColor: 'white',
+    backgroundColor: new DynamicValue('white', 'black'),
   },
   hurdle: {
     flexDirection: 'row',
@@ -383,7 +383,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     marginTop: 20,
   },
   hurdle_title: {
-    color: '#333',
+    color: new DynamicValue('#333', '#f0f0f0'),
     fontSize: 18,
     marginLeft: 15,
   },
