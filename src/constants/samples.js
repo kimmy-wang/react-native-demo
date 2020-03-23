@@ -4,6 +4,7 @@ import QrCodeResult from '../pages/Samples/QrCode/QrCodeResult';
 import Video from '../pages/Samples/Video';
 import AMap from '../pages/Samples/AMap';
 import TopTab from '../pages/Samples/TopTab';
+import EditableTopTab from '../pages/Samples/EditableTopTab';
 import Contacts from '../pages/Samples/Contacts';
 import Notification from '../pages/Samples/Notification';
 import Share from '../pages/Samples/Share';
@@ -11,21 +12,21 @@ import Animated from '../pages/Samples/Animated';
 
 export default [
   {
-    id: '1',
+    id: 0,
     title: '相册示例',
     description: 'Gallery Demo',
     routeName: 'Gallery',
     component: Gallery,
   },
   {
-    id: '2',
+    id: 5,
     title: '扫码示例',
     description: 'Scan QR code Demo',
     routeName: 'QrCode',
     component: QrCode,
     children: [
       {
-        id: '21',
+        id: 200,
         title: '扫码结果',
         description: '扫码结果',
         routeName: 'QrCodeResult',
@@ -34,49 +35,56 @@ export default [
     ],
   },
   {
-    id: '3',
+    id: 10,
     title: '视频示例',
     description: 'Video Demo',
     routeName: 'Video',
     component: Video,
   },
   {
-    id: '4',
+    id: 15,
     title: '地图示例',
     description: 'Map Demo',
     routeName: 'AMap',
     component: AMap,
   },
   {
-    id: '5',
+    id: 20,
     title: '顶部Tab页示例',
     description: 'TopTab Demo',
     routeName: 'TopTab',
     component: TopTab,
   },
   {
-    id: '6',
+    id: 25,
+    title: '可编辑顶部Tab页示例',
+    description: 'EditableTopTab Demo',
+    routeName: 'EditableTopTab',
+    component: EditableTopTab,
+  },
+  {
+    id: 30,
     title: '通讯录示例',
     description: 'Contacts Demo',
     routeName: 'Contacts',
     component: Contacts,
   },
   {
-    id: '7',
+    id: 35,
     title: '通知推送示例',
     description: 'Notification Demo',
     routeName: 'Notification',
     component: Notification,
   },
   {
-    id: '8',
+    id: 40,
     title: '分享示例',
     description: 'Share Demo',
     routeName: 'Share',
     component: Share,
   },
   {
-    id: '9',
+    id: 45,
     title: '动画示例',
     description: 'Animated Demo',
     routeName: 'Animated',
