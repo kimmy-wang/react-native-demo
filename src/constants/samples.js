@@ -2,6 +2,7 @@ import Gallery from '../pages/Samples/Gallery';
 import QrCode from '../pages/Samples/QrCode';
 import QrCodeResult from '../pages/Samples/QrCode/QrCodeResult';
 import Video from '../pages/Samples/Video';
+import ProductCategory from '../pages/Samples/ProductCategory';
 import AMap from '../pages/Samples/AMap';
 import TopTab from '../pages/Samples/TopTab';
 import EditableTopTab from '../pages/Samples/EditableTopTab';
@@ -43,10 +44,10 @@ export default [
   },
   {
     id: 15,
-    title: '地图示例',
-    description: 'Map Demo',
-    routeName: 'AMap',
-    component: AMap,
+    title: '商品类别示例',
+    description: 'ProductCategory Demo',
+    routeName: 'ProductCategory',
+    component: ProductCategory,
   },
   {
     id: 20,
@@ -89,5 +90,12 @@ export default [
     description: 'Animated Demo',
     routeName: 'Animated',
     component: Animated,
+  },
+  {
+    id: 50,
+    title: '地图示例',
+    description: 'Map Demo',
+    routeName: 'AMap',
+    component: AMap,
   },
 ];
