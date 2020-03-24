@@ -9,6 +9,7 @@ import {useDarkMode} from 'react-native-dark-mode';
 
 import samples from './constants/samples';
 import settings from './constants/settings';
+import AppIntro from './AppIntro';
 
 const Tab = createBottomTabNavigator();
 const SN = createStackNavigator();
@@ -54,6 +55,11 @@ const App = () => {
   const bottomTabs = useSelector(state => state.bottomTabs);
   return (
     <SN.Navigator>
+      <SN.Screen
+        name="AppIntro"
+        component={AppIntro}
+        options={{headerShown: false}}
+      />
       <SN.Screen
         name="BottomTabNavigator"
         options={({route, navigation}) => {
