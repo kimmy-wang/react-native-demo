@@ -2,6 +2,7 @@ import Gallery from '../pages/Samples/Gallery';
 import QrCode from '../pages/Samples/QrCode';
 import QrCodeResult from '../pages/Samples/QrCode/QrCodeResult';
 import Video from '../pages/Samples/Video';
+import Table from '../pages/Samples/Table';
 import Swiper from '../pages/Samples/Swiper';
 import AMap from '../pages/Samples/AMap';
 import TopTab from '../pages/Samples/TopTab';
@@ -41,6 +42,13 @@ export default [
     description: 'Video Demo',
     routeName: 'Video',
     component: Video,
+  },
+  {
+    id: 13,
+    title: '表格示例',
+    description: 'Table Demo',
+    routeName: 'Table',
+    component: Table,
   },
   {
     id: 15,
