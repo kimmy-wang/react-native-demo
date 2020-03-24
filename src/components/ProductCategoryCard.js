@@ -1,7 +1,16 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, Image} from 'react-native';
+
+import {
+  useDarkModeContext,
+  DynamicStyleSheet,
+  DynamicValue,
+} from 'react-native-dark-mode';
 
 const ProductCategoryCard = ({count = 9}) => {
+  const mode = useDarkModeContext();
+  const styles = dynamicStyleSheet[mode];
+
   const Product = ({title}) => {
     return (
       <View style={styles.productContainer}>
@@ -23,7 +32,7 @@ const ProductCategoryCard = ({count = 9}) => {
       <View style={styles.topContainer}>
         <View style={styles.line} />
         <View style={styles.titleContainer}>
-          <Text>小米数字系列</Text>
+          <Text style={styles.title}>小米数字系列</Text>
         </View>
         <View style={styles.line} />
       </View>
@@ -32,7 +41,7 @@ const ProductCategoryCard = ({count = 9}) => {
   );
 };
 
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
     alignItems: 'center',
@@ -40,15 +49,20 @@ const styles = StyleSheet.create({
   topContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: 12,
   },
   line: {
     height: 1,
     width: 24,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: new DynamicValue('#f0f0f0', '#999'),
   },
   titleContainer: {
     paddingHorizontal: 24,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: new DynamicValue('black', 'white'),
   },
   productsContainer: {
     width: '100%',
@@ -69,7 +83,8 @@ const styles = StyleSheet.create({
     height: 70,
   },
   productName: {
-    marginTop: 16,
+    marginTop: 20,
+    color: new DynamicValue('black', 'white'),
   },
 });
 
