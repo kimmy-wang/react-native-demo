@@ -14,6 +14,7 @@ import {
   DynamicValue,
 } from 'react-native-dark-mode';
 
+import ProductCategoryCard from '../../components/ProductCategoryCard';
 import productCategories from '../../constants/product-category';
 
 const ProductCategory = () => {
@@ -85,13 +86,18 @@ const ProductCategory = () => {
     );
   };
 
+  const renderProductCategoryCards = ({item, index}) => {
+    const count = Math.floor(Math.random() * 9) + 1;
+    return <ProductCategoryCard count={count} />;
+  };
+
   const onProductsEndReached = ({distanceFromEnd}) => {
     console.log(distanceFromEnd);
     // currentCategoryIndex < productCategories.length - 1 &&
     //   onCategoryItemClick(currentCategoryIndex + 1);
   };
 
-  const products = [...Array(20 + currentCategoryIndex)].map((d, index) => ({
+  const products = [...Array(10 + currentCategoryIndex)].map((d, index) => ({
     id: index + 1, // For example only -- don't use index as your key!
     label: `category ${currentCategoryIndex}, Product ${index + 1}`,
   }));
@@ -115,7 +121,7 @@ const ProductCategory = () => {
             showsVerticalScrollIndicator={false}
             onEndReachedThreshold={0.1}
             data={products}
-            renderItem={renderItem2}
+            renderItem={renderProductCategoryCards}
             onEndReached={onProductsEndReached}
           />
         </View>
