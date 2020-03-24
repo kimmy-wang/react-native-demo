@@ -2,6 +2,7 @@ import Gallery from '../pages/Samples/Gallery';
 import QrCode from '../pages/Samples/QrCode';
 import QrCodeResult from '../pages/Samples/QrCode/QrCodeResult';
 import Video from '../pages/Samples/Video';
+import Swiper from '../pages/Samples/Swiper';
 import AMap from '../pages/Samples/AMap';
 import TopTab from '../pages/Samples/TopTab';
 import EditableTopTab from '../pages/Samples/EditableTopTab';
@@ -40,6 +41,13 @@ export default [
     description: 'Video Demo',
     routeName: 'Video',
     component: Video,
+  },
+  {
+    id: 15,
+    title: '滑块视图示例',
+    description: 'Swiper Demo',
+    routeName: 'Swiper',
+    component: Swiper,
   },
   {
     id: 20,
