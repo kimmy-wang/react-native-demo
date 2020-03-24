@@ -5,6 +5,7 @@ import {BOTTOM_TAB_CHANGED, EDITABLE_TOP_TAB_CHANGED} from './action-types';
 import Samples from '../pages/Samples';
 import WebView from '../pages/WebView';
 import Settings from '../pages/Settings';
+import ProductCategory from '../pages/ProductCategory';
 
 const TOP_TAB_LENGTH = 20;
 const exampleData = [...Array(TOP_TAB_LENGTH)].map((d, index) => ({
@@ -26,7 +27,16 @@ const defaultState = {
       IconComponent: AntDesign,
     },
     {
-      key: 1,
+      key: 10,
+      name: 'ProductCategory',
+      title: '分类',
+      activeIcon: 'search1',
+      inactiveIcon: 'search1',
+      component: ProductCategory,
+      IconComponent: AntDesign,
+    },
+    {
+      key: 20,
       name: 'WebView',
       title: '网页',
       activeIcon: 'network',
@@ -35,7 +45,7 @@ const defaultState = {
       IconComponent: MaterialCommunityIcons,
     },
     {
-      key: 2,
+      key: 30,
       name: 'Settings',
       title: '设置',
       activeIcon: 'settings',
