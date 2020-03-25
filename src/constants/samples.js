@@ -1,6 +1,7 @@
 import Gallery from '../pages/Samples/Gallery';
 import QrCode from '../pages/Samples/QrCode';
 import Fingerprint from '../pages/Samples/Fingerprint';
+import Nfc from '../pages/Samples/Nfc';
 import QrCodeResult from '../pages/Samples/QrCode/QrCodeResult';
 import Video from '../pages/Samples/Video';
 import Table from '../pages/Samples/Table';
@@ -43,6 +44,13 @@ export default [
     description: 'Fingerprint Demo',
     routeName: 'Fingerprint',
     component: Fingerprint,
+  },
+  {
+    id: 9,
+    title: '近场通信示例',
+    description: 'NFC Demo',
+    routeName: 'Nfc',
+    component: Nfc,
   },
   {
     id: 10,

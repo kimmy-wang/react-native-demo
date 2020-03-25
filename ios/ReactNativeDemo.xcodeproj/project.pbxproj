@@ -20,6 +20,7 @@
 		2E3079C8241F77940074EF5D /* RNUMConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3079C3241F77940074EF5D /* RNUMConfigure.m */; };
 		2E3079C9241F77940074EF5D /* UMAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E3079C4241F77940074EF5D /* UMAnalyticsModule.m */; };
 		2E3079CA241F80A60074EF5D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8A2CEC241F6B9000E3FABD /* UserNotifications.framework */; };
+		2E44D550242B39A4005D6D5B /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E44D54F242B39A4005D6D5B /* CoreNFC.framework */; };
 		2E6A6BC9241B81D5004A2D1D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6BC8241B81D5004A2D1D /* File.swift */; };
 		2ECF4204241CE0F1004BAD15 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4202241CE0F1004BAD15 /* assets */; };
 		2ECF4205241CE0F1004BAD15 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4203241CE0F1004BAD15 /* main.jsbundle */; };
@@ -85,6 +86,7 @@
 		2E3079C4241F77940074EF5D /* UMAnalyticsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMAnalyticsModule.m; sourceTree = "<group>"; };
 		2E3079C5241F77940074EF5D /* UMPushModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMPushModule.h; sourceTree = "<group>"; };
 		2E3079C6241F77940074EF5D /* RNUMConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNUMConfigure.h; sourceTree = "<group>"; };
+		2E44D54F242B39A4005D6D5B /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		2E6A6BC5241B8161004A2D1D /* ReactNativeDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		2E6A6BC8241B81D5004A2D1D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		2E8A2CEB241F69F100E3FABD /* ReactNativeDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ReactNativeDemo.entitlements; path = ReactNativeDemo/ReactNativeDemo.entitlements; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E44D550242B39A4005D6D5B /* CoreNFC.framework in Frameworks */,
 				2E3079CA241F80A60074EF5D /* UserNotifications.framework in Frameworks */,
 				C7F260C908D23EEA6C87B5C0 /* libPods-ReactNativeDemo.a in Frameworks */,
 			);
@@ -185,6 +188,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E44D54F242B39A4005D6D5B /* CoreNFC.framework */,
 				2E8A2CEC241F6B9000E3FABD /* UserNotifications.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
@@ -779,7 +783,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ReactNativeDemo/ReactNativeDemo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ying Wang (227WU938V5)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ying Wang (227WU938V5)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;

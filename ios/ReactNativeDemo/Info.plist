@@ -126,6 +126,8 @@
 	<string>$(PRODUCT_NAME) would like access to your photo gallery</string>
 	<key>NSFaceIDUsageDescription</key>
     <string>$(PRODUCT_NAME) requires FaceID access to allows you quick and secure access.</string>
+    <key>NFCReaderUsageDescription</key>
+    <string>$(PRODUCT_NAME) requires NFC access to read Nfc tag info.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
