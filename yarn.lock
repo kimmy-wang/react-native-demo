@@ -6000,6 +6000,11 @@ react-native-draggable-flatlist@^2.3.1:
   resolved "https://registry.yarnpkg.com/react-native-draggable-flatlist/-/react-native-draggable-flatlist-2.3.1.tgz#a9fccefbd01afcc0bb953972f90a928d9ce625de"
   integrity sha512-2ZFi2HyXTeVwOf24bw1KVGICwRBAgFSjU7FpL0BTPP2ZSHTCgD++50+CLDg751ZUbJzVGx/J80R8ScFe53vnoQ==
 
+react-native-fingerprint-scanner@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-fingerprint-scanner/-/react-native-fingerprint-scanner-4.0.0.tgz#e091c7f13b7504c4ed7efc825cc138001b4b6d87"
+  integrity sha512-VVSFGZbdVoWhR1YlFBtSjhr4keWY1cbGi0PN4naNqtTiic4zHZPQ85iKsGG0sqN7o4dVHx9VXkrx5n75S0TM5Q==
+
 react-native-gesture-handler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.6.0.tgz#e9a4e1d0c7ac21eb0d6b6ec013e73f9c0c33a629"

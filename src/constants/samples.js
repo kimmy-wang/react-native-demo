@@ -1,5 +1,6 @@
 import Gallery from '../pages/Samples/Gallery';
 import QrCode from '../pages/Samples/QrCode';
+import Fingerprint from '../pages/Samples/Fingerprint';
 import QrCodeResult from '../pages/Samples/QrCode/QrCodeResult';
 import Video from '../pages/Samples/Video';
 import Table from '../pages/Samples/Table';
@@ -35,6 +36,13 @@ export default [
         component: QrCodeResult,
       },
     ],
+  },
+  {
+    id: 8,
+    title: '生物认证示例',
+    description: 'Fingerprint Demo',
+    routeName: 'Fingerprint',
+    component: Fingerprint,
   },
   {
     id: 10,
