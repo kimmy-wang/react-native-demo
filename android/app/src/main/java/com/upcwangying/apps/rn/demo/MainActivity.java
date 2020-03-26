@@ -2,6 +2,7 @@ package com.upcwangying.apps.rn.demo;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import com.facebook.react.ReactActivity;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.PushAgent;
 import com.umeng.socialize.UMShareAPI;
+import com.zoontek.rnbootsplash.RNBootSplash;
 import com.upcwangying.apps.rn.demo.umeng.PushModule;
 import com.upcwangying.apps.rn.demo.umeng.ShareModule;
 
@@ -17,6 +19,10 @@ public class MainActivity extends ReactActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int drawableId = (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+                ? R.drawable.splash_dark
+                : R.drawable.splash_light;
+        RNBootSplash.init(drawableId, MainActivity.this);
         PushModule.initPushSDK(this);
         ShareModule.initSocialSDK(this);
         PushAgent.getInstance(this).onAppStart();

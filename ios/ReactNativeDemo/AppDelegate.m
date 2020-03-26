@@ -18,6 +18,7 @@
 #import <UMShare/UMShare.h>
 #include <arpa/inet.h>
 #import "Constants.h"
+#import "RNBootSplash.h"
 
 
 @implementation AppDelegate
@@ -92,6 +93,7 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
+  [RNBootSplash initWithStoryboard:@"LaunchScreen" rootView:rootView]; // <- initialization using the storyboard file name
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;

@@ -39,6 +39,7 @@
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-app-intro-slider": "^3.0.0",
+    "react-native-bootsplash": "^2.1.0",
     "react-native-camera": "^3.19.1",
     "react-native-code-push": "^6.1.0",
     "react-native-dark-mode": "^0.2.2",

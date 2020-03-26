@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
+import RNBootSplash from 'react-native-bootsplash';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -32,6 +33,15 @@ const slides = [
 ];
 
 const AppIntro = ({navigation}) => {
+  const init = async () => {
+    // …do multiple async tasks
+  };
+  useEffect(() => {
+    init().finally(() => {
+      RNBootSplash.hide({duration: 250});
+    });
+  }, []);
+
   const _renderItem = ({item, dimensions}) => (
     <LinearGradient
       style={[
