@@ -17,6 +17,8 @@ import {WebView} from 'react-native-webview';
 import LottieView from 'lottie-react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 
+import {whiteColor, blackColor} from '../../constants/colors';
+
 const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
@@ -90,10 +92,10 @@ const LOADING_SIZE = 80;
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   webview: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   webViewLoadingContainer: {
     position: 'absolute',

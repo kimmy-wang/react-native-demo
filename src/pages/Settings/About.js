@@ -19,6 +19,13 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 
+import {
+  whiteColor,
+  blackColor,
+  primaryColor,
+  borderColor,
+} from '../../constants/colors';
+
 const DATA = [
   'https://upcwangying.com',
   'https://github.com/upcwangying',
@@ -88,7 +95,7 @@ const About = ({route: {name, params}, navigation}) => {
       <TouchableWithoutFeedback onPress={goBack}>
         <AntDesign
           name="left"
-          style={[styles.headerIcon, {color: 'rgb(0, 122, 255)'}]}
+          style={[styles.headerIcon, {color: primaryColor}]}
         />
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback onPress={goBack}>
@@ -102,7 +109,7 @@ const About = ({route: {name, params}, navigation}) => {
       data={DATA}
       renderItem={({item}) => (
         <View key={item} style={styles.row}>
-          <Hyperlink linkDefault={true}>
+          <Hyperlink linkDefault={true} linkStyle={{color: primaryColor}}>
             <Text style={styles.rowText}>{item}</Text>
           </Hyperlink>
         </View>
@@ -110,7 +117,7 @@ const About = ({route: {name, params}, navigation}) => {
       style={styles.container}
       renderScrollComponent={props => (
         <ParallaxScrollView
-          contentBackgroundColor={isDarkMode ? 'black' : 'white'}
+          contentBackgroundColor={isDarkMode ? blackColor : whiteColor}
           headerBackgroundColor="#333"
           stickyHeaderHeight={STICKY_HEADER_HEIGHT}
           parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
@@ -138,7 +145,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
   },
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('black', 'white'),
+    backgroundColor: new DynamicValue(blackColor, whiteColor),
   },
   background: {
     position: 'absolute',
@@ -153,10 +160,10 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: STATUSBAR_HEIGHT,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   stickySectionText: {
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
     fontSize: 20,
     margin: 10,
   },
@@ -172,7 +179,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     paddingTop: STATUSBAR_HEIGHT,
   },
   headerIcon: {
-    color: '#999',
+    color: borderColor,
     fontSize: 26,
     marginHorizontal: 8,
   },
@@ -187,12 +194,12 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     borderRadius: AVATAR_SIZE / 2,
   },
   title: {
-    color: new DynamicValue('white', 'black'),
+    color: new DynamicValue(whiteColor, blackColor),
     fontSize: 24,
     paddingVertical: 5,
   },
   description: {
-    color: new DynamicValue('white', 'black'),
+    color: new DynamicValue(whiteColor, blackColor),
     fontSize: 18,
     paddingVertical: 5,
   },
@@ -200,14 +207,14 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     overflow: 'hidden',
     paddingHorizontal: 10,
     height: ROW_HEIGHT,
-    backgroundColor: new DynamicValue('white', 'black'),
-    borderColor: '#999',
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
+    borderColor: borderColor,
     borderBottomWidth: 1,
     justifyContent: 'center',
   },
   rowText: {
     fontSize: 20,
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
   },
 });
 

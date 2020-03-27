@@ -7,6 +7,8 @@ import {
   DynamicValue,
 } from 'react-native-dark-mode';
 
+import {whiteColor, blackColor} from '../../constants/colors';
+
 const Video = () => {
   const mode = useDarkModeContext();
   const styles = dynamicStyleSheet[mode];
@@ -29,20 +31,20 @@ const Video = () => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   scrollView: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   body: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
     paddingTop: 24,
   },
   sectionTitle: {
     paddingTop: 24,
     fontSize: 24,
     fontWeight: '600',
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
     textAlign: 'center',
   },
 });

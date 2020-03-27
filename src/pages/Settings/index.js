@@ -7,6 +7,7 @@ import {
   DynamicValue,
 } from 'react-native-dark-mode';
 
+import {whiteColor, blackColor} from '../../constants/colors';
 import SettingItem from '../../components/SettingItem';
 import settings from '../../constants/settings';
 
@@ -48,10 +49,10 @@ const Settings = ({navigation}) => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   scrollView: {
-    backgroundColor: new DynamicValue('#F3F3F3', 'black'),
+    backgroundColor: new DynamicValue('#F3F3F3', blackColor),
   },
 });
 

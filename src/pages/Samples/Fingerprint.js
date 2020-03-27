@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Alert,
@@ -18,6 +18,7 @@ import Modal from 'react-native-modal';
 import FingerprintScanner from 'react-native-fingerprint-scanner';
 
 import ShakingText from '../../components/ShakingText';
+import {whiteColor, blackColor} from '../../constants/colors';
 
 const Fingerprint = () => {
   const mode = useDarkModeContext();
@@ -131,7 +132,7 @@ const Fingerprint = () => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   legacyContainer: {
     position: 'absolute',
@@ -148,7 +149,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   logo: {
     marginVertical: 45,

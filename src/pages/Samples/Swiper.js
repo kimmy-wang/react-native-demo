@@ -8,6 +8,8 @@ import {
 } from 'react-native-dark-mode';
 import Swiper from 'react-native-swiper';
 
+import {whiteColor, blackColor} from '../../constants/colors';
+
 const SwiperPage = () => {
   const mode = useDarkModeContext();
   const styles = dynamicStyleSheet[mode];
@@ -59,7 +61,7 @@ const SwiperPage = () => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   scrollView: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   wrapper: {
     height: 200,
@@ -84,7 +86,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     backgroundColor: '#92BBD9',
   },
   text: {
-    color: '#fff',
+    color: whiteColor,
     fontSize: 30,
     fontWeight: 'bold',
   },

@@ -24,6 +24,7 @@ import {getStatusBarHeight} from 'react-native-status-bar-height';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {DragSortableView} from 'react-native-drag-sort';
 
+import {primaryColor} from '../../constants/colors';
 import {changeEditableTopTabs} from '../../store/action-creators';
 
 const {width, height} = Dimensions.get('window');
@@ -100,7 +101,7 @@ const EditableTopTab = () => {
             {
               color:
                 activePageIndex === index
-                  ? 'rgb(0, 122, 255)'
+                  ? primaryColor
                   : isDarkMode
                   ? 'white'
                   : 'black',

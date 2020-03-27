@@ -7,6 +7,8 @@ import {
   View,
 } from 'react-native';
 
+import {whiteColor} from '../../../constants/colors';
+
 const QrCodeResult = ({route, navigation}) => {
   const {content, resetShow} = route.params;
 
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
   text: {
-    color: 'white',
+    color: whiteColor,
   },
 });
 

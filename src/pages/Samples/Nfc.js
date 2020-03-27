@@ -9,6 +9,8 @@ import {
   DynamicValue,
 } from 'react-native-dark-mode';
 
+import {whiteColor, blackColor} from '../../constants/colors';
+
 const Nfc = () => {
   const mode = useDarkModeContext();
   const styles = dynamicStyleSheet[mode];
@@ -70,14 +72,14 @@ const Nfc = () => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   btn: {
     margin: 20,
   },
   text: {
     margin: 20,
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
   },
 });
 

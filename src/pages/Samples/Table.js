@@ -14,6 +14,8 @@ import {
   Rows,
 } from 'react-native-table-component';
 
+import {whiteColor, blackColor} from '../../constants/colors';
+
 const TablePage = () => {
   const mode = useDarkModeContext();
   const styles = dynamicStyleSheet[mode];
@@ -85,14 +87,30 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     flex: 1,
     padding: 16,
     paddingTop: 10,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
-  header: {height: 50, backgroundColor: '#537791'},
-  text: {textAlign: 'center', fontWeight: '100'},
-  wrapper: {flexDirection: 'row'},
-  dataWrapper: {marginTop: -1},
-  col: {flex: 1, backgroundColor: '#f0f0f0'},
-  row: {height: 40, backgroundColor: '#E7E6E1'},
+  header: {
+    height: 50,
+    backgroundColor: '#537791',
+  },
+  text: {
+    textAlign: 'center',
+    fontWeight: '100',
+  },
+  wrapper: {
+    flexDirection: 'row',
+  },
+  dataWrapper: {
+    marginTop: -1,
+  },
+  col: {
+    flex: 1,
+    backgroundColor: '#f0f0f0',
+  },
+  row: {
+    height: 40,
+    backgroundColor: '#E7E6E1',
+  },
 });
 
 export default TablePage;

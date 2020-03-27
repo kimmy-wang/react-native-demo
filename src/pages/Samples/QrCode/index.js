@@ -7,13 +7,14 @@ import {
   Image,
   Alert,
   Animated,
-  Vibration,
   Easing,
   Platform,
   Dimensions,
 } from 'react-native';
 
 import {RNCamera} from 'react-native-camera';
+
+import {whiteColor} from '../../../constants/colors';
 
 const QrCode = ({navigation}) => {
   const [initial, setInitial] = useState(false);
@@ -233,7 +234,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textStyle: {
-    color: '#fff',
+    color: whiteColor,
     marginTop: 20,
     fontWeight: 'bold',
     fontSize: 18,

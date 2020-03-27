@@ -14,6 +14,7 @@ import {
   DynamicValue,
 } from 'react-native-dark-mode';
 
+import {whiteColor, blackColor} from '../../constants/colors';
 import ProductCategoryCard from '../../components/ProductCategoryCard';
 import productCategories from '../../constants/product-category';
 
@@ -60,7 +61,7 @@ const ProductCategory = () => {
                     color: 'orange',
                   }
                 : {
-                    color: isDarkMode ? 'white' : 'black',
+                    color: isDarkMode ? whiteColor : blackColor,
                   },
             ]}>
             {item.label}
@@ -77,7 +78,7 @@ const ProductCategory = () => {
           <Text
             style={[
               styles.categoryItemContent,
-              {color: isDarkMode ? 'white' : 'black'},
+              {color: isDarkMode ? whiteColor : blackColor},
             ]}>
             {item.label}
           </Text>
@@ -137,7 +138,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
   },
   categoryContainer: {
     width: 120,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
     borderRightWidth: 1,
     borderRightColor: new DynamicValue('#f0f0f0', '#555'),
   },
@@ -152,7 +153,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
   },
   rightContainer: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
     paddingHorizontal: 8,
     paddingVertical: 10,
   },

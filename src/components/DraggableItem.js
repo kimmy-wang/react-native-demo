@@ -8,6 +8,13 @@ import {
 } from 'react-native-dark-mode';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import {
+  whiteColor,
+  blackColor,
+  primaryColor,
+  borderColor,
+} from '../constants/colors';
+
 const DraggableItem = ({item, index, drag, isActive}) => {
   const mode = useDarkModeContext();
   const styles = dynamicStyleSheet[mode];
@@ -18,7 +25,7 @@ const DraggableItem = ({item, index, drag, isActive}) => {
         style={[
           styles.right,
           {
-            color: isActive ? 'rgb(0, 122, 255)' : '#999',
+            color: isActive ? primaryColor : borderColor,
           },
         ]}
         name="menufold"
@@ -31,7 +38,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
   item: {
     height: 48,
     flexDirection: 'row',
-    backgroundColor: new DynamicValue('white', '#222'),
+    backgroundColor: new DynamicValue(whiteColor, '#222'),
     paddingHorizontal: 8,
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -40,11 +47,11 @@ const dynamicStyleSheet = new DynamicStyleSheet({
   },
   sectionTitle: {
     fontSize: 16,
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
   },
   right: {
     fontSize: 20,
-    color: '#999',
+    color: borderColor,
   },
 });
 

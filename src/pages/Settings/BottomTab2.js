@@ -8,8 +8,14 @@ import {
   useDarkModeContext,
 } from 'react-native-dark-mode';
 import {AutoDragSortableView} from 'react-native-drag-sort';
-
 import AntDesign from 'react-native-vector-icons/AntDesign';
+
+import {
+  whiteColor,
+  blackColor,
+  primaryColor,
+  borderColor,
+} from '../../constants/colors';
 import {changeBottomTabs} from '../../store/action-creators';
 
 const BottomTab2 = () => {
@@ -57,9 +63,7 @@ const BottomTab2 = () => {
                 styles.right,
                 {
                   color:
-                    index === currentDragItemIndex
-                      ? 'rgb(0, 122, 255)'
-                      : '#999',
+                    index === currentDragItemIndex ? primaryColor : borderColor,
                 },
               ]}
               name="menufold"
@@ -84,18 +88,18 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     height: childrenHeight,
     width: childrenWidth,
     flexDirection: 'row',
-    backgroundColor: new DynamicValue('white', '#222'),
+    backgroundColor: new DynamicValue(whiteColor, '#222'),
     paddingHorizontal: 8,
     justifyContent: 'space-between',
     alignItems: 'center',
   },
   sectionTitle: {
     fontSize: 16,
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
   },
   right: {
     fontSize: 20,
-    color: '#999',
+    color: borderColor,
   },
 });
 

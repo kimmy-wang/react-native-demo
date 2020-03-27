@@ -10,6 +10,7 @@ import {useDarkMode} from 'react-native-dark-mode';
 import samples from './constants/samples';
 import settings from './constants/settings';
 import AppIntro from './AppIntro';
+import {primaryColor} from './constants/colors';
 
 const Tab = createBottomTabNavigator();
 const SN = createStackNavigator();
@@ -43,7 +44,7 @@ const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: 'rgb(0, 122, 255)',
+        activeTintColor: primaryColor,
         inactiveTintColor: isDarkMode ? '#f7f7f7' : '#999',
       }}>
       {tabScreen}
@@ -108,7 +109,7 @@ const App = () => {
 const AppContainer = () => {
   const isDarkMode = useDarkMode();
   const darkColors = {
-    primary: 'rgb(0, 122, 255)',
+    primary: primaryColor,
     background: 'rgb(28, 28, 30)',
     text: 'rgb(255, 255, 255)',
     card: 'rgb(28, 28, 30)',

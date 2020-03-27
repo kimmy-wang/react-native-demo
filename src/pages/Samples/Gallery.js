@@ -14,6 +14,8 @@ import {
 } from 'react-native-dark-mode';
 import ImagePicker from 'react-native-image-picker';
 
+import {whiteColor, blackColor, borderColor} from '../../constants/colors';
+
 //图片选择器参数设置
 const options = {
   title: '请选择图片来源',
@@ -91,13 +93,13 @@ const Gallery = () => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   scrollView: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   body: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
     paddingVertical: 24,
   },
   defaultImageWrapper: {
@@ -108,7 +110,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     justifyContent: 'center',
     marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#999',
+    borderColor: borderColor,
     borderRadius: 4,
   },
   defaultImage: {

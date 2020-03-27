@@ -21,6 +21,8 @@ import {getStatusBarHeight} from 'react-native-status-bar-height';
 import sectionListGetItemLayout from 'react-native-section-list-get-item-layout';
 import LottieView from 'lottie-react-native';
 
+import {primaryColor} from '../../constants/colors';
+
 const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
@@ -163,7 +165,7 @@ const Contacts = () => {
               {
                 color:
                   index === currentIndex
-                    ? 'rgb(0, 122, 255)'
+                    ? primaryColor
                     : isDarkMode
                     ? 'black'
                     : 'white',

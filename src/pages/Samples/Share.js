@@ -7,6 +7,7 @@ import {
   DynamicValue,
 } from 'react-native-dark-mode';
 
+import {whiteColor, blackColor} from '../../constants/colors';
 import ShareUtil from '../../utils/native/ShareUtil';
 
 const Share = () => {
@@ -42,20 +43,20 @@ const Share = () => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   scrollView: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   body: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
     paddingTop: 24,
   },
   sectionTitle: {
     paddingTop: 24,
     fontSize: 24,
     fontWeight: '600',
-    color: new DynamicValue('white', 'black'),
+    color: new DynamicValue(whiteColor, blackColor),
     textAlign: 'center',
   },
 });

@@ -9,6 +9,8 @@ import {
   DynamicValue,
 } from 'react-native-dark-mode';
 
+import {whiteColor, blackColor} from '../../constants/colors';
+
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabPage = ({description}) => {
@@ -52,7 +54,7 @@ const TopTab = () => {
     <Tab.Navigator
       tabBarOptions={{
         scrollEnabled: true,
-        labelStyle: {fontSize: 12, color: isDarkMode ? '#222' : 'white'},
+        labelStyle: {fontSize: 12, color: isDarkMode ? '#222' : whiteColor},
         style: {backgroundColor: 'powderblue'},
         indicatorStyle: {backgroundColor: 'blue'},
       }}>
@@ -64,20 +66,20 @@ const TopTab = () => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   scrollView: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   body: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
     paddingTop: 24,
   },
   sectionTitle: {
     paddingTop: 24,
     fontSize: 24,
     fontWeight: '600',
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
     textAlign: 'center',
   },
 });

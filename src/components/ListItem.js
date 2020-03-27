@@ -8,6 +8,8 @@ import {
 } from 'react-native-dark-mode';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
+import {whiteColor, blackColor, borderColor} from '../constants/colors';
+
 const ListItem = ({title, description, onPress}) => {
   const mode = useDarkModeContext();
   const styles = dynamicStyleSheet[mode];
@@ -29,14 +31,14 @@ const dynamicStyleSheet = new DynamicStyleSheet({
   },
   sectionContainer: {
     height: 60,
-    backgroundColor: new DynamicValue('white', '#222'),
+    backgroundColor: new DynamicValue(whiteColor, '#222'),
     paddingVertical: 8,
     paddingHorizontal: 10,
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
   },
   sectionDescription: {
     marginTop: 8,
@@ -48,7 +50,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     top: 20,
     right: 10,
     fontSize: 20,
-    color: '#999',
+    color: borderColor,
   },
 });
 
