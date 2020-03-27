@@ -14,6 +14,7 @@ import {
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
+import Hyperlink from 'react-native-hyperlink';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
@@ -101,7 +102,9 @@ const About = ({route: {name, params}, navigation}) => {
       data={DATA}
       renderItem={({item}) => (
         <View key={item} style={styles.row}>
-          <Text style={styles.rowText}>{item}</Text>
+          <Hyperlink linkDefault={true}>
+            <Text style={styles.rowText}>{item}</Text>
+          </Hyperlink>
         </View>
       )}
       style={styles.container}

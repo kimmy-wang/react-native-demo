@@ -47,6 +47,7 @@
     "react-native-draggable-flatlist": "^2.3.1",
     "react-native-fingerprint-scanner": "^4.0.0",
     "react-native-gesture-handler": "^1.6.0",
+    "react-native-hyperlink": "^0.0.19",
     "react-native-image-picker": "2.3.1",
     "react-native-iphone-x-helper": "^1.2.1",
     "react-native-linear-gradient": "^2.5.6",
