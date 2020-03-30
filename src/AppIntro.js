@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 import RNBootSplash from 'react-native-bootsplash';
@@ -6,7 +6,7 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import LinearGradient from 'react-native-linear-gradient';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const slides = [
+const defaultSlides = [
   {
     key: 'somethun',
     title: 'Quick setup, good defaults',
@@ -23,24 +23,30 @@ const slides = [
     icon: 'ios-options',
     colors: ['#A3A1FF', '#3A3897'],
   },
-  {
-    key: 'somethun2',
-    title: 'No need to buy me beer',
-    text: 'Usage is all free',
-    icon: 'ios-beer',
-    colors: ['#29ABE2', '#4F00BC'],
-  },
 ];
 
 const AppIntro = ({navigation}) => {
+  const [slides, setSlides] = useState(defaultSlides);
   const init = async () => {
-    // …do multiple async tasks
+    console.log('[AppIntro] init...');
+    fetch('https://api.upcwangying.com/slides.json')
+      .then(response => response.json())
+      .then(resJson => {
+        console.log('[AppIntro] fetch success: ', resJson);
+        resJson && setSlides(resJson);
+      })
+      .catch(err => console.error('[AppIntro] fetch error: ', err));
   };
+
+  const [initial, setInitial] = useState(false);
   useEffect(() => {
-    init().finally(() => {
-      RNBootSplash.hide({duration: 250});
-    });
-  }, []);
+    if (!initial) {
+      init().finally(() => {
+        RNBootSplash.hide({duration: 250});
+      });
+      setInitial(true);
+    }
+  }, [initial]);
 
   const _renderItem = ({item, dimensions}) => (
     <LinearGradient
