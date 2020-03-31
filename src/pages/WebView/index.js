@@ -78,7 +78,6 @@ const CWebView = () => {
           ref={webViewRef}
           originWhitelist={['*']}
           source={{uri: 'https://reactnative.cn'}}
-          useWebKit={true}
           startInLoadingState={true}
           onNavigationStateChange={onNavigationStateChange}
           renderLoading={renderLoading}
