@@ -18,6 +18,7 @@ const DarkMode = () => {
         renderItem={({item}) => (
           <SettingItem
             title={item.title}
+            iconName={darkMode === item.value ? 'star' : 'staro'}
             onPress={() => dispatch(changeDarkMode(item.value))}
           />
         )}
