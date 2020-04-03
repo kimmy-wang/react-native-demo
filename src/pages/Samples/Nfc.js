@@ -4,7 +4,7 @@ import {View, Text, Button, Platform} from 'react-native';
 import NfcManager, {NfcTech} from 'react-native-nfc-manager';
 
 import {
-  useDarkModeContext,
+  useDynamicStyleSheet,
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
@@ -12,8 +12,7 @@ import {
 import {whiteColor, blackColor} from '../../constants/colors';
 
 const Nfc = () => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const [tag, setTag] = useState({});
   const [initialized, setInitialized] = useState(false);
 

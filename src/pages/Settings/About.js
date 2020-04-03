@@ -10,9 +10,9 @@ import {
 
 import {
   useDarkMode,
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import Hyperlink from 'react-native-hyperlink';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -42,8 +42,7 @@ const DATA = [
 
 const About = ({route: {name, params}, navigation}) => {
   const isDarkMode = useDarkMode();
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const goBack = () => {
     navigation && navigation.goBack();
   };

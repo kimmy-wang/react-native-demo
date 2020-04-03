@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
 import {
-  useDarkModeContext,
+  useDynamicStyleSheet,
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
@@ -11,8 +11,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {whiteColor, blackColor, borderColor} from '../constants/colors';
 
 const ListItem = ({title, description, onPress}) => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   return (
     <TouchableOpacity onPress={() => onPress && onPress()} style={styles.item}>
       <View style={styles.sectionContainer}>

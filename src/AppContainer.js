@@ -5,11 +5,16 @@ import {useSelector} from 'react-redux';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import {useDarkMode} from 'react-native-dark-mode';
+import {
+  useDarkMode,
+  useDarkModeContext,
+  DarkModeProvider,
+} from 'react-native-dark-mode';
 
 import samples from './constants/samples';
 import settings from './constants/settings';
 import bottomTabs1 from './constants/bottom-tabs';
+import {SYSTEM, DARK} from './constants/theme-modes';
 import AppIntro from './AppIntro';
 import {primaryColor} from './constants/colors';
 
@@ -104,7 +109,9 @@ const App = () => {
 };
 
 const AppContainer = () => {
-  const isDarkMode = useDarkMode();
+  const darkMode = useSelector(state => state.darkMode);
+  const systemMode = useDarkModeContext();
+  const mode = darkMode === SYSTEM ? systemMode : darkMode;
   const darkColors = {
     primary: primaryColor,
     background: 'rgb(28, 28, 30)',
@@ -114,13 +121,15 @@ const AppContainer = () => {
   };
   const theme = {
     ...DefaultTheme,
-    dark: isDarkMode,
-    colors: isDarkMode ? darkColors : DefaultTheme.colors,
+    dark: mode === DARK,
+    colors: mode === DARK ? darkColors : DefaultTheme.colors,
   };
   return (
-    <NavigationContainer theme={theme}>
-      <App />
-    </NavigationContainer>
+    <DarkModeProvider mode={mode}>
+      <NavigationContainer theme={theme}>
+        <App />
+      </NavigationContainer>
+    </DarkModeProvider>
   );
 };
 

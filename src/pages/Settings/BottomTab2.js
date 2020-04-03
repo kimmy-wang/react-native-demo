@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {
   DynamicStyleSheet,
   DynamicValue,
-  useDarkModeContext,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import {AutoDragSortableView} from 'react-native-drag-sort';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -19,9 +19,8 @@ import {
 import {changeBottomTabs} from '../../store/action-creators';
 
 const BottomTab2 = () => {
-  const mode = useDarkModeContext();
   const dispatch = useDispatch();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const [currentDragItemIndex, setCurrentDragItemIndex] = useState(-1);
   const bottomTabs = useSelector(state => state.bottomTabs);
 

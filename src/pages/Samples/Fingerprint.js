@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import {
-  useDarkModeContext,
+  useDynamicStyleSheet,
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
@@ -21,8 +21,7 @@ import ShakingText from '../../components/ShakingText';
 import {whiteColor, blackColor} from '../../constants/colors';
 
 const Fingerprint = () => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const [visible, setVisible] = useState(false);
   const [errorMessageLegacy, setErrorMessageLegacy] = useState(undefined);
   const [biometricLegacy, setBiometricLegacy] = useState(undefined);

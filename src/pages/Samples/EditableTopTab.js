@@ -14,9 +14,9 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 import {
   useDarkMode,
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import Modal from 'react-native-modal';
 import ViewPager from '@react-native-community/viewpager';
@@ -30,8 +30,7 @@ import {changeEditableTopTabs} from '../../store/action-creators';
 const {width, height} = Dimensions.get('window');
 
 const ViewPagerItem = ({key, label}) => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   return (
     <ScrollView
       key={key}
@@ -52,8 +51,7 @@ const sortWidth = width;
 const EditableTopTab = () => {
   const dispatch = useDispatch();
   const isDarkMode = useDarkMode();
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const flatRef = useRef(null);
   const viewPagerRef = useRef(null);
   const scrollViewRef = useRef(null);

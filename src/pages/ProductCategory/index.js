@@ -9,7 +9,7 @@ import {
 
 import {
   useDarkMode,
-  useDarkModeContext,
+  useDynamicStyleSheet,
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
@@ -20,8 +20,7 @@ import productCategories from '../../constants/product-category';
 
 const ProductCategory = () => {
   const isDarkMode = useDarkMode();
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const categoriesRef = useRef(null);
   const productsRef = useRef(null);
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);

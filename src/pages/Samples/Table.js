@@ -2,9 +2,9 @@ import React from 'react';
 import {View, ScrollView} from 'react-native';
 
 import {
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import {
   Table,
@@ -17,8 +17,7 @@ import {
 import {whiteColor, blackColor} from '../../constants/colors';
 
 const TablePage = () => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
 
   const tableHead = [
     '',

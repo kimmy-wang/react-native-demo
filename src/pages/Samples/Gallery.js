@@ -9,6 +9,7 @@ import {
 
 import {
   useDarkModeContext,
+  useDynamicStyleSheet,
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
@@ -34,7 +35,7 @@ const modeUri = new DynamicValue(lightModeLogo, darkModeLogo);
 
 const Gallery = () => {
   const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const modeSource = modeUri[mode];
   const [imageUrl, setImageUrl] = useState('');
 

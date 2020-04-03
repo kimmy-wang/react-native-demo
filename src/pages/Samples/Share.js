@@ -2,17 +2,16 @@ import React from 'react';
 import {SafeAreaView, ScrollView, Button, View} from 'react-native';
 
 import {
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 
 import {whiteColor, blackColor} from '../../constants/colors';
 import ShareUtil from '../../utils/native/ShareUtil';
 
 const Share = () => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
 
   const onPressShare = () => {
     ShareUtil.shareboard(

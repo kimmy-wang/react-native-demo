@@ -13,23 +13,22 @@ import {
 
 import {
   useDarkMode,
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 import sectionListGetItemLayout from 'react-native-section-list-get-item-layout';
 import LottieView from 'lottie-react-native';
 
-import {primaryColor} from '../../constants/colors';
+import {blackColor, primaryColor, whiteColor} from '../../constants/colors';
 
 const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
 const Contacts = () => {
   const isDarkMode = useDarkMode();
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const sectionListRef = useRef(null);
   const [initial, setInitial] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -220,10 +219,10 @@ const Contacts = () => {
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   scrollView: {
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   loading: {
     width: 80,
@@ -235,17 +234,18 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     height: 80,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   listFooter: {
     height: 80,
     marginTop: 26,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
   },
   listHeaderFooter: {
     fontSize: 24,
+    color: new DynamicValue(blackColor, whiteColor),
   },
   sectionHeader: {
     height: 26,
@@ -257,7 +257,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
   sectionItem: {
     height: 50,
     justifyContent: 'center',
-    backgroundColor: new DynamicValue('white', 'black'),
+    backgroundColor: new DynamicValue(whiteColor, blackColor),
     padding: 10,
   },
   sectionItemSeparator: {
@@ -266,7 +266,7 @@ const dynamicStyleSheet = new DynamicStyleSheet({
   },
   title: {
     fontSize: 20,
-    color: new DynamicValue('black', 'white'),
+    color: new DynamicValue(blackColor, whiteColor),
   },
   touchBar: {
     position: 'absolute',

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
 import {
-  useDarkModeContext,
+  useDynamicStyleSheet,
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
@@ -16,8 +16,7 @@ import {
 } from '../constants/colors';
 
 const DraggableItem = ({item, index, drag, isActive}) => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   return (
     <TouchableOpacity onLongPress={drag} style={styles.item}>
       <Text style={styles.sectionTitle}>{item.title}</Text>

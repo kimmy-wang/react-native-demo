@@ -9,9 +9,9 @@ import {
 } from 'react-native';
 
 import {
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import {WebView} from 'react-native-webview';
 import LottieView from 'lottie-react-native';
@@ -23,8 +23,7 @@ const STATUSBAR_HEIGHT =
   Platform.OS === 'ios' ? getStatusBarHeight(true) : StatusBar.currentHeight;
 
 const CWebView = () => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const webViewRef = useRef(null);
   const [initial, setInitial] = useState(false);
   const [canGoBack, setGoBack] = useState(false);

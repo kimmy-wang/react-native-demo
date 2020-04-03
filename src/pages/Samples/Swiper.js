@@ -2,17 +2,16 @@ import React from 'react';
 import {View, Text, ScrollView} from 'react-native';
 
 import {
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import Swiper from 'react-native-swiper';
 
 import {whiteColor, blackColor} from '../../constants/colors';
 
 const SwiperPage = () => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
 
   return (
     <ScrollView style={styles.scrollView}>

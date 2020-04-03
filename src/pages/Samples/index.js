@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {SafeAreaView, ScrollView, FlatList} from 'react-native';
 
 import {
-  useDarkModeContext,
+  useDynamicStyleSheet,
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
@@ -13,9 +13,7 @@ import ListItem from '../../components/ListItem';
 import samples from '../../constants/samples';
 
 const Samples = ({navigation}) => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
-
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const onSelect = useCallback(
     routeName => {
       navigation && navigation.navigate(routeName);

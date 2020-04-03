@@ -2,14 +2,13 @@ import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native';
 
 import {useSelector} from 'react-redux';
-import {DynamicStyleSheet, useDarkModeContext} from 'react-native-dark-mode';
+import {DynamicStyleSheet, useDynamicStyleSheet} from 'react-native-dark-mode';
 
 import DraggableFlatList from 'react-native-draggable-flatlist';
 import DraggableItem from '../../components/DraggableItem';
 
 const BottomTab = () => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const bottomTabs = useSelector(state => state.bottomTabs);
   const [settings, setSettings] = useState(bottomTabs);
 

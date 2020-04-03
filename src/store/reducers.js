@@ -1,4 +1,9 @@
-import {BOTTOM_TAB_CHANGED, EDITABLE_TOP_TAB_CHANGED} from './action-types';
+import {SYSTEM} from '../constants/theme-modes';
+import {
+  BOTTOM_TAB_CHANGED,
+  EDITABLE_TOP_TAB_CHANGED,
+  DARK_MODE_CHANGED,
+} from './action-types';
 
 const TOP_TAB_LENGTH = 20;
 const exampleData = [...Array(TOP_TAB_LENGTH)].map((d, index) => ({
@@ -40,6 +45,7 @@ const defaultState = {
     },
   ],
   editableTopTabs: exampleData,
+  darkMode: SYSTEM,
 };
 
 export default (state = defaultState, action) => {
@@ -53,6 +59,11 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         editableTopTabs: action.editableTopTabs,
+      };
+    case DARK_MODE_CHANGED:
+      return {
+        ...state,
+        darkMode: action.darkMode,
       };
     default:
       return state;

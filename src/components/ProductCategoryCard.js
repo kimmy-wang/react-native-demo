@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 
 import {
-  useDarkModeContext,
+  useDynamicStyleSheet,
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
@@ -10,8 +10,7 @@ import {
 import {whiteColor, blackColor, borderColor} from '../constants/colors';
 
 const ProductCategoryCard = ({count = 9}) => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
 
   const Product = ({title}) => {
     return (

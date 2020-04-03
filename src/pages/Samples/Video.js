@@ -2,16 +2,15 @@ import React from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 
 import {
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 
 import {whiteColor, blackColor} from '../../constants/colors';
 
 const Video = () => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
 
   return (
     <>

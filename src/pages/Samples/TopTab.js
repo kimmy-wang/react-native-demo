@@ -4,9 +4,9 @@ import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {
   useDarkMode,
-  useDarkModeContext,
   DynamicStyleSheet,
   DynamicValue,
+  useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 
 import {whiteColor, blackColor} from '../../constants/colors';
@@ -14,8 +14,7 @@ import {whiteColor, blackColor} from '../../constants/colors';
 const Tab = createMaterialTopTabNavigator();
 
 const TopTabPage = ({description}) => {
-  const mode = useDarkModeContext();
-  const styles = dynamicStyleSheet[mode];
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
 
   return (
     <>
