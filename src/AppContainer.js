@@ -9,6 +9,7 @@ import {useDarkMode} from 'react-native-dark-mode';
 
 import samples from './constants/samples';
 import settings from './constants/settings';
+import bottomTabs1 from './constants/bottom-tabs';
 import AppIntro from './AppIntro';
 import {primaryColor} from './constants/colors';
 
@@ -19,14 +20,9 @@ const BottomTabNavigator = () => {
   const isDarkMode = useDarkMode();
   const bottomTabs = useSelector(state => state.bottomTabs);
   const tabScreen = bottomTabs.map(tab => {
-    const {
-      name,
-      title,
-      activeIcon,
-      inactiveIcon,
-      component,
-      IconComponent,
-    } = tab;
+    const {name, title, activeIcon, inactiveIcon} = tab;
+    const Comp = bottomTabs1[name].Comp;
+    const IconComp = bottomTabs1[name].IconComp;
     const options = {
       title,
       tabBarIcon: ({focused, color, size}) => {
@@ -35,10 +31,11 @@ const BottomTabNavigator = () => {
           size,
           color,
         };
-        return <IconComponent {...props} />;
+
+        return <IconComp {...props} />;
       },
     };
-    return <Tab.Screen name={name} options={options} component={component} />;
+    return <Tab.Screen name={name} options={options} component={Comp} />;
   });
 
   return (
