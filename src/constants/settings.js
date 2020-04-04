@@ -2,6 +2,8 @@ import CodePush from '../pages/Settings/CodePush';
 import BottomTab from '../pages/Settings/BottomTab';
 import BottomTab2 from '../pages/Settings/BottomTab2';
 import DarkMode from '../pages/Settings/DarkMode';
+import WebViewUrl from '../pages/Settings/WebViewUrl';
+import WebsocketUrl from '../pages/Settings/WebsocketUrl';
 import About from '../pages/Settings/About';
 
 export default [
@@ -31,6 +33,18 @@ export default [
   },
   {
     id: 50,
+    title: 'WebView地址',
+    routeName: 'WebViewUrl',
+    component: WebViewUrl,
+  },
+  {
+    id: 60,
+    title: 'Websocket地址',
+    routeName: 'WebsocketUrl',
+    component: WebsocketUrl,
+  },
+  {
+    id: 70,
     title: '关于',
     routeName: 'About',
     component: About,

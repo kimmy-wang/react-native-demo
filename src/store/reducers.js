@@ -3,6 +3,8 @@ import {
   BOTTOM_TAB_CHANGED,
   EDITABLE_TOP_TAB_CHANGED,
   DARK_MODE_CHANGED,
+  WEBVIEW_URL_CHANGED,
+  WEBSOCKET_URL_CHANGED,
 } from './action-types';
 
 const TOP_TAB_LENGTH = 20;
@@ -46,6 +48,8 @@ const defaultState = {
   ],
   editableTopTabs: exampleData,
   darkMode: SYSTEM,
+  webViewUrl: 'https://upcwangying.com',
+  websocketUrl: '',
 };
 
 export default (state = defaultState, action) => {
@@ -64,6 +68,16 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         darkMode: action.darkMode,
+      };
+    case WEBVIEW_URL_CHANGED:
+      return {
+        ...state,
+        webViewUrl: action.webViewUrl,
+      };
+    case WEBSOCKET_URL_CHANGED:
+      return {
+        ...state,
+        websocketUrl: action.websocketUrl,
       };
     default:
       return state;

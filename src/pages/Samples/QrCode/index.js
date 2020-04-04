@@ -12,11 +12,13 @@ import {
   Dimensions,
 } from 'react-native';
 
+import {useSelector} from 'react-redux';
 import {RNCamera} from 'react-native-camera';
 
 import {whiteColor} from '../../../constants/colors';
 
 const QrCode = ({navigation}) => {
+  const websocketUrl = useSelector(state => state.websocketUrl);
   const [initial, setInitial] = useState(false);
   const [content, setContent] = useState('');
   const [ws, setWs] = useState(null);
@@ -41,7 +43,7 @@ const QrCode = ({navigation}) => {
   const onSend = useCallback(data => ws && ws.send(data), [ws]);
 
   const _handleWebSocketSetup = useCallback(() => {
-    const wss = new WebSocket('ws://192.168.200.10:8080/');
+    const wss = new WebSocket(websocketUrl);
     wss.onopen = () => {
       console.log('[WebSocket Opened].');
     };
@@ -53,13 +55,13 @@ const QrCode = ({navigation}) => {
     };
     wss.onclose = () => {};
     setWs(wss);
-  }, [setWs]);
+  }, [setWs, websocketUrl]);
 
   useEffect(() => {
     if (!initial) {
       startAnimation();
       setInitial(true);
-      _handleWebSocketSetup();
+      websocketUrl && _handleWebSocketSetup();
     }
 
     return () => {
@@ -67,7 +69,7 @@ const QrCode = ({navigation}) => {
       setShow(false);
       ws && ws.close();
     };
-  }, []);
+  }, [websocketUrl]);
 
   const onBarCodeRead = result => {
     console.log('show', show, result);

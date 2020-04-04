@@ -13,6 +13,7 @@ import {
   DynamicValue,
   useDynamicStyleSheet,
 } from 'react-native-dark-mode';
+import {useSelector} from 'react-redux';
 import {WebView} from 'react-native-webview';
 import LottieView from 'lottie-react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
@@ -25,6 +26,7 @@ const STATUSBAR_HEIGHT =
 const CWebView = () => {
   const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const webViewRef = useRef(null);
+  const webViewUrl = useSelector(state => state.webViewUrl);
   const [initial, setInitial] = useState(false);
   const [canGoBack, setGoBack] = useState(false);
 
@@ -76,7 +78,7 @@ const CWebView = () => {
           style={styles.webview}
           ref={webViewRef}
           originWhitelist={['*']}
-          source={{uri: 'https://reactnative.cn'}}
+          source={{uri: webViewUrl}}
           startInLoadingState={true}
           onNavigationStateChange={onNavigationStateChange}
           renderLoading={renderLoading}
