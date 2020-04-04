@@ -212,10 +212,10 @@ PODS:
     - React
   - react-native-safe-area-context (0.7.3):
     - React
-  - react-native-video (4.4.5):
+  - react-native-video (5.0.2):
     - React
-    - react-native-video/Video (= 4.4.5)
-  - react-native-video/Video (4.4.5):
+    - react-native-video/Video (= 5.0.2)
+  - react-native-video/Video (5.0.2):
     - React
   - react-native-viewpager (3.3.0):
     - React
@@ -503,7 +503,7 @@ SPEC CHECKSUMS:
   react-native-image-picker: 6a850c41f57f0848d918c2a77aedd7aa272ffa30
   react-native-nfc-manager: b3b65886d71b7024bbb93e1e0c1c8f6b0582c817
   react-native-safe-area-context: e200d4433aba6b7e60b52da5f37af11f7a0b0392
-  react-native-video: eee541262ada11bc7ffe8ec5508e6a877937c462
+  react-native-video: d01ed7ff1e38fa7dcc6c15c94cf505e661b7bfd0
   react-native-viewpager: a7b438ca32c57b2614ece2a123e7fe116f743131
   react-native-webview: fcb5f377aadc216273300f452ee0d321fb85809b
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
