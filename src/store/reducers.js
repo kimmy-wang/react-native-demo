@@ -48,7 +48,7 @@ const defaultState = {
   ],
   editableTopTabs: exampleData,
   darkMode: SYSTEM,
-  webViewUrl: 'https://upcwangying.com',
+  webViewUrl: 'https://apps.upcwangying.com/rn/demo',
   websocketUrl: '',
 };
 

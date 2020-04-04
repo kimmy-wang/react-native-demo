@@ -4,6 +4,7 @@ import {View, TextInput, SafeAreaView, Button, Alert} from 'react-native';
 import {
   DynamicStyleSheet,
   DynamicValue,
+  useDarkMode,
   useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import {useDispatch, useSelector} from 'react-redux';
@@ -11,22 +12,29 @@ import {useDispatch, useSelector} from 'react-redux';
 import {changeWebViewUrl} from '../../store/action-creators';
 import {blackColor, whiteColor} from '../../constants/colors';
 
-const WebViewUrl = () => {
+const WebViewUrl = ({navigation}) => {
+  const darkMode = useDarkMode();
   const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const dispatch = useDispatch();
   const webViewUrl = useSelector(state => state.webViewUrl);
-  const [value, onChangeText] = useState(null);
+  const [value, onChangeText] = useState(webViewUrl);
 
   const onSave = () => {
+    console.log(value);
     if (!value) {
       Alert.alert('错误', '请输入URL地址');
       return;
     }
-    if (!value.startsWith('http://') || !value.startsWith('https://')) {
+    if (!value.startsWith('http://') && !value.startsWith('https://')) {
       Alert.alert('错误', 'URL地址必须以http://或者https://开头');
       return;
     }
     value && dispatch(changeWebViewUrl(value));
+    Alert.alert(
+      '提示',
+      '保存成功',
+      () => navigation && navigation.canGoBack() && navigation.goBack(),
+    );
   };
 
   return (
@@ -34,8 +42,10 @@ const WebViewUrl = () => {
       <View>
         <TextInput
           style={styles.input}
-          value={value === null ? webViewUrl : value}
+          value={value}
+          dataDetectorTypes="link"
           placeholder="请输入URL地址"
+          placeholderTextColor={darkMode ? '#f7f7f7' : '#999'}
           multiline
           onChangeText={text => onChangeText(text)}
         />

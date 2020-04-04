@@ -4,6 +4,7 @@ import {View, TextInput, SafeAreaView, Button, Alert} from 'react-native';
 import {
   DynamicStyleSheet,
   DynamicValue,
+  useDarkMode,
   useDynamicStyleSheet,
 } from 'react-native-dark-mode';
 import {useDispatch, useSelector} from 'react-redux';
@@ -11,22 +12,28 @@ import {useDispatch, useSelector} from 'react-redux';
 import {changeWebsocketUrl} from '../../store/action-creators';
 import {blackColor, whiteColor} from '../../constants/colors';
 
-const WebsocketUrl = () => {
+const WebsocketUrl = ({navigation}) => {
+  const darkMode = useDarkMode();
   const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const dispatch = useDispatch();
   const websocketUrl = useSelector(state => state.websocketUrl);
-  const [value, onChangeText] = useState(null);
+  const [value, onChangeText] = useState(websocketUrl);
 
   const onSave = () => {
     if (!value) {
       Alert.alert('错误', '请输入websocket地址');
       return;
     }
-    if (!value.startsWith('ws://') || !value.startsWith('wss://')) {
+    if (!value.startsWith('ws://') && !value.startsWith('wss://')) {
       Alert.alert('错误', 'websocket地址必须以ws://或者wss://开头');
       return;
     }
     value && dispatch(changeWebsocketUrl(value));
+    Alert.alert(
+      '提示',
+      '保存成功',
+      () => navigation && navigation.canGoBack() && navigation.goBack(),
+    );
   };
 
   return (
@@ -34,8 +41,9 @@ const WebsocketUrl = () => {
       <View>
         <TextInput
           style={styles.input}
-          value={value === null ? websocketUrl : value}
+          value={value}
           placeholder="请输入websocket地址"
+          placeholderTextColor={darkMode ? '#f7f7f7' : '#999'}
           multiline
           onChangeText={text => onChangeText(text)}
         />
