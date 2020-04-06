@@ -208,6 +208,9 @@ const Video = () => {
               Alert.alert('Done!');
             }}
             repeat={true}
+            playInBackground={true}
+            playWhenInactive={true}
+            pictureInPicture={true}
             filter={filter}
             filterEnabled={filterEnabled}
           />
@@ -302,6 +305,9 @@ const Video = () => {
               Alert.alert('Done!');
             }}
             repeat={true}
+            playInBackground={true}
+            playWhenInactive={true}
+            pictureInPicture={true}
             controls={controls}
             filter={filter}
             filterEnabled={filterEnabled}
