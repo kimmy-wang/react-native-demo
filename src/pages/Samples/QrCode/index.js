@@ -6,6 +6,7 @@ import {
   View,
   Image,
   Alert,
+  Vibration,
   Animated,
   Easing,
   Platform,
@@ -37,6 +38,7 @@ const QrCode = ({navigation}) => {
   }, [moveAnim, show]);
 
   const resetShow = useCallback(() => {
+    console.log('resetShow');
     setShow(true);
   }, []);
 
@@ -77,7 +79,7 @@ const QrCode = ({navigation}) => {
       setShow(false);
       if (result) {
         const {data} = result;
-        // Vibration.vibrate([0, 500], false);
+        Vibration.vibrate([0, 500], false);
         setContent(data);
         onSend(data);
         navigation &&

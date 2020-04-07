@@ -1,18 +1,32 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 
-import {whiteColor} from '../../../constants/colors';
+import {
+  DynamicStyleSheet,
+  DynamicValue,
+  useDynamicStyleSheet,
+} from 'react-native-dark-mode';
+import Toast from 'react-native-root-toast';
+
+import {blackColor, whiteColor} from '../../../constants/colors';
 
 const QrCodeResult = ({route, navigation}) => {
+  const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const {content, resetShow} = route.params;
 
-  const onLoginConfirm = () => {};
+  const onLoginConfirm = () => {
+    Toast.show('登录成功', {
+      duration: Toast.durations.SHORT,
+      position: Toast.positions.CENTER,
+      shadow: true,
+      animation: true,
+      hideOnPress: true,
+      delay: 0,
+      onHidden: () => {
+        navigation && navigation.popToTop();
+      },
+    });
+  };
 
   const onGoBack = () => {
     resetShow && resetShow();
@@ -43,7 +57,7 @@ const QrCodeResult = ({route, navigation}) => {
   );
 };
 
-const styles = StyleSheet.create({
+const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
     backgroundColor: '#F3F3F3',
@@ -57,9 +71,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: '400',
+    color: new DynamicValue(blackColor, whiteColor),
   },
   content: {
     marginTop: 40,
+    color: new DynamicValue(blackColor, whiteColor),
   },
   btnWrapper: {
     height: 100,
