@@ -27,7 +27,6 @@ const CWebView = () => {
   const styles = useDynamicStyleSheet(dynamicStyleSheet);
   const webViewRef = useRef(null);
   const webViewUrl = useSelector(state => state.webViewUrl);
-  const [initial, setInitial] = useState(false);
   const [canGoBack, setGoBack] = useState(false);
 
   const onAndroidBackPress = useCallback(() => {
@@ -39,11 +38,8 @@ const CWebView = () => {
   }, [canGoBack, webViewRef]);
 
   useEffect(() => {
-    if (!initial) {
-      if (Platform.OS === 'android') {
-        BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
-      }
-      setInitial(true);
+    if (Platform.OS === 'android') {
+      BackHandler.addEventListener('hardwareBackPress', onAndroidBackPress);
     }
 
     return () => {
@@ -51,7 +47,7 @@ const CWebView = () => {
         BackHandler.removeEventListener('hardwareBackPress');
       }
     };
-  }, [onAndroidBackPress, initial]);
+  }, []);
 
   const onNavigationStateChange = navState => {
     console.log('[CWebView] -> [onNavigationStateChange]: ', navState);

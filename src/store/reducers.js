@@ -1,7 +1,9 @@
 import {SYSTEM} from '../constants/theme-modes';
+import defaultSlides from '../constants/app-intro';
 import {
   BOTTOM_TAB_CHANGED,
   EDITABLE_TOP_TAB_CHANGED,
+  APP_INTRO_SLIDES_LOAD,
   DARK_MODE_CHANGED,
   WEBVIEW_URL_CHANGED,
   WEBSOCKET_URL_CHANGED,
@@ -47,6 +49,8 @@ const defaultState = {
     },
   ],
   editableTopTabs: exampleData,
+  slides: defaultSlides,
+  slidesLoading: true,
   darkMode: SYSTEM,
   webViewUrl: 'https://apps.upcwangying.com/rn/demo',
   websocketUrl: '',
@@ -63,6 +67,15 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         editableTopTabs: action.editableTopTabs,
+      };
+    case APP_INTRO_SLIDES_LOAD:
+      const data = {
+        ...action,
+      };
+      delete data.type;
+      return {
+        ...state,
+        ...data,
       };
     case DARK_MODE_CHANGED:
       return {
