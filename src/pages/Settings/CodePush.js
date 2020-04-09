@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import CodePush from 'react-native-code-push';
+import {blackColor} from '../../constants/colors';
 
 const codePushOptions = {checkFrequency: CodePush.CheckFrequency.MANUAL};
 
@@ -142,6 +143,7 @@ const styles = StyleSheet.create({
   messages: {
     marginTop: 30,
     textAlign: 'center',
+    color: blackColor,
   },
   restartToggleButton: {
     color: 'blue',
@@ -155,6 +157,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 20,
+    color: blackColor,
   },
 });
 
