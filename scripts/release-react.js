@@ -90,7 +90,7 @@ const release = async () => {
     'release-react',
     appName,
     platform,
-    '--t',
+    '-t',
     curVersion,
     '--dev',
     development,
