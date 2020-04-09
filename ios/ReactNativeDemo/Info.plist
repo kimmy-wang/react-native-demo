@@ -46,7 +46,9 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>CodePushDeploymentKey</key>
-	<string>JqpX7NA5L87y5VljAORnaycdqCoy2TEEiruEux</string>
+	<string>$(CODE_PUSH_DEPLOYMENT_KEY)</string>
+	<key>CodePushServerUrl</key>
+	<string>$(CODE_PUSH_HOST)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>wechat</string>

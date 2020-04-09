@@ -770,6 +770,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_PUSH_DEPLOYMENT_KEY = 2pGB9aSEMYHwQWopmge8dLECy0z54ksvOXqog;
+				CODE_PUSH_HOST = "http://codepush.upcwangying.com";
 				CODE_SIGN_ENTITLEMENTS = ReactNativeDemo/ReactNativeDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ying Wang (227WU938V5)";
@@ -801,6 +803,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_PUSH_DEPLOYMENT_KEY = bbMVhr4og0GhqvCkAmoZIFljgEXm4ksvOXqog;
+				CODE_PUSH_HOST = "http://codepush.upcwangying.com";
 				CODE_SIGN_ENTITLEMENTS = ReactNativeDemo/ReactNativeDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ying Wang (43V9N6VW8L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ying Wang (43V9N6VW8L)";

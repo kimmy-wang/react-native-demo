@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">ReactNativeDemo</string>
-    <string moduleConfig="true" name="CodePushDeploymentKey">3quyDJJvofy__2IvSl15-M7wiNNx9ulNy18JSS</string>
+    <string moduleConfig="true" name="CodePushServerUrl">http://codepush.upcwangying.com</string>
 </resources>
