@@ -98,21 +98,21 @@ const release = async () => {
 
   const bundleArguments = [
     'bundle',
-    '--entry-file index.js',
+    '--entry-file ../index.js',
     '--platform',
     platform,
     '--dev',
     development,
     '--bundle-output',
-    `./${outputDir}/${bundleName}`,
+    `../${outputDir}/${bundleName}`,
     '--assets-dest',
-    `./${outputDir}`,
+    `../${outputDir}`,
   ];
 
   const releaseArguments = [
     'release',
     appName,
-    `./${outputDir}/${bundleName}`,
+    `../${outputDir}/${bundleName}`,
     curVersion,
     '--des',
     description,

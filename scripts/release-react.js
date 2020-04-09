@@ -91,7 +91,7 @@ const release = async () => {
     appName,
     platform,
     '--t',
-    'curVersion',
+    curVersion,
     '--dev',
     development,
     '--des',
