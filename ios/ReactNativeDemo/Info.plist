@@ -47,7 +47,7 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>CodePushDeploymentKey</key>
 	<string>$(CODE_PUSH_DEPLOYMENT_KEY)</string>
-	<key>CodePushServerUrl</key>
+	<key>CodePushServerURL</key>
 	<string>$(CODE_PUSH_HOST)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
@@ -113,6 +113,18 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>codepush.upcwangying.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to use your camera</string>
