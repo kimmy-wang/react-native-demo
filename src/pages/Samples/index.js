@@ -29,7 +29,7 @@ const Samples = ({navigation}) => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <FlatList
-            data={samples}
+            data={samples.filter(item => !item.hidden)}
             renderItem={({item}) => (
               <ListItem
                 title={item.title}
