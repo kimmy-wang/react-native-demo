@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import { View, Text, Image, Dimensions } from 'react-native';
 
 import {
   useDynamicStyleSheet,
@@ -17,6 +17,7 @@ const ProductCategoryCard = ({count = 9}) => {
       <View style={styles.productContainer}>
         <Image
           style={styles.image}
+          resizeMethod="resize"
           source={{uri: 'https://cdn.upcwangying.com/logo/avatar.JPG'}}
         />
         <Text style={styles.productName}>{title}</Text>
@@ -42,6 +43,7 @@ const ProductCategoryCard = ({count = 9}) => {
   );
 };
 
+const width = Dimensions.get('window').width;
 const dynamicStyleSheet = new DynamicStyleSheet({
   container: {
     flex: 1,
@@ -76,12 +78,16 @@ const dynamicStyleSheet = new DynamicStyleSheet({
     width: '33.33%',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 8,
+    paddingHorizontal: width * 0.04,
     paddingVertical: 12,
   },
   image: {
-    width: 70,
-    height: 70,
+    minHeight: 70,
+    minWidth: 70,
+    maxHeight: width * 0.2,
+    maxWidth: width * 0.2,
+    width: width * 0.2,
+    height: width * 0.2,
   },
   productName: {
     marginTop: 20,
