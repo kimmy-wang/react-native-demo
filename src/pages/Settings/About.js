@@ -58,12 +58,9 @@ const About = ({route: {name, params}, navigation}) => {
       });
   };
 
-  const [isTranslationLoaded, setTranslationLoaded] = useState(false);
-
   useEffect(() => {
     setI18nConfig() // set initial config
       .then(() => {
-        setTranslationLoaded(true);
         RNLocalize.addEventListener('change', handleLocalizationChange);
       })
       .catch(error => {
@@ -130,9 +127,7 @@ const About = ({route: {name, params}, navigation}) => {
     </View>
   );
 
-  return !isTranslationLoaded ? (
-    <SafeAreaView style={styles.safeAreaView} />
-  ) : (
+  return (
     <FlatList
       data={DATA}
       renderItem={({item}) => (
@@ -170,6 +165,7 @@ const STICKY_HEADER_HEIGHT = 44 + STATUSBAR_HEIGHT;
 const dynamicStyleSheet = new DynamicStyleSheet({
   safeAreaView: {
     flex: 1,
+    backgroundColor: 'blue',
   },
   container: {
     flex: 1,

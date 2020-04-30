@@ -6,7 +6,6 @@ import i18n from 'i18n-js';
 import memoize from 'lodash.memoize';
 
 const setI18nConfig = async () => {
-  console.log(RNFS.MainBundlePath);
   const translationsDir = await (Platform.OS === 'android'
     ? RNFS.readDirAssets('translations')
     : RNFS.readDir(RNFS.MainBundlePath + '/translations'));
