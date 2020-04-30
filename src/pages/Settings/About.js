@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Image,
   Text,
   View,
   FlatList,
   Dimensions,
+  SafeAreaView,
   TouchableWithoutFeedback,
 } from 'react-native';
 
@@ -18,6 +19,7 @@ import Hyperlink from 'react-native-hyperlink';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
+import * as RNLocalize from 'react-native-localize';
 
 import {
   whiteColor,
@@ -25,6 +27,7 @@ import {
   primaryColor,
   borderColor,
 } from '../../constants/colors';
+import {translate, setI18nConfig} from '../../utils/l10n';
 
 const DATA = [
   'https://upcwangying.com',
@@ -46,6 +49,30 @@ const About = ({route: {name, params}, navigation}) => {
   const goBack = () => {
     navigation && navigation.goBack();
   };
+
+  const handleLocalizationChange = () => {
+    setI18nConfig()
+      .then(() => this.forceUpdate())
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  const [isTranslationLoaded, setTranslationLoaded] = useState(false);
+
+  useEffect(() => {
+    setI18nConfig() // set initial config
+      .then(() => {
+        setTranslationLoaded(true);
+        RNLocalize.addEventListener('change', handleLocalizationChange);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    return () => {
+      RNLocalize.removeEventListener('change', handleLocalizationChange);
+    };
+  }, []);
 
   const Background = () => (
     <View key="background">
@@ -79,7 +106,7 @@ const About = ({route: {name, params}, navigation}) => {
         }}
       />
       <Text style={styles.title}>Ying Wang</Text>
-      <Text style={styles.description}>Full stack engineer</Text>
+      <Text style={styles.description}>{translate('desc')}</Text>
     </View>
   );
 
@@ -103,7 +130,9 @@ const About = ({route: {name, params}, navigation}) => {
     </View>
   );
 
-  return (
+  return !isTranslationLoaded ? (
+    <SafeAreaView style={styles.safeAreaView} />
+  ) : (
     <FlatList
       data={DATA}
       renderItem={({item}) => (

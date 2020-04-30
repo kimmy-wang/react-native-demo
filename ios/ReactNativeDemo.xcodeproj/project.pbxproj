@@ -21,6 +21,8 @@
 		2E3079CA241F80A60074EF5D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8A2CEC241F6B9000E3FABD /* UserNotifications.framework */; };
 		2E44D550242B39A4005D6D5B /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E44D54F242B39A4005D6D5B /* CoreNFC.framework */; };
 		2E6A6BC9241B81D5004A2D1D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6BC8241B81D5004A2D1D /* File.swift */; };
+		2E80F995245ACB8200141E32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E80F997245ACB8200141E32 /* InfoPlist.strings */; };
+		2E80F99F245AD0F100141E32 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E80F9A1245AD0F100141E32 /* Localizable.strings */; };
 		2ECF4204241CE0F1004BAD15 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4202241CE0F1004BAD15 /* assets */; };
 		2ECF4205241CE0F1004BAD15 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4203241CE0F1004BAD15 /* main.jsbundle */; };
 		2ED4CE4E24221DB00033BEEC /* UMShareModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4CE4D24221DB00033BEEC /* UMShareModule.m */; };
@@ -88,6 +90,12 @@
 		2E44D54F242B39A4005D6D5B /* CoreNFC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreNFC.framework; path = System/Library/Frameworks/CoreNFC.framework; sourceTree = SDKROOT; };
 		2E6A6BC5241B8161004A2D1D /* ReactNativeDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		2E6A6BC8241B81D5004A2D1D /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		2E80F996245ACB8200141E32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E80F998245ACB8600141E32 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E80F99A245ACCAB00141E32 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2E80F9A0245AD0F100141E32 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2E80F9A2245AD0F300141E32 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2E80F9A3245AD0F400141E32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2E8A2CEB241F69F100E3FABD /* ReactNativeDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ReactNativeDemo.entitlements; path = ReactNativeDemo/ReactNativeDemo.entitlements; sourceTree = "<group>"; };
 		2E8A2CEC241F6B9000E3FABD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		2EBCC1E3241FB3BF002EFF72 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -169,6 +177,7 @@
 		13B07FAE1A68108700A75B9A /* ReactNativeDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2E80F99B245AD08800141E32 /* translations */,
 				2E3079C0241F77940074EF5D /* umeng */,
 				2E8A2CEB241F69F100E3FABD /* ReactNativeDemo.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -178,6 +187,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				2E80F997245ACB8200141E32 /* InfoPlist.strings */,
 				2EBCC1E3241FB3BF002EFF72 /* Constants.h */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				2EF8528C242C4E2300CAF614 /* LaunchScreen.storyboard */,
@@ -224,6 +234,14 @@
 				2ED4CE4D24221DB00033BEEC /* UMShareModule.m */,
 			);
 			path = umeng;
+			sourceTree = "<group>";
+		};
+		2E80F99B245AD08800141E32 /* translations */ = {
+			isa = PBXGroup;
+			children = (
+				2E80F9A1245AD0F100141E32 /* Localizable.strings */,
+			);
+			path = translations;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -398,6 +416,7 @@
 			knownRegions = (
 				English,
 				en,
+				zh,
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
@@ -426,9 +445,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF8528D242C4E2300CAF614 /* LaunchScreen.storyboard in Resources */,
+				2E80F99F245AD0F100141E32 /* Localizable.strings in Resources */,
 				2ECF4204241CE0F1004BAD15 /* assets in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2ECF4205241CE0F1004BAD15 /* main.jsbundle in Resources */,
+				2E80F995245ACB8200141E32 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +733,29 @@
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2E80F997245ACB8200141E32 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E80F996245ACB8200141E32 /* en */,
+				2E80F998245ACB8600141E32 /* zh */,
+				2E80F99A245ACCAB00141E32 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2E80F9A1245AD0F100141E32 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E80F9A0245AD0F100141E32 /* English */,
+				2E80F9A2245AD0F300141E32 /* zh */,
+				2E80F9A3245AD0F400141E32 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {

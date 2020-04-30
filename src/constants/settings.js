@@ -2,6 +2,7 @@ import CodePush from '../pages/Settings/CodePush';
 import BottomTab from '../pages/Settings/BottomTab';
 import BottomTab2 from '../pages/Settings/BottomTab2';
 import DarkMode from '../pages/Settings/DarkMode';
+import L10n from '../pages/Settings/L10n';
 import WebViewUrl from '../pages/Settings/WebViewUrl';
 import WebsocketUrl from '../pages/Settings/WebsocketUrl';
 import About from '../pages/Settings/About';
@@ -30,6 +31,12 @@ export default [
     title: '黑暗模式',
     routeName: 'DarkMode',
     component: DarkMode,
+  },
+  {
+    id: 45,
+    title: '语言环境',
+    routeName: 'L10n',
+    component: L10n,
   },
   {
     id: 50,
