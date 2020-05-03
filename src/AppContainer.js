@@ -1,10 +1,11 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {useSelector} from 'react-redux';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
+import * as RNLocalize from 'react-native-localize';
 import {
   useDarkMode,
   useDarkModeContext,
@@ -15,6 +16,7 @@ import samples from './constants/samples';
 import settings from './constants/settings';
 import bottomTabs1 from './constants/bottom-tabs';
 import {SYSTEM, DARK} from './constants/theme-modes';
+import {translate, setI18nConfig} from './utils/l10n';
 import AppIntro from './AppIntro';
 import {primaryColor} from './constants/colors';
 
@@ -24,12 +26,36 @@ const SN = createStackNavigator();
 const BottomTabNavigator = () => {
   const isDarkMode = useDarkMode();
   const bottomTabs = useSelector(state => state.bottomTabs);
+
+  const handleLocalizationChange = () => {
+    setI18nConfig()
+      .then(() => this.forceUpdate())
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    setI18nConfig() // set initial config
+      .then(() => {
+        RNLocalize.addEventListener('change', handleLocalizationChange);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    return () => {
+      RNLocalize.removeEventListener('change', handleLocalizationChange);
+    };
+  }, []);
+
   const tabScreen = bottomTabs.map(tab => {
     const {name, title, activeIcon, inactiveIcon} = tab;
     const Comp = bottomTabs1[name].Comp;
     const IconComp = bottomTabs1[name].IconComp;
+    const realTitle = translate(title);
+    console.log(realTitle);
     const options = {
-      title,
+      title: realTitle,
       tabBarIcon: ({focused, color, size}) => {
         const props = {
           name: focused ? activeIcon : inactiveIcon,
@@ -56,6 +82,28 @@ const BottomTabNavigator = () => {
 
 const App = () => {
   const bottomTabs = useSelector(state => state.bottomTabs);
+
+  const handleLocalizationChange = () => {
+    setI18nConfig()
+      .then(() => this.forceUpdate())
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    setI18nConfig() // set initial config
+      .then(() => {
+        RNLocalize.addEventListener('change', handleLocalizationChange);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    return () => {
+      RNLocalize.removeEventListener('change', handleLocalizationChange);
+    };
+  }, []);
+
   return (
     <SN.Navigator>
       <SN.Screen
@@ -68,8 +116,10 @@ const App = () => {
         options={({route, navigation}) => {
           return {
             title:
-              (route && route.state && bottomTabs[route.state.index].title) ||
-              bottomTabs[0].title,
+              (route &&
+                route.state &&
+                translate(bottomTabs[route.state.index].title)) ||
+              translate(bottomTabs[0].title),
           };
         }}
         component={BottomTabNavigator}

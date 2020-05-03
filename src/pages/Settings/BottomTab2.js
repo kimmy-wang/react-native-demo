@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, SafeAreaView, Dimensions} from 'react-native';
 
 import {useDispatch, useSelector} from 'react-redux';
@@ -9,6 +9,7 @@ import {
 } from 'react-native-dark-mode';
 import {AutoDragSortableView} from 'react-native-drag-sort';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import * as RNLocalize from 'react-native-localize';
 
 import {
   whiteColor,
@@ -17,6 +18,7 @@ import {
   borderColor,
 } from '../../constants/colors';
 import {changeBottomTabs} from '../../store/action-creators';
+import {translate, setI18nConfig} from '../../utils/l10n';
 
 const BottomTab2 = () => {
   const dispatch = useDispatch();
@@ -31,6 +33,27 @@ const BottomTab2 = () => {
       dispatch(changeBottomTabs(datas));
     }
   };
+
+  const handleLocalizationChange = () => {
+    setI18nConfig()
+      .then(() => this.forceUpdate())
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    setI18nConfig() // set initial config
+      .then(() => {
+        RNLocalize.addEventListener('change', handleLocalizationChange);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    return () => {
+      RNLocalize.removeEventListener('change', handleLocalizationChange);
+    };
+  }, []);
 
   const onDragStart = index => {
     setCurrentDragItemIndex(index);
@@ -56,7 +79,7 @@ const BottomTab2 = () => {
         keyExtractor={(item, index) => item.id} // FlatList作用一样，优化
         renderItem={(item, index) => (
           <View style={styles.item}>
-            <Text style={styles.sectionTitle}>{item.title}</Text>
+            <Text style={styles.sectionTitle}>{translate(item.title)}</Text>
             <AntDesign
               style={[
                 styles.right,

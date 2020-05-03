@@ -1,3 +1,9 @@
 {
-  "desc": "全栈工程师"
+  "desc": "全栈工程师",
+  "bottomTabs": {
+    "samples": "示例",
+    "categories": "分类",
+    "webView": "网页",
+    "settings": "设置"
+  }
 }

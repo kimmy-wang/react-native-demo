@@ -1,3 +1,9 @@
 {
-  "desc": "Full stack engineer"
+  "desc": "Full stack engineer",
+  "bottomTabs": {
+    "samples": "Samples",
+    "categories": "Categories",
+    "webView": "WebView",
+    "settings": "Settings"
+  }
 }
