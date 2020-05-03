@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {
   Image,
   Text,
   View,
   FlatList,
   Dimensions,
-  SafeAreaView,
   TouchableWithoutFeedback,
 } from 'react-native';
 
@@ -19,7 +18,6 @@ import Hyperlink from 'react-native-hyperlink';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
-import * as RNLocalize from 'react-native-localize';
 
 import {
   whiteColor,
@@ -27,7 +25,7 @@ import {
   primaryColor,
   borderColor,
 } from '../../constants/colors';
-import {translate, setI18nConfig} from '../../utils/l10n';
+import useL10n from '../../utils/l10n';
 
 const DATA = [
   'https://upcwangying.com',
@@ -50,26 +48,7 @@ const About = ({route: {name, params}, navigation}) => {
     navigation && navigation.goBack();
   };
 
-  const handleLocalizationChange = () => {
-    setI18nConfig()
-      .then(() => this.forceUpdate())
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    setI18nConfig() // set initial config
-      .then(() => {
-        RNLocalize.addEventListener('change', handleLocalizationChange);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    return () => {
-      RNLocalize.removeEventListener('change', handleLocalizationChange);
-    };
-  }, []);
+  const translate = useL10n();
 
   const Background = () => (
     <View key="background">

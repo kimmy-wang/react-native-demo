@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {I18nManager, Platform} from 'react-native';
 
 import * as RNLocalize from 'react-native-localize';
@@ -43,4 +44,29 @@ const translate = memoize(
   (key, config) => (config ? key + JSON.stringify(config) : key),
 );
 
-export {translate, setI18nConfig};
+const useL10n = () => {
+  const handleLocalizationChange = () => {
+    setI18nConfig()
+      .then(() => this.forceUpdate())
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    setI18nConfig() // set initial config
+      .then(() => {
+        RNLocalize.addEventListener('change', handleLocalizationChange);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    return () => {
+      RNLocalize.removeEventListener('change', handleLocalizationChange);
+    };
+  }, []);
+
+  return translate;
+};
+
+export default useL10n;

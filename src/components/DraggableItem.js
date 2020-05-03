@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
 import {
@@ -6,7 +6,6 @@ import {
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
-import * as RNLocalize from 'react-native-localize';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import {
@@ -15,31 +14,12 @@ import {
   primaryColor,
   borderColor,
 } from '../constants/colors';
-import {translate, setI18nConfig} from '../utils/l10n';
+import useL10n from '../utils/l10n';
 
 const DraggableItem = ({item, index, drag, isActive}) => {
   const styles = useDynamicStyleSheet(dynamicStyleSheet);
 
-  const handleLocalizationChange = () => {
-    setI18nConfig()
-      .then(() => this.forceUpdate())
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    setI18nConfig() // set initial config
-      .then(() => {
-        RNLocalize.addEventListener('change', handleLocalizationChange);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    return () => {
-      RNLocalize.removeEventListener('change', handleLocalizationChange);
-    };
-  }, []);
+  const translate = useL10n();
 
   return (
     <TouchableOpacity onLongPress={drag} style={styles.item}>

@@ -1,11 +1,10 @@
 import 'react-native-gesture-handler';
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import {useSelector} from 'react-redux';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
-import * as RNLocalize from 'react-native-localize';
 import {
   useDarkMode,
   useDarkModeContext,
@@ -16,7 +15,7 @@ import samples from './constants/samples';
 import settings from './constants/settings';
 import bottomTabs1 from './constants/bottom-tabs';
 import {SYSTEM, DARK} from './constants/theme-modes';
-import {translate, setI18nConfig} from './utils/l10n';
+import useL10n from './utils/l10n';
 import AppIntro from './AppIntro';
 import {primaryColor} from './constants/colors';
 
@@ -27,26 +26,7 @@ const BottomTabNavigator = () => {
   const isDarkMode = useDarkMode();
   const bottomTabs = useSelector(state => state.bottomTabs);
 
-  const handleLocalizationChange = () => {
-    setI18nConfig()
-      .then(() => this.forceUpdate())
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    setI18nConfig() // set initial config
-      .then(() => {
-        RNLocalize.addEventListener('change', handleLocalizationChange);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    return () => {
-      RNLocalize.removeEventListener('change', handleLocalizationChange);
-    };
-  }, []);
+  const translate = useL10n();
 
   const tabScreen = bottomTabs.map(tab => {
     const {name, title, activeIcon, inactiveIcon} = tab;
@@ -83,26 +63,7 @@ const BottomTabNavigator = () => {
 const App = () => {
   const bottomTabs = useSelector(state => state.bottomTabs);
 
-  const handleLocalizationChange = () => {
-    setI18nConfig()
-      .then(() => this.forceUpdate())
-      .catch(error => {
-        console.error(error);
-      });
-  };
-
-  useEffect(() => {
-    setI18nConfig() // set initial config
-      .then(() => {
-        RNLocalize.addEventListener('change', handleLocalizationChange);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-    return () => {
-      RNLocalize.removeEventListener('change', handleLocalizationChange);
-    };
-  }, []);
+  const translate = useL10n();
 
   return (
     <SN.Navigator>
