@@ -11,6 +11,7 @@ import {whiteColor, blackColor} from '../../constants/colors';
 import AnalyticsUtil from '../../utils/native/AnalyticsUtil';
 import ListItem from '../../components/ListItem';
 import samples from '../../constants/samples';
+import useL10n from '../../utils/l10n';
 
 const Samples = ({navigation}) => {
   const styles = useDynamicStyleSheet(dynamicStyleSheet);
@@ -22,6 +23,8 @@ const Samples = ({navigation}) => {
     [navigation],
   );
 
+  const translate = useL10n();
+
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -32,8 +35,8 @@ const Samples = ({navigation}) => {
             data={samples.filter(item => !item.hidden)}
             renderItem={({item}) => (
               <ListItem
-                title={item.title}
-                description={item.description}
+                title={translate(item.title)}
+                description={translate(item.description)}
                 onPress={() => onSelect(item.routeName)}
               />
             )}

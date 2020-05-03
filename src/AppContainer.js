@@ -85,10 +85,11 @@ const App = () => {
         component={BottomTabNavigator}
       />
       {samples.map(sample => {
+        const realTitle = translate(sample.title);
         const parent = (
           <SN.Screen
             name={sample.routeName}
-            options={{title: sample.title}}
+            options={{title: realTitle}}
             component={sample.component}
           />
         );
@@ -98,7 +99,7 @@ const App = () => {
               sample.children.map(child => (
                 <SN.Screen
                   name={child.routeName}
-                  options={{title: child.title}}
+                  options={{title: translate(child.title)}}
                   component={child.component}
                 />
               )),
@@ -106,7 +107,6 @@ const App = () => {
       })}
       {settings.map(setting => {
         const realTitle = translate(setting.title);
-        console.log(realTitle);
         return (
           <SN.Screen
             name={setting.routeName}
