@@ -53,7 +53,7 @@ const AppIntro = ({navigation}) => {
   };
   return (
     <AppIntroSlider
-      slides={slides}
+      data={slides}
       renderItem={_renderItem}
       // bottomButton
       showPrevButton
