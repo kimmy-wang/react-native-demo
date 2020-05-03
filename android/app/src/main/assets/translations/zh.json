@@ -5,5 +5,15 @@
     "categories": "分类",
     "webView": "网页",
     "settings": "设置"
+  },
+  "settings": {
+    "codePush": "热更新",
+    "bottomTab": "底部Tab栏",
+    "bottomTab2": "底部Tab栏2",
+    "darkMode": "黑暗模式",
+    "languages": "语言环境",
+    "webView": "网页地址",
+    "webSocket": "webSocket地址",
+    "about": "关于"
   }
 }

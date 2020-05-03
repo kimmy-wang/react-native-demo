@@ -33,7 +33,6 @@ const BottomTabNavigator = () => {
     const Comp = bottomTabs1[name].Comp;
     const IconComp = bottomTabs1[name].IconComp;
     const realTitle = translate(title);
-    console.log(realTitle);
     const options = {
       title: realTitle,
       tabBarIcon: ({focused, color, size}) => {
@@ -105,16 +104,20 @@ const App = () => {
               )),
             );
       })}
-      {settings.map(setting => (
-        <SN.Screen
-          name={setting.routeName}
-          options={{
-            title: setting.title,
-            headerShown: !setting.hiddenHeader,
-          }}
-          component={setting.component}
-        />
-      ))}
+      {settings.map(setting => {
+        const realTitle = translate(setting.title);
+        console.log(realTitle);
+        return (
+          <SN.Screen
+            name={setting.routeName}
+            options={{
+              title: realTitle,
+              headerShown: !setting.hiddenHeader,
+            }}
+            component={setting.component}
+          />
+        );
+      })}
     </SN.Navigator>
   );
 };

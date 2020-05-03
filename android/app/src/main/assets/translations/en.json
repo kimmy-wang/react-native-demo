@@ -5,5 +5,15 @@
     "categories": "Categories",
     "webView": "WebView",
     "settings": "Settings"
+  },
+  "settings": {
+    "codePush": "CodePush",
+    "bottomTab": "BottomTab",
+    "bottomTab2": "BottomTab2",
+    "darkMode": "Dark Mode",
+    "languages": "Languages",
+    "webView": "WebView",
+    "webSocket": "WebSocket",
+    "about": "About"
   }
 }

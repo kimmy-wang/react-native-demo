@@ -10,9 +10,12 @@ import {
 import {whiteColor, blackColor} from '../../constants/colors';
 import SettingItem from '../../components/SettingItem';
 import settings from '../../constants/settings';
+import useL10n from '../../utils/l10n';
 
 const Settings = ({navigation}) => {
   const styles = useDynamicStyleSheet(dynamicStyleSheet);
+
+  const translate = useL10n();
 
   const onSelect = useCallback(
     routeName => {
@@ -32,7 +35,7 @@ const Settings = ({navigation}) => {
             data={settings}
             renderItem={({item}) => (
               <SettingItem
-                title={item.title}
+                title={translate(item.title)}
                 description={item.description}
                 onPress={() => onSelect(item.routeName)}
               />
