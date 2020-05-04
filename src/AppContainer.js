@@ -89,7 +89,7 @@ const App = () => {
         const parent = (
           <SN.Screen
             name={sample.routeName}
-            options={{title: realTitle}}
+            options={{title: realTitle, headerTitle: realTitle}}
             component={sample.component}
           />
         );
@@ -112,6 +112,7 @@ const App = () => {
             name={setting.routeName}
             options={{
               title: realTitle,
+              headerTitle: realTitle,
               headerShown: !setting.hiddenHeader,
             }}
             component={setting.component}
