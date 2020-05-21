@@ -22,7 +22,6 @@
 		2E44D550242B39A4005D6D5B /* CoreNFC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E44D54F242B39A4005D6D5B /* CoreNFC.framework */; };
 		2E6A6BC9241B81D5004A2D1D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6A6BC8241B81D5004A2D1D /* File.swift */; };
 		2E80F995245ACB8200141E32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E80F997245ACB8200141E32 /* InfoPlist.strings */; };
-		2E80F9B0245AE21000141E32 /* translations in Resources */ = {isa = PBXBuildFile; fileRef = 2E80F9AF245AE21000141E32 /* translations */; };
 		2ECF4204241CE0F1004BAD15 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4202241CE0F1004BAD15 /* assets */; };
 		2ECF4205241CE0F1004BAD15 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 2ECF4203241CE0F1004BAD15 /* main.jsbundle */; };
 		2ED4CE4E24221DB00033BEEC /* UMShareModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ED4CE4D24221DB00033BEEC /* UMShareModule.m */; };
@@ -93,7 +92,6 @@
 		2E80F996245ACB8200141E32 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E80F998245ACB8600141E32 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2E80F99A245ACCAB00141E32 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2E80F9AF245AE21000141E32 /* translations */ = {isa = PBXFileReference; lastKnownFileType = folder; path = translations; sourceTree = "<group>"; };
 		2E8A2CEB241F69F100E3FABD /* ReactNativeDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ReactNativeDemo.entitlements; path = ReactNativeDemo/ReactNativeDemo.entitlements; sourceTree = "<group>"; };
 		2E8A2CEC241F6B9000E3FABD /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		2EBCC1E3241FB3BF002EFF72 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 		13B07FAE1A68108700A75B9A /* ReactNativeDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2E80F9AF245AE21000141E32 /* translations */,
 				2E3079C0241F77940074EF5D /* umeng */,
 				2E8A2CEB241F69F100E3FABD /* ReactNativeDemo.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -385,7 +382,7 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 43V9N6VW8L;
 						LastSwiftMigration = 1130;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -438,7 +435,6 @@
 				2ECF4204241CE0F1004BAD15 /* assets in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				2ECF4205241CE0F1004BAD15 /* main.jsbundle in Resources */,
-				2E80F9B0245AE21000141E32 /* translations in Resources */,
 				2E80F995245ACB8200141E32 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -798,9 +794,9 @@
 				CODE_PUSH_HOST = "http://codepush.upcwangying.com";
 				CODE_SIGN_ENTITLEMENTS = ReactNativeDemo/ReactNativeDemo.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ying Wang (227WU938V5)";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 43V9N6VW8L;
 				INFOPLIST_FILE = ReactNativeDemo/Info.plist;
@@ -813,7 +809,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.upcwangying.apps.rn.demo;
 				PRODUCT_NAME = ReactNativeDemo;
-				PROVISIONING_PROFILE_SPECIFIER = "rn-demo-dev";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -834,7 +830,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ying Wang (43V9N6VW8L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ying Wang (43V9N6VW8L)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 43V9N6VW8L;
 				INFOPLIST_FILE = ReactNativeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

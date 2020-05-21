@@ -7,6 +7,7 @@ import {
   DynamicValue,
   useDynamicStyleSheet,
 } from 'react-native-dark-mode';
+import {useTranslation} from 'react-i18next';
 import {AutoDragSortableView} from 'react-native-drag-sort';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -17,7 +18,6 @@ import {
   borderColor,
 } from '../../constants/colors';
 import {changeBottomTabs} from '../../store/action-creators';
-import useL10n from '../../utils/l10n';
 
 const BottomTab2 = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const BottomTab2 = () => {
     }
   };
 
-  const translate = useL10n();
+  const {t} = useTranslation();
 
   const onDragStart = index => {
     setCurrentDragItemIndex(index);
@@ -59,7 +59,7 @@ const BottomTab2 = () => {
         keyExtractor={(item, index) => item.id} // FlatList作用一样，优化
         renderItem={(item, index) => (
           <View style={styles.item}>
-            <Text style={styles.sectionTitle}>{translate(item.title)}</Text>
+            <Text style={styles.sectionTitle}>{t(item.title)}</Text>
             <AntDesign
               style={[
                 styles.right,

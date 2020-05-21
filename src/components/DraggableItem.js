@@ -6,6 +6,7 @@ import {
   DynamicStyleSheet,
   DynamicValue,
 } from 'react-native-dark-mode';
+import {useTranslation} from 'react-i18next';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import {
@@ -14,16 +15,15 @@ import {
   primaryColor,
   borderColor,
 } from '../constants/colors';
-import useL10n from '../utils/l10n';
 
 const DraggableItem = ({item, index, drag, isActive}) => {
   const styles = useDynamicStyleSheet(dynamicStyleSheet);
 
-  const translate = useL10n();
+  const {t} = useTranslation();
 
   return (
     <TouchableOpacity onLongPress={drag} style={styles.item}>
-      <Text style={styles.sectionTitle}>{translate(item.title)}</Text>
+      <Text style={styles.sectionTitle}>{t(item.title)}</Text>
       <AntDesign
         style={[
           styles.right,

@@ -10,31 +10,33 @@ import {
   useDarkModeContext,
   DarkModeProvider,
 } from 'react-native-dark-mode';
+import {useTranslation} from 'react-i18next';
 
 import samples from './constants/samples';
 import settings from './constants/settings';
 import bottomTabs1 from './constants/bottom-tabs';
 import {SYSTEM, DARK} from './constants/theme-modes';
-import useL10n from './utils/l10n';
 import AppIntro from './AppIntro';
 import {primaryColor} from './constants/colors';
+import './i18n';
 
 const Tab = createBottomTabNavigator();
 const SN = createStackNavigator();
+export const LocalizationContext = React.createContext();
 
 const BottomTabNavigator = () => {
   const isDarkMode = useDarkMode();
   const bottomTabs = useSelector(state => state.bottomTabs);
 
-  const translate = useL10n();
+  const {t} = React.useContext(LocalizationContext);
 
   const tabScreen = bottomTabs.map(tab => {
     const {name, title, activeIcon, inactiveIcon} = tab;
     const Comp = bottomTabs1[name].Comp;
     const IconComp = bottomTabs1[name].IconComp;
-    const realTitle = translate(title);
+    // const realTitle = t(title);
     const options = {
-      title: realTitle,
+      title: t(title),
       tabBarIcon: ({focused, color, size}) => {
         const props = {
           name: focused ? activeIcon : inactiveIcon,
@@ -61,8 +63,7 @@ const BottomTabNavigator = () => {
 
 const App = () => {
   const bottomTabs = useSelector(state => state.bottomTabs);
-
-  const translate = useL10n();
+  const {t} = React.useContext(LocalizationContext);
 
   return (
     <SN.Navigator>
@@ -78,18 +79,26 @@ const App = () => {
             title:
               (route &&
                 route.state &&
-                translate(bottomTabs[route.state.index].title)) ||
-              translate(bottomTabs[0].title),
+                t(bottomTabs[route.state.index].title)) ||
+              t(bottomTabs[0].title),
+            headerTitle:
+              (route &&
+                route.state &&
+                t(bottomTabs[route.state.index].title)) ||
+              t(bottomTabs[0].title),
           };
         }}
         component={BottomTabNavigator}
       />
       {samples.map(sample => {
-        const realTitle = translate(sample.title);
+        // const realTitle = t(sample.title);
         const parent = (
           <SN.Screen
             name={sample.routeName}
-            options={{title: realTitle, headerTitle: realTitle}}
+            options={{
+              title: t(sample.title),
+              headerTitle: t(sample.title),
+            }}
             component={sample.component}
           />
         );
@@ -99,20 +108,23 @@ const App = () => {
               sample.children.map(child => (
                 <SN.Screen
                   name={child.routeName}
-                  options={{title: translate(child.title)}}
+                  options={{
+                    title: t(child.title),
+                    headerTitle: t(sample.title),
+                  }}
                   component={child.component}
                 />
               )),
             );
       })}
       {settings.map(setting => {
-        const realTitle = translate(setting.title);
+        // const realTitle = t(setting.title);
         return (
           <SN.Screen
             name={setting.routeName}
             options={{
-              title: realTitle,
-              headerTitle: realTitle,
+              title: t(setting.title),
+              headerTitle: t(setting.title),
               headerShown: !setting.hiddenHeader,
             }}
             component={setting.component}
@@ -120,6 +132,27 @@ const App = () => {
         );
       })}
     </SN.Navigator>
+  );
+};
+
+const AppL10nWrapper = ({theme}) => {
+  const {t, i18n} = useTranslation();
+  const [locale, setLocale] = React.useState(i18n.language);
+  const localizationContext = React.useMemo(
+    () => ({
+      t: (scope, options) => t(scope, {locale, ...options}),
+      locale,
+      setLocale,
+    }),
+    [locale],
+  );
+
+  return (
+    <LocalizationContext.Provider value={localizationContext}>
+      <NavigationContainer theme={theme}>
+        <App />
+      </NavigationContainer>
+    </LocalizationContext.Provider>
   );
 };
 
@@ -141,9 +174,7 @@ const AppContainer = () => {
   };
   return (
     <DarkModeProvider mode={mode}>
-      <NavigationContainer theme={theme}>
-        <App />
-      </NavigationContainer>
+      <AppL10nWrapper theme={theme} />
     </DarkModeProvider>
   );
 };

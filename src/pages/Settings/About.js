@@ -14,6 +14,7 @@ import {
   DynamicValue,
   useDynamicStyleSheet,
 } from 'react-native-dark-mode';
+import {useTranslation} from 'react-i18next';
 import Hyperlink from 'react-native-hyperlink';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
@@ -25,7 +26,6 @@ import {
   primaryColor,
   borderColor,
 } from '../../constants/colors';
-import useL10n from '../../utils/l10n';
 
 const DATA = [
   'https://upcwangying.com',
@@ -48,7 +48,7 @@ const About = ({route: {name, params}, navigation}) => {
     navigation && navigation.goBack();
   };
 
-  const translate = useL10n();
+  const {t} = useTranslation();
 
   const Background = () => (
     <View key="background">
@@ -82,7 +82,7 @@ const About = ({route: {name, params}, navigation}) => {
         }}
       />
       <Text style={styles.title}>Ying Wang</Text>
-      <Text style={styles.description}>{translate('desc')}</Text>
+      <Text style={styles.description}>{t('desc')}</Text>
     </View>
   );
 
