@@ -133,8 +133,8 @@ android {
         applicationId "com.upcwangying.apps.rn.demo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0.0"
+        versionCode 4
+        versionName "1.0.2"
         multiDexEnabled true
         missingDimensionStrategy 'react-native-camera', 'general'
         manifestPlaceholders = ['qqappid': '1110270923']
