@@ -6635,6 +6635,11 @@ react-native-dark-mode@0.2.2:
     events "^3.0.0"
     toolkit.ts "^0.0.2"
 
+react-native-device-info@^5.5.8:
+  version "5.5.8"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.5.8.tgz#5b971db0b550b1e53eb176c5042812429cf3a16b"
+  integrity sha512-Y4EkBXUfdpDMP+utVaQcgWnNXoqf7B6rLCS0hwpaifzhrzC7cb51vhaPBN1p4Kqym3AfqZ6VoMjorvFJLRAjqg==
+
 react-native-drag-sort@2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-native-drag-sort/-/react-native-drag-sort-2.1.1.tgz#a47c69deedf15e2e47af27cca8f684ef0600145d"

@@ -1,10 +1,12 @@
 import {SYSTEM} from '../constants/theme-modes';
+import {SYSTEM as LOCAL_SYSTEM} from '../constants/locales';
 import defaultSlides from '../constants/app-intro';
 import {
   BOTTOM_TAB_CHANGED,
   EDITABLE_TOP_TAB_CHANGED,
   APP_INTRO_SLIDES_LOAD,
   DARK_MODE_CHANGED,
+  LOCALE_CHANGED,
   WEBVIEW_URL_CHANGED,
   WEBSOCKET_URL_CHANGED,
 } from './action-types';
@@ -52,6 +54,7 @@ const defaultState = {
   slides: defaultSlides,
   slidesLoading: true,
   darkMode: SYSTEM,
+  locale: LOCAL_SYSTEM,
   webViewUrl: 'https://upcwangying.com',
   websocketUrl: '',
 };
@@ -81,6 +84,11 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         darkMode: action.darkMode,
+      };
+    case LOCALE_CHANGED:
+      return {
+        ...state,
+        locale: action.locale,
       };
     case WEBVIEW_URL_CHANGED:
       return {

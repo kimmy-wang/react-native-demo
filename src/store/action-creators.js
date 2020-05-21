@@ -5,6 +5,7 @@ import {
   DARK_MODE_CHANGED,
   WEBVIEW_URL_CHANGED,
   WEBSOCKET_URL_CHANGED,
+  LOCALE_CHANGED,
 } from './action-types';
 import defaultSlides from '../constants/app-intro';
 
@@ -52,6 +53,13 @@ export const changeDarkMode = darkMode => {
   return {
     type: DARK_MODE_CHANGED,
     darkMode,
+  };
+};
+
+export const changeLocale = locale => {
+  return {
+    type: LOCALE_CHANGED,
+    locale,
   };
 };
 

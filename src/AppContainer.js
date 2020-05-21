@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useCallback} from 'react';
 
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -16,9 +16,11 @@ import samples from './constants/samples';
 import settings from './constants/settings';
 import bottomTabs1 from './constants/bottom-tabs';
 import {SYSTEM, DARK} from './constants/theme-modes';
+import {SYSTEM as LOCAL_SYSTEM} from './constants/locales';
 import AppIntro from './AppIntro';
 import {primaryColor} from './constants/colors';
 import './i18n';
+import {changeLocale} from './store/action-creators';
 
 const Tab = createBottomTabNavigator();
 const SN = createStackNavigator();
@@ -137,7 +139,13 @@ const App = () => {
 
 const AppL10nWrapper = ({theme}) => {
   const {t, i18n} = useTranslation();
-  const [locale, setLocale] = React.useState(i18n.language);
+  const dispatch = useDispatch();
+  let locale = useSelector(state => state.locale);
+  if (locale === LOCAL_SYSTEM) {
+    locale = i18n.language;
+  }
+  const setLocale = useCallback(locale => dispatch(changeLocale(locale)), []);
+
   const localizationContext = React.useMemo(
     () => ({
       t: (scope, options) => t(scope, {locale, ...options}),
