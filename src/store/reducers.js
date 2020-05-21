@@ -52,7 +52,7 @@ const defaultState = {
   slides: defaultSlides,
   slidesLoading: true,
   darkMode: SYSTEM,
-  webViewUrl: 'https://apps.upcwangying.com/rn/demo',
+  webViewUrl: 'https://upcwangying.com',
   websocketUrl: '',
 };
 
