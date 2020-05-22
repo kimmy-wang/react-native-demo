@@ -10,7 +10,7 @@ import AMap from '../pages/Samples/AMap';
 import TopTab from '../pages/Samples/TopTab';
 import EditableTopTab from '../pages/Samples/EditableTopTab';
 import Contacts from '../pages/Samples/Contacts';
-import Notification from '../pages/Samples/Notification';
+import Native from '../pages/Samples/Native';
 import Share from '../pages/Samples/Share';
 import Animated from '../pages/Samples/Animated';
 
@@ -97,11 +97,10 @@ export default [
   },
   {
     id: 35,
-    title: 'samples.notification.title',
-    description: 'samples.notification.desc',
-    hidden: true,
-    routeName: 'Notification',
-    component: Notification,
+    title: 'samples.native.title',
+    description: 'samples.native.desc',
+    routeName: 'Native',
+    component: Native,
   },
   {
     id: 40,

@@ -55,6 +55,10 @@ export default {
       title: 'Notification',
       desc: 'Notification Sample',
     },
+    native: {
+      title: 'Native',
+      desc: 'Native Sample',
+    },
     share: {
       title: 'Share',
       desc: 'Share Sample',

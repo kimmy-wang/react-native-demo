@@ -55,6 +55,10 @@ export default {
       title: '通知',
       desc: '通知示例',
     },
+    native: {
+      title: '原生',
+      desc: '原生示例',
+    },
     share: {
       title: '分享',
       desc: '分享示例',
