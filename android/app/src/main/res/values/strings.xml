@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">ReactNativeDemo</string>
+    <string name="app_name">RN示例</string>
     <string moduleConfig="true" name="CodePushServerUrl">http://codepush.upcwangying.com</string>
 </resources>
