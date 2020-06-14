@@ -205,7 +205,7 @@
   [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:AppKey_WB  appSecret:AppSecret_WB redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
 
   /* 支付宝的appKey */
-  [[UMSocialManager defaultManager] setPlaform: UMSocialPlatformType_AlipaySession appKey:AppKey_Alipay appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+  [[UMSocialManager defaultManager] setPlaform: UMSocialPlatformType_APSession appKey:AppKey_Alipay appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
 
   /* 钉钉的appKey */
   [[UMSocialManager defaultManager] setPlaform: UMSocialPlatformType_DingDing appKey:AppKey_Dingtalk appSecret:nil redirectURL:nil];

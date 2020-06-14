@@ -276,38 +276,38 @@ PODS:
     - React
   - RNVectorIcons (6.6.0):
     - React
-  - SSZipArchive (2.2.2)
-  - UMCAnalytics (6.0.5):
+  - SSZipArchive (2.2.3)
+  - UMCAnalytics (6.1.0):
     - UMCCommon
-  - UMCCommon (2.1.1)
+  - UMCCommon (2.1.4)
   - UMCCommonLog (1.0.0)
   - UMCPush (3.2.4):
     - UMCCommon
   - UMCSecurityPlugins (1.0.6)
-  - UMCShare/Core (6.9.6):
+  - UMCShare/Core (6.9.8):
     - UMCCommon
-  - UMCShare/Social/AlipayShare (6.9.6):
-    - UMCCommon
-    - UMCShare/Core
-  - UMCShare/Social/DingDing (6.9.6):
+  - UMCShare/Social/AlipayShare (6.9.8):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/Email (6.9.6):
+  - UMCShare/Social/DingDing (6.9.8):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/ReducedQQ (6.9.6):
+  - UMCShare/Social/Email (6.9.8):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/ReducedSina (6.9.6):
+  - UMCShare/Social/ReducedQQ (6.9.8):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/ReducedWeChat (6.9.6):
+  - UMCShare/Social/ReducedSina (6.9.8):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/SMS (6.9.6):
+  - UMCShare/Social/ReducedWeChat (6.9.8):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/UI (6.9.6):
+  - UMCShare/Social/SMS (6.9.8):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/UI (6.9.8):
     - UMCCommon
     - UMCShare/Core
   - Yoga (1.14.0)
@@ -536,13 +536,13 @@ SPEC CHECKSUMS:
   RNReanimated: 955cf4068714003d2f1a6e2bae3fb1118f359aff
   RNScreens: cf198f915f8a2bf163de94ca9f5bfc8d326c3706
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
-  SSZipArchive: fa16b8cc4cdeceb698e5e5d9f67e9558532fbf23
-  UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
-  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  UMCAnalytics: 3503f179f7af932b30af9ac161ac11fb48fa72b6
+  UMCCommon: b0703b0053323f598e01670ea702b8eb1e66e611
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   UMCPush: 1edd856027dcf905333effb4040ace5d236a7316
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
-  UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
+  UMCShare: a250203b34a56cde25cc4c28335449b542f0255d
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: b5c44164a798c04b4c83dca29e9481d6483d0dba
